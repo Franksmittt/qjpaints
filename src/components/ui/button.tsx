@@ -1,3 +1,4 @@
+// src/components/ui/button.tsx (Updated size property)
 import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { cva, type VariantProps } from "class-variance-authority"
@@ -24,6 +25,8 @@ const buttonVariants = cva(
         default: "h-9 px-4 py-2",
         sm: "h-8 rounded-md px-3 text-xs",
         lg: "h-10 rounded-md px-8",
+        // FIX APPLIED: Added the custom 'xl' size definition to clear TS error
+        xl: "h-14 rounded-md px-10 text-lg", 
         icon: "h-9 w-9",
       },
     },
