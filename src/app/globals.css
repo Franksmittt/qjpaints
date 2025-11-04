@@ -1,27 +1,74 @@
+/* src/app/globals.css - Full Replacement (Including QJ Palette) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-}
-
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+/* --- New QJ Palette Definition --- */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    /* Primary: Bright Gold (Used for CTAs, Buttons) */
+    --primary: 40 95% 55%; /* A warm, deep gold */
+    --primary-foreground: 0 0% 9%; /* Black text on gold */
+    /* Secondary: Slate (Used for B2B/Technical sections) */
+    --secondary: 220 14% 96.1%;
+    --secondary-foreground: 220 14% 4.9%;
+    /* Accent: Deep Teal/Blue (Used for technical highlight) */
+    --accent: 180 50% 40%; 
+    --accent-foreground: 0 0% 98%; 
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --muted: 220 14% 96.1%;
+    --muted-foreground: 220 14% 45.1%;
+    --border: 220 14% 89.8%;
+    --input: 220 14% 89.8%;
+    --ring: 220 14% 3.9%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 220 14% 4.9%;
+    --foreground: 0 0% 98%;
+    --card: 220 14% 4.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 14% 4.9%;
+    --popover-foreground: 0 0% 98%;
+    /* Primary: Inverted Gold (for dark mode contrast) */
+    --primary: 40 95% 55%;
+    --primary-foreground: 0 0% 9%; 
+    /* Secondary: Dark Slate */
+    --secondary: 220 14% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    /* Accent: Deep Teal/Blue */
+    --accent: 180 50% 40%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --muted: 220 14% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --border: 220 14% 14.9%;
+    --input: 220 14% 14.9%;
+    --ring: 220 14% 83.1%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
