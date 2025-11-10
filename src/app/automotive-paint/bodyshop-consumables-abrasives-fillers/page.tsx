@@ -1,33 +1,38 @@
+// src/app/automotive-paint/bodyshop-consumables-abrasives-fillers/page.tsx - FULL REPLACEMENT (New Brands)
+
 import Image from "next/image";
 // FIX: 'Truck' and 'MoveRight' removed from this import
 import { Wrench, Layers, Scan } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Bodyshop Consumables, Abrasives & Fillers Supplier | QJ Paint World",
-  description: "One-stop shop for professional bodyshop consumables including fillers, abrasives, masking tapes, polishing compounds, and clearcoats. Optimized for efficient workflow.",
+  // UPDATED: Added approved brands
+  description: "One-stop shop for professional bodyshop consumables including **HB BODY** fillers, **3M/KLINGSPOR** abrasives, **SATA PIENAAR** equipment, and **Farécla** polishing compounds. Optimized for efficient workflow.",
 };
-
 const consumableCategories = [
   {
     icon: Wrench,
-    title: "Surface Preparation",
-    description: "Fillers, putties, and sandpaper designed for fast, flawless initial surface repair and shaping.",
+    title: "Surface Preparation (PREPSOL, HB BODY)",
+    // UPDATED: Added approved brands
+    description: "**HB BODY** fillers, putties, and **PREPSOL** degreasers designed for fast, flawless initial surface repair and shaping.",
   },
   {
     icon: Scan,
-    title: "Masking & Protection",
-    description: "High-grade masking tapes, papers, and films that prevent bleed-through and contamination in the paint booth.",
+    title: "Abrasives & Cutting (3M, KLINGSPOR)",
+    // UPDATED: Added approved brands
+    description: "High-grade **3M** and **KLINGSPOR** abrasives, masking tapes, and films that prevent bleed-through and contamination in the paint booth.",
   },
   {
     icon: Layers,
-    title: "Finishing & Polishing",
-    description: "Polishing compounds, sponges, and clearcoats needed for the final, showroom-quality finish.",
+    title: "Application & Finishing (SATA, Tork Craft)",
+    // UPDATED: Added approved brands
+    description: "**SATA PIENAAR** spray equipment, **Tork Craft** tools, and **Farécla** compounds needed for the final, showroom-quality finish.",
   },
 ];
-
 export default function BodyshopConsumablesPage() {
   return (
     <main>
@@ -40,16 +45,16 @@ export default function BodyshopConsumablesPage() {
             <h1 className="mt-2 text-4xl font-bold md:text-6xl">
               Bodyshop Consumables & Equipment
             </h1>
-            {/* FIX: Replaced ' with &apos; */}
             <p className="mt-4 text-xl text-neutral-600 dark:text-neutral-300 max-w-lg">
-              Maximize your shop&apos;s efficiency by ordering all your high-volume consumables, from abrasives and fillers to masking tapes, in one place.
+              Maximize your shop&apos;s efficiency by ordering all your high-volume consumables, from **3M** abrasives and **HB BODY** fillers to **SATA PIENAAR** spray guns, in one place.
             </p>
             <div className="mt-8 flex gap-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
                 <Link href="/contact-us">Place a Consumables Order</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-white">
-                <Link href="/automotive-paint/rm-paint-supplier">View Premium Paint Systems →</Link>
+                <Link 
+                  href="/automotive-paint/mipa-paint-supplier">View mipa Paint Systems →</Link>
               </Button>
             </div>
           </div>
@@ -88,7 +93,8 @@ export default function BodyshopConsumablesPage() {
 
       {/* Final CTA: Trade Delivery */}
       <section className="py-12 bg-accent dark:bg-accent/80 text-white">
-        <div className="container text-center">
+        <div 
+          className="container text-center">
           <h2 className="text-3xl font-bold">Priority Delivery to Your Bodyshop</h2>
           <p className="mt-2 text-xl font-medium">
             Ensure zero downtime. Our Trade Delivery Program gets your order to you on time.

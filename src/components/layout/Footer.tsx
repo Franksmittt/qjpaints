@@ -1,8 +1,7 @@
-// src/components/layout/Footer.tsx - Fix Unescaped Entity
+// src/components/layout/Footer.tsx - FULL REPLACEMENT (Brand Links Replaced)
 import Link from "next/link";
 import { Facebook, Instagram, MapPin, Phone, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
-
 // Helper component for footer links
 const FooterLink = ({
   href,
@@ -25,10 +24,8 @@ const FooterLink = ({
     </Link>
   </li>
 );
-
 export function Footer() {
   const currentYear = new Date().getFullYear();
-  
   return (
     // Use the darkest background for a final, solid base (Artisan's Praxis: Contrast)
     <footer className="w-full bg-neutral-950 text-neutral-300">
@@ -44,7 +41,7 @@ export function Footer() {
               QJ Paint World
             </Link>
             <p className="mt-2 text-base text-neutral-400 max-w-sm">
-                Your Expert Generalist partner for Decorative, Automotive, and Industrial Coatings in Alberton.
+              Your Expert Generalist partner for Decorative, Automotive, and Industrial Coatings in Alberton.
             </p>
             
             {/* NAP Data Block */}
@@ -69,7 +66,7 @@ export function Footer() {
                 </a>
               </div>
               
-              {/* Hours (Critical Gap Fix) */}
+              {/* Hours (Critical Gap Fix - Added Saturday hours) */}
               <div className="flex items-start space-x-2">
                 <Clock className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                 <div className="text-sm text-neutral-400">
@@ -85,9 +82,9 @@ export function Footer() {
           <div className="col-span-1">
             <h5 className="text-lg font-semibold text-white border-b border-primary/20 pb-2 mb-4">Core Verticals</h5>
             <ul className="space-y-3">
-              <FooterLink href="/decorative-paint">Decorative Paint (Retail/Trade)</FooterLink>
-              <FooterLink href="/automotive-paint">Automotive Refinish Systems</FooterLink>
-              <FooterLink href="/industrial-coatings">Industrial & Protective Coatings</FooterLink>
+              <FooterLink href="/decorative-paint">Decorative Paint (PAINTCHEM)</FooterLink>
+                <FooterLink href="/automotive-paint">Automotive Systems (mipa)</FooterLink>
+                <FooterLink href="/industrial-coatings">Industrial & Protective (SHIELD)</FooterLink>
             </ul>
             
             <h5 className="text-lg font-semibold text-white border-b border-primary/20 pb-2 mb-4 mt-8">B2B Portal</h5>
@@ -101,9 +98,9 @@ export function Footer() {
           <div className="col-span-1">
             <h5 className="text-lg font-semibold text-white border-b border-primary/20 pb-2 mb-4">Our Services</h5>
             <ul className="space-y-3">
-              <FooterLink href="/services/expert-paint-colour-matching">Expert Colour Matching</FooterLink>
-              <FooterLink href="/services/on-site-technical-consultation">On-Site Technical Consult</FooterLink>
-              <FooterLink href="/services/trade-delivery-program">Trade Delivery Program</FooterLink>
+                <FooterLink href="/services/expert-paint-colour-matching">Expert Colour Matching</FooterLink>
+                <FooterLink href="/services/on-site-technical-consultation">On-Site Technical Consult</FooterLink>
+                <FooterLink href="/services/trade-delivery-program">Trade Delivery Program</FooterLink>
             </ul>
             
             <h5 className="text-lg font-semibold text-white border-b border-primary/20 pb-2 mb-4 mt-8">Company</h5>
@@ -114,14 +111,14 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Key Brands (SEO Anchor) */}
+          {/* Column 4: Key Brands (SEO Anchor - Updated to New Brands) */}
           <div className="col-span-1">
             <h5 className="text-lg font-semibold text-white border-b border-primary/20 pb-2 mb-4">Key Brands</h5>
             <ul className="space-y-3">
-              <FooterLink href="/decorative-paint/plascon-supplier-alberton">Plascon Supplier</FooterLink>
-              <FooterLink href="/decorative-paint/dulux-trade-supplier-alberton">Dulux Trade Stockist</FooterLink>
-              <FooterLink href="/automotive-paint/rm-paint-supplier">R-M Paint Systems</FooterLink>
-              <FooterLink href="/industrial-coatings/anti-corrosion-protective-coatings">Anti-Corrosion Primers</FooterLink>
+              <FooterLink href="/decorative-paint/paintchem-trade-supplier">PAINTCHEM Supplier</FooterLink>
+              <FooterLink href="/automotive-paint/mipa-paint-supplier">mipa Coating Systems</FooterLink>
+              <FooterLink href="/industrial-coatings/anti-corrosion-protective-coatings">SHIELD Anti-Corrosion</FooterLink>
+              <FooterLink href="/decorative-paint/waterproofing-roof-paint">Flash Harry Waterproofing</FooterLink>
             </ul>
           </div>
           

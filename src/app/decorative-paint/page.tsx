@@ -1,36 +1,39 @@
+// src/app/decorative-paint/page.tsx - FULL REPLACEMENT (New Brands)
+
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MoveRight, Paintbrush, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-// REMOVED: import { DecorativePaintData } from '@/lib/decorative-data'; 
+// REMOVED: import { DecorativePaintData } from '@/lib/decorative-data';
 
 export const metadata: Metadata = {
-  title: "Decorative Paint Systems Alberton | Plascon, Dulux Trade, Prominent Stockist",
-  description: "Your expert local supplier for all decorative paint needs. We stock the full range of Plascon, Dulux Trade, and Prominent Paints, backed by specialist colour matching.",
+  // UPDATED: Removed Plascon, Dulux, Prominent
+  title: "Decorative Paint Systems Alberton | PAINTCHEM, Top Paints, Genkem Stockist",
+  description: "Your expert local supplier for all decorative paint needs. We stock the full range of PAINTCHEM, Top Paints, and Genkem, backed by specialist colour matching.",
 };
 
-// Data structure based on Header.tsx internal links.
+// Data structure based on Header.tsx internal links. (UPDATED TO NEW BRANDS)
 const DecorativePaintData = [
   {
-    title: "Plascon Supplier",
-    href: "/decorative-paint/plascon-supplier-alberton",
-    description: "Official Plascon stockist with the full TradePro range.",
+    title: "PAINTCHEM Trade Systems",
+    href: "/decorative-paint/paintchem-trade-supplier",
+    description: "Official PAINTCHEM supplier with the full Trade line for contractors.",
   },
   {
-    title: "Dulux Trade Supplier",
-    href: "/decorative-paint/dulux-trade-supplier-alberton",
-    description: "Expert advice on Dulux Trade vs. retail paints.",
+    title: "Top Paints & Genkem",
+    href: "/decorative-paint/top-paints-genkem-stockist",
+    description: "Quality paints (Top Paints) and specialty adhesives (Genkem) in one place.",
   },
   {
-    title: "Prominent Paints",
-    href: "/decorative-paint/prominent-paints-alberton",
-    description: "Your local expert partner for Prominent's Select Range.",
+    title: "Q-Bond & Super Glue",
+    href: "/decorative-paint/q-bond-super-glue-solutions", // Assumed New Page
+    description: "Industrial strength Q-Bond adhesives and repair compounds.",
   },
   {
     title: "Waterproofing & Roofs",
     href: "/decorative-paint/waterproofing-roof-paint",
-    description: "Complete solutions for waterproofing and roof coatings.",
+    description: "Complete solutions for waterproofing and roof coatings (Flash Harry).",
   },
 ];
 

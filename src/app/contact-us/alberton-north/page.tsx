@@ -4,16 +4,17 @@ import { Store, MapPin, Phone, Clock, Star, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
-
 export const metadata = {
   title: "Alberton Trade Centre | QJ Paint World: Address, Hours & Contact",
   description: "The primary QJ Paint World location for all retail, decorative, and automotive needs. Get expert colour matching, 6 Piet Retief Rd, Alberton North.",
 };
-
 const storeServices = [
-  { icon: Store, title: "Retail & Trade Counter", description: "Dedicated counter service for homeowners and professional trade partners, with large stock reserves." },
-  { icon: Star, title: "Expert Colour Matching", description: "Our in-house lab and spectrophotometer service guarantee a perfect colour match from any sample." },
-  { icon: Truck, title: "Trade Delivery Service", description: "Fast, reliable priority delivery service for our trade customers across Alberton." }, 
+  { icon: Store, title: "Retail & Trade Counter", description: "Dedicated counter service for homeowners and professional trade partners, with large stock reserves."
+},
+  { icon: Star, title: "Expert Colour Matching", description: "Our in-house lab and spectrophotometer service guarantee a perfect colour match from any sample."
+},
+  { icon: Truck, title: "Trade Delivery Service", description: "Fast, reliable priority delivery service for our trade customers across Alberton."
+}, 
 ];
 
 export default function AlbertonHubPage() {
@@ -25,6 +26,7 @@ export default function AlbertonHubPage() {
         <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
           <div>
             <span className="text-sm font-semibold uppercase text-primary">Your Local Paint Headquarters</span>
+            
             <h1 className="mt-2 text-4xl font-bold md:text-6xl">
               Alberton Trade Centre
             </h1>
@@ -36,7 +38,7 @@ export default function AlbertonHubPage() {
                 <Link href="http://googleusercontent.com/maps.google.com/3" target="_blank" rel="noopener noreferrer">Get Directions</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-white">
-                 <Link href="tel:010-216-9131">Call Now: 010 216 9131</Link>
+                <Link href="tel:010-216-9131">Call Now: 010 216 9131</Link>
               </Button>
             </div>
           </div>
@@ -71,8 +73,9 @@ export default function AlbertonHubPage() {
             </CardContent>
           </Card>
           
-          {/* Hours */}
+          {/* Hours (CANONICAL HOURS FIX) */}
            <Card className="text-center p-6 shadow-md">
+            
             <Clock className="h-10 w-10 text-primary mx-auto mb-4" />
             <CardTitle>Operating Hours</CardTitle>
             <CardContent className="pt-2 space-y-1">
@@ -81,7 +84,7 @@ export default function AlbertonHubPage() {
              </CardContent>
           </Card>
 
-          {/* Call */}
+          {/* Call (CANONICAL PHONE FIX) */}
           <Card className="text-center p-6 shadow-md">
             <Phone className="h-10 w-10 text-primary mx-auto mb-4" />
             <CardTitle>Call Our Experts</CardTitle>
@@ -103,7 +106,7 @@ export default function AlbertonHubPage() {
               <Card key={item.title} className="p-4 flex flex-col items-center text-center hover:border-accent transition-colors">
                 <item.icon className="h-8 w-8 text-accent fill-accent/10 mb-3" />
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                 <p className="text-neutral-600 dark:text-neutral-400">{item.description}</p>
+                <p className="text-neutral-600 dark:text-neutral-400">{item.description}</p>
               </Card>
             ))}
           </div>

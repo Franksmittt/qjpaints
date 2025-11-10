@@ -1,16 +1,16 @@
-// src/app/automotive-paint/spectrophotometer-paint-matching/page.tsx
+// src/app/automotive-paint/spectrophotometer-paint-matching/page.tsx - FULL REPLACEMENT (New Brands)
+
 import Image from "next/image";
 // FIX: 'Sparkles' removed from this import
 import { MoveRight, Droplets, Microscope, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-
 export const metadata = {
   title: "Spectrophotometer Paint Matching Alberton | QJ Paint World",
-  description: "Advanced automotive paint colour matching service in Johannesburg. Our spectrophotometer guarantees a perfect blend, eliminating costly rework. Ideal for professional bodyshops.",
+  // UPDATED: Added approved brands
+  description: "Advanced automotive paint colour matching service in Johannesburg. We match to mipa and HB BODY systems, eliminating costly rework. Ideal for professional bodyshops.",
 };
-
 const serviceFeatures = [
   {
     icon: Microscope,
@@ -20,7 +20,7 @@ const serviceFeatures = [
   {
     icon: Droplets,
     title: "Flawless Blends",
-    description: "Eliminate visible colour differences (metamerism). Our system ensures the new paint seamlessly integrates with the existing finish.",
+    description: "Eliminate visible colour differences (metamerism). Our system ensures the new paint seamlessly integrates with the existing finish (mipa, HB BODY, etc.).",
   },
   {
     icon: AlertTriangle,
@@ -28,7 +28,6 @@ const serviceFeatures = [
     description: "Stop wasting time and materials on manual tinting and rework. Get the precise colour formula instantly, guaranteed.",
   },
 ];
-
 export default function AutomotiveMatchingPage() {
   return (
     <main>
@@ -44,13 +43,13 @@ export default function AutomotiveMatchingPage() {
             <p className="mt-4 text-xl text-neutral-300 max-w-lg">
               Stop guessing. Our **spectrophotometer service** is the only risk-free way for professional bodyshops to guarantee a perfect colour blend every time.
             </p>
-             <div className="mt-8 flex gap-4">
+            <div className="mt-8 flex gap-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
                 <Link href="/contact-us">Request On-Site Consultation</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-white">
                 <Link href="#why-it-fails">Why Code Matching Fails →</Link>
-               </Button>
+              </Button>
             </div>
           </div>
           <div className="relative aspect-[4/3] min-h-[300px]">
@@ -60,13 +59,13 @@ export default function AutomotiveMatchingPage() {
               fill
               priority
               className="object-cover rounded-xl shadow-2xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-w: 768px) 100vw, 50vw"
             />
           </div>
         </div>
       </section>
 
-       {/* Feature Grid: Science Behind the Service (Artisan's Praxis: Clarity) */}
+      {/* Feature Grid: Science Behind the Service (Artisan's Praxis: Clarity) */}
       <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-12">The Guarantee of Perfect Colour</h2>
@@ -78,7 +77,7 @@ export default function AutomotiveMatchingPage() {
                   <CardTitle>{feature.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                   <CardDescription>{feature.description}</CardDescription>
+                  <CardDescription>{feature.description}</CardDescription>
                 </CardContent>
               </Card>
             ))}
@@ -88,24 +87,19 @@ export default function AutomotiveMatchingPage() {
 
       {/* The Problem & Solution Section (Problem-First SEO: Storyteller's Heart) */}
       <section id="why-it-fails" className="py-16 md:py-24 bg-secondary/10 dark:bg-neutral-900">
-         <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
+        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
             <h2 className="text-3xl font-bold text-neutral-900 dark:text-white">
               Why Matching by Paint Code Fails (The Risk)
             </h2>
             <p className="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
-              {/* FIX: Replaced ' with &apos; */}
               The standard industry practice of ordering paint based *only* on the manufacturer&apos;s paint code is a **costly risk**.
-              {/* FIX: Replaced ' with &apos; */}
               The problem is that every vehicle&apos;s actual colour has shifted due to:
             </p>
             <ul className="mt-4 space-y-3 text-neutral-700 dark:text-neutral-300 list-disc list-inside ml-4">
               <li>Environmental fade from UV exposure (sunlight).</li>
               <li>Batch-to-batch variation from the paint factory.</li>
-              <li>
-                {/* FIX: Replaced ' with &apos; */}
-                The manufacturer&apos;s original formula having several official colour *variants*.
-              </li>
+              <li>The manufacturer&apos;s original formula having several official colour *variants*.</li>
             </ul>
             <p className="mt-6 text-lg font-semibold text-accent dark:text-primary">
               Using a spectrophotometer eliminates this risk by reading the current, aged colour.
@@ -116,7 +110,7 @@ export default function AutomotiveMatchingPage() {
               src="/images/auto-problem-fade.png" // Placeholder image for fade/rework
               alt="Faded car paint panel showing two slightly different shades"
               fill
-               className="object-contain rounded-xl"
+              className="object-contain rounded-xl"
               sizes="(max-w: 768px) 100vw, 50vw"
             />
           </div>
@@ -126,7 +120,7 @@ export default function AutomotiveMatchingPage() {
       {/* Final CTA: Value and Partnership */}
       <section className="bg-primary py-12 md:py-16 text-neutral-900">
         <div className="container text-center">
-           <h2 className="text-3xl font-bold">Ready for Flawless Refinish Results?</h2>
+          <h2 className="text-3xl font-bold">Ready for Flawless Refinish Results?</h2>
           <p className="mt-2 text-xl font-medium">
             Contact us today to book your consultation or place a premium paint system order.
           </p>
@@ -135,7 +129,7 @@ export default function AutomotiveMatchingPage() {
           </Button>
         </div>
       </section>
-
+      
     </main>
   );
 }

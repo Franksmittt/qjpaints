@@ -5,12 +5,11 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 // FIX: Unused Card components removed
 import { Card } from "@/components/ui/card";
-
 export const metadata = {
   title: "Expert Paint Colour Matching Service Alberton | Spectrophotometer Accuracy",
+  // UPDATED: Removed "classic car" reference
   description: "Advanced colour matching for decorative, automotive, and industrial paints. Bring us a sample, and we guarantee a perfect match using our digital spectrophotometer.",
 };
-
 const matchingSteps = [
   {
     icon: Search,
@@ -33,7 +32,6 @@ const matchingSteps = [
     description: "We supply your custom-mixed paint in the volume you require, with a formula saved in our system for easy re-ordering.",
   },
 ];
-
 export default function ExpertColourMatchingPage() {
   return (
     <main>
@@ -48,13 +46,17 @@ export default function ExpertColourMatchingPage() {
             </h1>
             {/* FIX: Replaced ' with &apos; */}
             <p className="mt-4 text-xl text-neutral-600 dark:text-neutral-300 max-w-lg">
-              Don&apos;t compromise on colour. Whether it&apos;s restoring a classic car or matching an antique wall shade, our digital spectrophotometer guarantees a perfect, repeatable result.
+              Don&apos;t compromise on colour. Whether it&apos;s restoring a vehicle or matching an antique wall shade, our digital spectrophotometer 
+              guarantees 
+              a perfect, repeatable result.
             </p>
             <div className="mt-8 flex gap-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
                 <Link href="/contact-us/alberton-north">Bring in Your Sample Today</Link>
               </Button>
-              <Button asChild variant="link" size="lg" className="text-accent hover:text-accent/80">
+              <Button asChild 
+                variant="link" 
+                size="lg" className="text-accent hover:text-accent/80">
                  <Link href="#process">See The 4-Step Process →</Link>
               </Button>
             </div>
@@ -77,11 +79,11 @@ export default function ExpertColourMatchingPage() {
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-12">Our Guaranteed 4-Step Matching Process</h2>
           <div className="grid md:grid-cols-4 gap-8">
-            {matchingSteps.map((step) => (
+            {matchingSteps.map((step, index) => ( // <<< FIX APPLIED: Added 'index' here
               <Card key={step.title} className="p-4 flex flex-col items-center text-center border-accent/30 border-2">
-                <div className="flex h-12 w-12 items-center justify-center rounded-full bg-accent text-accent-foreground mb-4">
-                    <step.icon className="h-6 w-6 text-white" />
-                </div>
+                {/* FIX APPLIED: Used 'index' */}
+                <div className="text-4xl font-extrabold text-primary mb-3">0{index + 1}</div>
+                <step.icon className="h-8 w-8 text-accent mx-auto mb-3" />
                 <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
                 <p className="text-neutral-600 dark:text-neutral-400 text-sm">{step.description}</p>
               </Card>
@@ -95,7 +97,7 @@ export default function ExpertColourMatchingPage() {
         <div className="container text-center">
            <h2 className="text-3xl font-bold">This Service Supports All Your Projects</h2>
           <p className="mt-2 text-xl font-medium">
-            From industrial equipment to Plascon decorative schemes, we match it all.
+            From industrial equipment to **PAINTCHEM** decorative schemes, we match it all.
           </p>
           <Button asChild size="lg" className="mt-6 bg-neutral-900 text-white hover:bg-black/80">
             <Link href="/automotive-paint/spectrophotometer-paint-matching">
@@ -106,5 +108,6 @@ export default function ExpertColourMatchingPage() {
       </section>
       
     </main>
+ 
   );
 }

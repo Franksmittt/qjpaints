@@ -1,5 +1,5 @@
+// src/app/contact-us/wadeville/page.tsx
 import Image from "next/image";
-// FIX: 'Factory' removed from this import
 import { MapPin, Phone, Clock, MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -24,7 +24,7 @@ export default function WadevilleHubPage() {
             <p className="mt-4 text-xl text-neutral-300 max-w-lg">
               This location is our warehouse and B2B dispatch centre, strategically placed in Crocker Industrial Park to serve the heavy manufacturing and mining sectors of Johannesburg South.
             </p>
-             <div className="mt-8 flex gap-4">
+            <div className="mt-8 flex gap-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
                 <Link href="/industrial-coatings/anti-corrosion-protective-coatings">Explore Anti-Corrosion</Link>
               </Button>
@@ -44,7 +44,7 @@ export default function WadevilleHubPage() {
             />
           </div>
         </div>
-       </section>
+      </section>
 
       {/* Location Details and Map */}
       <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
@@ -67,22 +67,23 @@ export default function WadevilleHubPage() {
           {/* Contact Details */}
           <div>
             <h2 className="text-3xl font-bold text-neutral-900 dark:text-white mb-6">Wadeville Hub Details (B2B Only)</h2>
-             <div className="space-y-4 text-lg">
+            <div className="space-y-4 text-lg">
                 <p className="flex items-start space-x-3">
                     <MapPin className="h-6 w-6 text-accent flex-shrink-0" />
                     <span>**Address:** Unit 33 Crocker Industrial Park, 7 Crocker Road, Wadeville, 1422</span>
                 </p>
-                 <p className="flex items-start space-x-3">
+                <p className="flex items-start space-x-3">
                     <Phone className="h-6 w-6 text-accent flex-shrink-0" />
                     <span>**Phone:** 010 216 9131 (Direct Line)</span>
                 </p>
+                
                 <p className="flex items-start space-x-3">
                     <Clock className="h-6 w-6 text-accent flex-shrink-0" />
                     <span>**Hours:** Mon - Fri: 7:00 am – 4:30 pm (Industrial Hours)</span>
                 </p>
             </div>
             <div className="mt-8">
-               <h3 className="text-xl font-semibold mb-3">Key Services Managed from this Hub:</h3>
+                <h3 className="text-xl font-semibold mb-3">Key Services Managed from this Hub:</h3>
               <ul className="list-disc list-inside space-y-2 text-neutral-700 dark:text-neutral-400">
                   <li>Bulk Order Dispatch & Trade Delivery</li>
                   <li>Technical Specification Documentation</li>

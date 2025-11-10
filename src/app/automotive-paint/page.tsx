@@ -1,27 +1,29 @@
+// src/app/automotive-paint/page.tsx - FULL REPLACEMENT (New Brands)
+
 import type { Metadata } from "next";
 import Link from "next/link";
-// FIX: 'Layers' removed from this import
 import { MoveRight, Car } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Automotive Refinish Systems Alberton | R-M, baslac, Consumables",
-  description: "The expert supplier for professional bodyshops. We stock premium R-M, cost-effective baslac systems, and all essential consumables, backed by spectrophotometer matching.",
+  // UPDATED: Removed R-M, baslac
+  title: "Automotive Refinish Systems Alberton | mipa, HB BODY, Consumables",
+  description: "The expert supplier for professional bodyshops. We stock premium mipa, HB BODY systems, and all essential consumables, backed by spectrophotometer matching.",
 };
 
-// Data structure based on Header.tsx internal links.
+// Data structure based on Header.tsx internal links. (UPDATED TO NEW BRANDS)
 const AutomotivePaintData = [
   {
-    title: "R-M Paint Systems",
-    href: "/automotive-paint/rm-paint-supplier",
-    description: "Premium, OEM-approved refinish systems for high productivity.",
+    title: "mipa Coating Systems",
+    href: "/automotive-paint/mipa-paint-supplier", // Assumed New Page
+    description: "Premium mipa Professional Coating Systems for a flawless finish.",
   },
   {
-    title: "baslac® Paint Systems",
-    href: "/automotive-paint/baslac-paint-supplier",
-    description: "BASF quality for all repair jobs at a cost-effective price.",
+    title: "HB BODY Consumables",
+    href: "/automotive-paint/hb-body-consumables", // Assumed New Page
+    description: "HB BODY, Farécla, and PREPSOL essentials for prep and polishing.",
   },
   {
     title: "Advanced Paint Matching",
@@ -29,9 +31,9 @@ const AutomotivePaintData = [
     description: "Our high-tech spectrophotometer service for a perfect blend.",
   },
   {
-    title: "Bodyshop Consumables",
+    title: "Bodyshop Consumables (3M, Klingspor)",
     href: "/automotive-paint/bodyshop-consumables-abrasives-fillers",
-    description: "Abrasives, fillers, polishing compounds, and more.",
+    description: "Abrasives (3M, Klingspor), fillers, and polishing compounds.",
   },
 ];
 
@@ -48,7 +50,7 @@ export default function AutomotivePaintIndexPage() {
               Professional Automotive Refinish
             </h1>
             <p className="mt-4 text-xl text-neutral-300 max-w-lg">
-              Maximize bodyshop throughput and guarantee customer satisfaction with BASF-backed R-M and baslac paint systems, supported by accurate colour matching.
+              Maximize bodyshop throughput and guarantee customer satisfaction with mipa paint systems, supported by HB BODY consumables and accurate colour matching.
             </p>
             <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90">
               <Link href="/trade-partner-program">
@@ -57,7 +59,7 @@ export default function AutomotivePaintIndexPage() {
             </Button>
           </div>
           <div className="order-1 md:order-2 relative aspect-[4/3] min-h-[300px]">
-           <Image
+            <Image
               src="/images/automotive.png" // Reusing main category image
               alt="A car being professionally spray painted in a bodyshop booth"
               fill

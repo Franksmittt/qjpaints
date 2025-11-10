@@ -1,4 +1,5 @@
-// FIX: 'Image' import removed
+// src/app/contact-us/page.tsx - FULL REPLACEMENT (Theme Update)
+
 import { Phone, MapPin, Store, Factory, MoveRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -36,12 +37,13 @@ export default function ContactHubPage() {
     <main>
       
       {/* Hero Section: The Location Router (Architect's Precision) */}
-      <section className="bg-secondary/10 py-16 md:py-24 dark:bg-neutral-900 text-neutral-900 dark:text-white">
+      {/* CHANGE: bg-secondary/10 (light gray) to dark:bg-neutral-950 (deep black) */}
+      <section className="bg-secondary/10 py-16 md:py-24 dark:bg-neutral-950 text-neutral-900 dark:text-white">
         <div className="container max-w-screen-xl text-center">
           <h1 className="text-4xl font-bold md:text-6xl">
             Where Should We Meet?
           </h1>
-           <p className="mt-4 text-xl text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto">
+          <p className="mt-4 text-xl text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto">
             To get the best service, choose the location that matches your project needs. We are here to serve you at both our local trade centre and our industrial hub.
           </p>
         </div>
@@ -55,22 +57,22 @@ export default function ContactHubPage() {
               <CardHeader className="flex flex-row items-center justify-between p-6 bg-accent/10 dark:bg-accent/30">
                 <CardTitle className="text-2xl font-bold text-accent">{loc.title}</CardTitle>
                 <loc.icon className="h-8 w-8 text-accent" />
-               </CardHeader>
+              </CardHeader>
               
               <CardContent className="flex-1 p-6 space-y-4">
                 <p className="flex items-center space-x-3 text-lg">
                     <MapPin className="h-5 w-5 text-primary" />
-                     <span className="font-semibold">{loc.address}</span>
+                    <span className="font-semibold">{loc.address}</span>
                 </p>
                  <p className="flex items-center space-x-3 text-lg">
                     <Phone className="h-5 w-5 text-primary" />
                     <span className="font-semibold">{loc.phone}</span>
-                 </p>
+                </p>
                 <p className="flex items-center space-x-3 text-lg text-neutral-600 dark:text-neutral-400">
                     <Clock className="h-5 w-5 text-primary" />
                     <span>Hours: {loc.hours}</span>
                 </p>
-                 <p className="text-neutral-700 dark:text-neutral-300 pt-3 border-t border-neutral-200">
+                <p className="text-neutral-700 dark:text-neutral-300 pt-3 border-t border-neutral-200">
                     {loc.purpose}
                 </p>
               </CardContent>
@@ -82,7 +84,7 @@ export default function ContactHubPage() {
                   </Link>
                 </Button>
               </CardFooter>
-             </Card>
+            </Card>
           ))}
         </div>
       </section>

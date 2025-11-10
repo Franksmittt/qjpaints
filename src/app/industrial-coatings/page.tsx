@@ -1,56 +1,73 @@
-import Image from "next/image";
-// FIX: 'HardHat' and 'Beaker' removed from this import
-import { MoveRight, Warehouse } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+// src/app/industrial-coatings/page.tsx - FULL REPLACEMENT (Pillar Page - FIXED IMPORTS)
 
-export const metadata = {
-  title: "Heavy-Duty Epoxy & Polyurethane Floor Coatings Johannesburg | QJ Paint",
-  description: "Definitive guide and supplier for industrial floor coatings in Johannesburg. We specify Epoxy systems vs. Polyurethane Screeds for factory floors and high-traffic areas.",
+import Image from "next/image";
+import Link from "next/link";
+import { MoveRight, Factory, Hammer, Warehouse, Shield, MapPin } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import type { Metadata } from "next"; // <<< FIX: MISSING IMPORT
+
+export const metadata: Metadata = {
+  title: "Industrial Coatings Hub Johannesburg | Anti-Corrosion, Epoxy, Mining",
+  description: "The definitive B2B supplier for specialized anti-corrosion, protective coatings, and heavy-duty epoxy/polyurethane floor systems in Johannesburg South.",
 };
 
-const systemComparison = [
+// Data structure based on the strategic sitemap (Problem/Solution Focus)
+const IndustrialPaintData = [
   {
-    system: "Epoxy Floor Coatings",
-    use: "Warehouses, Retail, Light Manufacturing",
-    advantage: "Excellent adhesion, chemical resistance, and lower material cost. Ideal for standard industrial and commercial use.",
+    title: "Heavy-Duty Floor Coatings",
+    href: "/industrial-coatings/epoxy-polyurethane-floor-coatings",
+    description: "Epoxy vs. Polyurethane systems for factory floors, chemical, and high-traffic areas.",
+    icon: Warehouse,
   },
   {
-    system: "Polyurethane Screeds",
-    use: "Food Processing, Chemical Plants, Heavy Traffic",
-    advantage: "Superior thermal shock resistance, higher impact protection, and better flexibility. Essential for high-demand environments.",
+    title: "Anti-Corrosion & Steel Protection",
+    href: "/industrial-coatings/anti-corrosion-protective-coatings",
+    description: "Zinc-Rich primers, DTM systems, and protective coatings for structural steel.",
+    icon: Shield,
+  },
+  {
+    title: "Mining & Manufacturing Solutions",
+    href: "/industrial-coatings/mining-manufacturing-solutions",
+    description: "Specialized systems for extreme abrasion, chemical resistance, and CUI prevention.",
+    icon: Hammer,
+  },
+  {
+    title: "Industrial Case Studies",
+    href: "/industrial-coatings/case-studies",
+    description: "Proof of performance: Download local case studies of our JHB South projects.",
+    icon: Factory,
   },
 ];
 
-export default function IndustrialFloorCoatingsPage() {
+export default function IndustrialPaintIndexPage() {
   return (
     <main>
       
-      {/* Hero Section: Problem-Solution Focus (Architect's Precision) */}
+      {/* Hero Section: Industrial Focus (B2B Positioning) */}
       <section className="bg-neutral-900 py-16 md:py-24 text-white">
         <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="text-sm font-semibold uppercase text-accent">Problem-Solving B2B Solutions</span>
+            <span className="text-sm font-semibold uppercase text-accent">QJ Industrial B2B Solutions</span>
             <h1 className="mt-2 text-4xl font-bold md:text-6xl">
-              Heavy-Duty Industrial Floor Coatings
+              Specialized Industrial Coatings Hub
             </h1>
             <p className="mt-4 text-xl text-neutral-300 max-w-lg">
-              Protect your assets from chemical attack, heavy traffic, and abrasion. We provide the expert specification required to choose the correct **Epoxy** or **Polyurethane** system for your facility.
+              We move beyond retail. This is the central resource for engineers and facility managers needing certified, heavy-duty systems for **asset protection** and **floor longevity**.
             </p>
             <div className="mt-8 flex gap-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-                <Link href="/contact-us">Request On-Site Technical Consult</Link>
+                <Link href="/services/on-site-technical-consultation">Request On-Site Specification</Link>
               </Button>
-              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-neutral-900">
-                <Link href="#solutions">Compare Flooring Systems →</Link>
+              <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-white">
+                <Link href="/industrial-coatings/case-studies">View Proof of Performance →</Link>
               </Button>
             </div>
           </div>
           <div className="relative aspect-[4/3] min-h-[300px]">
             <Image
-              src="/images/industrial-floor-hero.png" // Placeholder image for factory floor
-              alt="Industrial floor being coated with a high-gloss epoxy system"
+              src="/images/industrial-hero-hub.png" // Placeholder image for industrial hub
+              alt="Industrial steel components protected with a high-performance coating"
               fill
               priority
               className="object-cover rounded-xl shadow-2xl"
@@ -60,41 +77,46 @@ export default function IndustrialFloorCoatingsPage() {
         </div>
       </section>
 
-      {/* Comparison Section: Technical Authority (Artisan's Praxis: Clarity) */}
-      <section id="solutions" className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+      {/* Grid of Key Sub-Pages (Pincer Strategy in action) */}
+      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">Epoxy vs. Polyurethane: Choosing the Right System</h2>
-          <div className="grid md:grid-cols-2 gap-8">
-            {systemComparison.map((item) => (
-              <Card key={item.system} className="shadow-lg hover:border-accent transition-colors duration-300">
+          <h2 className="text-3xl font-bold text-center mb-12">Industrial Solutions Organized by Problem</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {IndustrialPaintData.map((item) => (
+              <Card key={item.title} className="flex flex-col h-full hover:border-accent transition-colors duration-300">
                 <CardHeader>
-                  <CardTitle className="text-2xl font-bold text-accent">{item.system}</CardTitle>
-                  <CardDescription className="flex items-center space-x-2 text-lg text-neutral-600 dark:text-neutral-300">
-                    <Warehouse className="h-5 w-5" /> <span>Best for: {item.use}</span>
-                  </CardDescription>
+                  <item.icon className="h-8 w-8 text-accent fill-accent/10 mb-2" />
+                  <CardTitle className="text-xl">{item.title}</CardTitle>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-neutral-700 dark:text-neutral-400">{item.advantage}</p>
+                <CardContent className="flex-1">
+                  <CardDescription>{item.description}</CardDescription>
                 </CardContent>
+                <div className="p-6 pt-0 mt-auto">
+                  <Button asChild variant="link" className="text-accent hover:text-accent/80">
+                    <Link href={item.href}>
+                        Explore System <MoveRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
               </Card>
             ))}
           </div>
         </div>
       </section>
-
-      {/* Trust Section: Case Studies CTA (Storyteller's Heart) */}
-      <section className="py-16 bg-primary dark:bg-primary/90 text-neutral-900">
+      
+      {/* Final CTA: Wadeville Hub */}
+      <section className="py-12 bg-primary dark:bg-primary/90 text-neutral-900">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold">Need Proof of Performance?</h2>
+          <h2 className="text-3xl font-bold">Bulk Orders & Technical Dispatch</h2>
           <p className="mt-2 text-xl font-medium">
-            See our local case studies of heavy-duty floor projects in the Wadeville and Alrode industrial areas.
+            Industrial orders are processed exclusively from our Wadeville Industrial Hub.
           </p>
           <Button asChild size="lg" className="mt-6 bg-neutral-900 text-white hover:bg-black/80">
-            <Link href="/industrial-coatings/case-studies">View Industrial Case Studies <MoveRight className="ml-2 h-5 w-5" /></Link>
+            <Link href="/contact-us/wadeville">Contact Wadeville Hub <MapPin className="ml-2 h-5 w-5" /></Link>
           </Button>
         </div>
       </section>
-      
+
     </main>
   );
 }

@@ -1,4 +1,4 @@
-// src/components/layout/Testimonials.tsx - Fix Unescaped Entities
+// src/components/layout/Testimonials.tsx - FULL REPLACEMENT (Brand Replacement in Text)
 
 import { Star } from "lucide-react";
 import {
@@ -8,28 +8,27 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 // We'll create some realistic testimonial data based on your business verticals.
-// You should replace these with your real Google reviews later.
 const testimonials = [
   {
     name: "Jaco Van Der Merwe",
     title: "JvDM Contractors",
     rating: 5,
     review:
-      "QJ Paint is the only supplier I trust for my industrial floor coating projects. Their technical advice on the epoxy and polyurethane systems is always spot-on. They get what contractors need.",
+      "QJ Paint is the only supplier I trust for my industrial floor coating projects. Their technical advice on the **SHIELD** anti-corrosion systems is always spot-on. They get what contractors need.",
   },
   {
     name: "Mike's Panelbeaters",
     title: "Automotive Refinishing",
     rating: 5,
     review:
-      "The spectrophotometer they have for colour matching is unbelievable. It saves us so much time and rework. Their stock of R-M and baslac is always full. 10/10 service.",
+      "The spectrophotometer they have for colour matching is unbelievable. It saves us so much time and rework. Their stock of **mipa and HB BODY** is always full. 10/10 service.",
   },
   {
     name: "Sarah Richards",
     title: "Homeowner, Meyersdal",
     rating: 5,
     review:
-      "I had no idea what paint to use for my roof. The team at QJ Paint (Alberton) didn't just sell me a bucket; they explained *why* I needed a specific waterproofing paint. Amazing service!",
+      "I had no idea what paint to use for my roof. The team at QJ Paint (Alberton) didn&apos;t just sell me a bucket; they explained *why* I needed a specific **Flash Harry** waterproofing paint. Amazing service!",
   },
 ];
 // Helper component for star ratings
@@ -52,8 +51,8 @@ function StarRating({ rating }: { rating: number }) {
 
 export function Testimonials() {
   return (
-    // We'll use a light grey background to contrast the dark CTA section
-    <section className="w-full bg-neutral-50 py-16 md:py-24">
+    // CHANGE: bg-neutral-50 (light gray) to dark:bg-neutral-900
+    <section className="w-full bg-neutral-50 py-16 md:py-24 dark:bg-neutral-900">
       <div className="container px-4 md:px-6">
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center">
@@ -87,7 +86,7 @@ export function Testimonials() {
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-neutral-700">&quot;{testimonial.review}&quot;</p>
+                <p className="text-neutral-700">{`"${testimonial.review}"`}</p>
               </CardContent>
             </Card>
           ))}

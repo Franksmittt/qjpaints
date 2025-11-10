@@ -70,7 +70,8 @@ const ShiningFeatureCard = ({ feature }: { feature: typeof features[0] }) => {
 
 export function ValueProposition() {
   return (
-    <section className="w-full bg-neutral-50 py-16 md:py-24 dark:bg-neutral-900">
+    // CHANGE: bg-neutral-50 (light gray) to dark:bg-neutral-950 (deep black)
+    <section className="w-full bg-neutral-50 py-16 md:py-24 dark:bg-neutral-950">
       <div className="container px-4 md:px-6">
         {/* Section Header (Architect's Precision: Clear Hierarchy) */}
         <div className="mx-auto max-w-3xl text-center">

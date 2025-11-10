@@ -16,7 +16,7 @@ const config = {
       center: true, 
       padding: {
         DEFAULT: "1rem", 
-        sm: "2rem",      
+        sm: "2rem",     
       },
       screens: {
         "2xl": "1400px",
@@ -45,6 +45,8 @@ const config = {
           DEFAULT: "hsl(var(--accent))", 
           foreground: "hsl(var(--accent-foreground))",
         },
+        // NEW: Hyper-Red for Max Visual Impact
+        'hyper-red': '#FF0000',
         destructive: {
           DEFAULT: "hsl(var(--destructive))",
           foreground: "hsl(var(--destructive-foreground))",
@@ -76,18 +78,51 @@ const config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
-        // New Keyframe for subtle shine effect
         "shine": {
           "0%": { opacity: "0", transform: "translateX(-100%) skewX(-20deg)" },
           "60%": { opacity: "1", transform: "translateX(200%) skewX(-20deg)" },
           "100%": { opacity: "0" },
         },
+        "color-cycle": {
+            "0%, 100%": { "background-position": "0% 50%" },
+            "50%": { "background-position": "100% 50%" },
+        },
+        "fade-in-up": {
+          "0%": { opacity: "0", transform: "translateY(10px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
+        },
+        "color-pulse": {
+          "0%, 100%": { opacity: "1" },
+          "50%": { opacity: "0.5" },
+        },
+        "scroll-fast": {
+            from: { transform: "translateX(0%)" },
+            to: { transform: "translateX(-100%)" },
+        },
+        // Liquid Swirl Animation
+        "swirl-in": {
+            "0%": { transform: "translate(-50%, -50%) scale(1.0) rotate(0deg)" },
+            "50%": { transform: "translate(-45%, -55%) scale(1.1) rotate(180deg)" },
+            "100%": { transform: "translate(-50%, -50%) scale(1.0) rotate(360deg)" },
+        },
+        // NEW: Metallic/Glitter Particle Burst
+        "glitter-burst": {
+            "0%, 100%": { backgroundPosition: "0% 0%", opacity: "0.5" },
+            "50%": { backgroundPosition: "100% 100%", opacity: "1.0" },
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        // New Animation for shine effect
         "shine": "shine 2s infinite linear",
+        "color-cycle": "color-cycle 5s linear infinite",
+        "fade-in-up": "fade-in-up 0.6s cubic-bezier(0.6, -0.05, 0.01, 0.99) forwards",
+        "color-pulse": "color-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
+        "scroll-fast": "scroll-fast 60s linear infinite",
+        // Swirl animation sped up (from 120s to 40s)
+        "swirl": "swirl-in 40s linear infinite", 
+        // NEW: Glitter burst animation
+        "glitter-burst": "glitter-burst 8s linear infinite alternate",
       },
       fontFamily: {
         sans: ["var(--font-sans)", "sans-serif"],

@@ -1,4 +1,4 @@
-// src/components/layout/FAQ.tsx - Fix Unescaped Entities
+// src/components/layout/FAQ.tsx - FULL REPLACEMENT (Brand Replacement)
 import {
   Accordion,
   AccordionContent,
@@ -6,7 +6,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 
-// 1. Updated data with 10 questions
+// 1. Updated data with 10 questions (UPDATED BRANDS)
 const allFaqs = [
   {
     value: "item-1",
@@ -18,13 +18,14 @@ const allFaqs = [
     value: "item-2",
     question: "I have a specific colour I need. Can you match it?",
     answer:
-      "Yes, specialist colour matching is one of our key services. We have an advanced spectrophotometer in-store. Bring us a sample of what you're trying to match (a paint chip, a piece of fabric, etc.), and our experts can create a perfect match for you.",
+      "Yes, specialist colour matching is one of our key services. We have an advanced spectrophotometer in-store. Bring us a sample of what you&apos;re trying to match (a paint chip, a piece of fabric, etc.), and our experts can create a perfect match for you.",
   },
   {
     value: "item-3",
-    question: "What's the difference between Dulux Trade and regular Dulux?",
+    question: "What&apos;s the advantage of using PAINTCHEM Trade over retail paint?",
     answer:
-      "This is a common question! Dulux Trade paints are formulated for professional use. They often have higher opacity (better coverage), greater durability, and are designed for better application, saving contractors time and money. We stock both and can advise on the best one for your specific job.",
+      // UPDATED: Replacing Dulux comparison with PAINTCHEM's general trade advantage
+      "PAINTCHEM Trade paints are formulated for professional use. They typically have higher durability, better application properties, and greater batch consistency, designed specifically to save contractors time and money on high-volume jobs.",
   },
   {
     value: "item-4",
@@ -34,9 +35,9 @@ const allFaqs = [
   },
   {
     value: "item-5",
-    question: "I'm a contractor. What's the benefit of the Contractor's Hub?",
+    question: "I&apos;m a contractor. What&apos;s the benefit of the Contractor&apos;s Hub?",
     answer:
-      "Our Trade Partner Program gives you access to exclusive trade-only pricing, priority on-site technical support, a dedicated account manager, and our on-site delivery service. It's designed to be a true partnership to help your business run more efficiently.",
+      "Our Trade Partner Program gives you access to exclusive trade-only pricing, priority on-site technical support, a dedicated account manager, and our on-site delivery service. It&apos;s designed to be a true partnership to help your business run more efficiently.",
   },
   {
     value: "item-6",
@@ -46,27 +47,29 @@ const allFaqs = [
   },
   {
     value: "item-7",
-    question: "What brands do you stock besides Plascon and Dulux?",
+    question: "What brands do you stock for refinishing and decorative projects?",
     answer:
-      "We stock a wide range of specialist brands. For automotive, we are official suppliers of R-M and baslac. For industrial, we carry leading brands for epoxy, anti-corrosion, and protective coatings. We also stock Prominent Paints for the decorative side. We can source almost anything you need.",
+      // UPDATED: Replaced all unapproved brands with new ones
+      "We stock a wide range of specialist brands. For automotive, we are official suppliers of **mipa** and **HB BODY**. For industrial, we carry **SHIELD** protective coatings. For decorative, we stock **PAINTCHEM, Top Paints, and Genkem**.",
   },
   {
     value: "item-8",
-    question: "I'm not sure what paint I need for my factory floor. Can you help?",
+    question: "I&apos;m not sure what coating I need for my factory floor. Can you help?",
     answer:
-      "Absolutely. This is our specialty. We provide on-site technical consultations. We'll come to your site, assess the surface, understand the chemical and traffic exposure, and provide a full specification for the correct industrial coating system, whether it's epoxy or polyurethane.",
+      "Absolutely. This is our specialty. We provide on-site technical consultations. We&apos;ll come to your site, assess the surface, understand the chemical and traffic exposure, and provide a full specification for the correct industrial coating system, whether it&apos;s epoxy or polyurethane.",
   },
   {
     value: "item-9",
-    question: "What's the difference between R-M and baslac automotive paint?",
+    question: "What are the key advantages of mipa and HB BODY systems?",
     answer:
-      "Both are premium brands from BASF. R-M is a high-productivity, OEM-approved system for bodyshops that need the absolute best in class for speed and finish. baslac is a cost-effective, all-round system that still provides excellent quality and is perfect for a wide range of repair jobs.",
+      // UPDATED: Replaced R-M/baslac comparison
+      "**mipa** Professional Coating Systems offer excellent all-round quality for speed and finish across a wide range of repair jobs. **HB BODY** specializes in premium consumables, like fillers and polishes, that guarantee optimal surface preparation.",
   },
   {
     value: "item-10",
     question: "Where exactly are you located in Alberton?",
     answer:
-      "We are located at Piet Retief St, Alberton, 1450. You'll find us in the Courtney Court building. There is plenty of parking for contractors and trailers. You can click the 'Get Directions' button in our hero section for a direct link to Google Maps.",
+      "We are located at Piet Retief St, Alberton, 1450. You&apos;ll find us in the Courtney Court building. There is plenty of parking for contractors and trailers. You can click the &apos;Get Directions&apos; button in our hero section for a direct link to Google Maps.",
   },
 ];
 
@@ -101,7 +104,7 @@ export function FAQ() {
                 <AccordionContent className="text-base text-neutral-700">
                   {faq.answer}
                 </AccordionContent>
-              </AccordionItem>
+            </AccordionItem>
             ))}
           </Accordion>
 
@@ -115,7 +118,7 @@ export function FAQ() {
                 <AccordionContent className="text-base text-neutral-700">
                   {faq.answer}
                 </AccordionContent>
-              </AccordionItem>
+            </AccordionItem>
             ))}
           </Accordion>
           

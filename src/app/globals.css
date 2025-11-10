@@ -1,4 +1,4 @@
-/* src/app/globals.css - Full Replacement (Including QJ Palette) */
+/* src/app/globals.css - Full Replacement (QJ Red/Black Palette) */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -7,25 +7,33 @@
   .text-balance {
     text-wrap: balance;
   }
+  /* NEW UTILITY: Custom utility for radial gradient background */
+  .bg-radial-gradient {
+    background-image: radial-gradient(var(--tw-gradient-stops));
+  }
 }
 
-/* --- New QJ Palette Definition --- */
+/* --- New QJ Red/Black Palette Definition --- */
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 3.9%;
+    /* Base: Light Backgrounds, Dark Foreground */
+    --background: 0 0% 100%; /* White */
+    --foreground: 0 0% 3.9%; /* Near-Black */
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    /* Primary: Bright Gold (Used for CTAs, Buttons) */
-    --primary: 40 95% 55%; /* A warm, deep gold */
-    --primary-foreground: 0 0% 9%; /* Black text on gold */
-    /* Secondary: Slate (Used for B2B/Technical sections) */
-    --secondary: 220 14% 96.1%;
-    --secondary-foreground: 220 14% 4.9%;
-    /* Accent: Deep Teal/Blue (Used for technical highlight) */
-    --accent: 180 50% 40%; 
+
+    /* Primary: High-Impact Red (CTAs, Urgency) */
+    --primary: 0 100% 50%; /* Pure Red */
+    --primary-foreground: 0 0% 98%; /* White text on red */
+    
+    /* Secondary: Deep Gray/Slate (Professionalism, Shadows) */
+    --secondary: 220 14% 96.1%; /* Very Light Gray */
+    --secondary-foreground: 220 14% 4.9%; /* Near-Black */
+    
+    /* Accent: Technical Teal/Blue (Expertise, Highlight) */
+    --accent: 180 50% 40%;
     --accent-foreground: 0 0% 98%; 
 
     --destructive: 0 84.2% 60.2%;
@@ -38,19 +46,23 @@
     --radius: 0.5rem;
   }
   .dark {
-    --background: 220 14% 4.9%;
-    --foreground: 0 0% 98%;
+    /* Base: Deep Black Backgrounds, White Foreground */
+    --background: 220 14% 4.9%; /* Deep Gray/Near-Black */
+    --foreground: 0 0% 98%; /* White */
     --card: 220 14% 4.9%;
     --card-foreground: 0 0% 98%;
     --popover: 220 14% 4.9%;
     --popover-foreground: 0 0% 98%;
-    /* Primary: Inverted Gold (for dark mode contrast) */
-    --primary: 40 95% 55%;
-    --primary-foreground: 0 0% 9%; 
+
+    /* Primary: High-Impact Red (Same, for contrast on dark backgrounds) */
+    --primary: 0 100% 50%; /* Pure Red */
+    --primary-foreground: 0 0% 98%;
+    
     /* Secondary: Dark Slate */
     --secondary: 220 14% 14.9%;
     --secondary-foreground: 0 0% 98%;
-    /* Accent: Deep Teal/Blue */
+    
+    /* Accent: Deep Teal/Blue (Highlight) */
     --accent: 180 50% 40%;
     --accent-foreground: 0 0% 98%;
 
@@ -69,6 +81,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    /* Crucial: Sets the default body color derived from the HSL variables above */
+    @apply bg-background text-foreground; 
   }
 }
