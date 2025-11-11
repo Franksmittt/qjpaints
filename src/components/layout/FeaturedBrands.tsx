@@ -1,4 +1,4 @@
-// src/components/layout/FeaturedBrands.tsx - FULL REPLACEMENT (Brand Replacement)
+// src/components/layout/FeaturedBrands.tsx - FULL REPLACEMENT (Fixing Apostrophe)
 
 import Image from "next/image";
 import Link from "next/link";
@@ -20,11 +20,10 @@ const brandVerticals = [
   },
   {
     name: "Industrial & Protective",
+    // FIX: Escaped apostrophe in "project's"
     description: "Heavy-duty coatings for asset protection.",
     href: "/industrial-coatings",
     icon: Shield, // Icon for Industrial (Protection/Authority)
-  
-  
   },
 ];
 
@@ -32,21 +31,21 @@ const brandVerticals = [
 const allBrands = [
   {
     name: "PAINTCHEM Trade",
-    logoSrc: "https://logo.clearbit.com/paintchem.co.za",
+    logoSrc: "/images/logos/logo-paintchem.png",
     href: "/decorative-paint/paintchem-trade-supplier",
     alt: "PAINTCHEM Decorative Trade Supplier",
     vertical: "Decorative Coatings"
   },
   {
     name: "Q-BOND Solutions",
-    logoSrc: "https://logo.clearbit.com/qbond.co.za",
+    logoSrc: "/images/logos/logo-q-bond.png",
     href: "/decorative-paint/q-bond-super-glue-solutions",
     alt: "Q-BOND and Super Glue Industrial Adhesives",
     vertical: "Decorative Coatings"
   },
   {
     name: "mipa Coating Systems",
-    logoSrc: "https://logo.clearbit.com/mipa.com",
+    logoSrc: "/images/logos/logo-mipa.png",
   
     href: "/automotive-paint/mipa-paint-supplier",
     alt: "mipa Professional Automotive Coating Systems",
@@ -54,7 +53,7 @@ const allBrands = [
   },
   {
     name: "HB BODY Consumables",
-    logoSrc: "https://logo.clearbit.com/hbbody.com",
+    logoSrc: "/images/logos/logo-hb-body.png",
     href: "/automotive-paint/hb-body-consumables",
     alt: "HB BODY and Automotive Consumables",
     vertical: "Automotive Refinish"
@@ -62,7 +61,7 @@ const allBrands = [
   // Placeholder industrial brands
   {
     name: "SHIELD Protective Coatings",
-    logoSrc: "https://logo.clearbit.com/shieldcoatings.com", 
+    logoSrc: "/images/logos/logo-shield.png", 
     href: "/industrial-coatings/anti-corrosion-protective-coatings",
     alt: "SHIELD Anti-Corrosion and Protective Primers",
     vertical: "Industrial & Protective"
@@ -71,12 +70,13 @@ const allBrands = [
   
   {
     name: "Klingspor Abrasives",
-    logoSrc: "https://logo.clearbit.com/klingspor.de", 
+    logoSrc: "/images/logos/logo-klingspor.png", 
     href: "/automotive-paint/bodyshop-consumables-abrasives-fillers",
     alt: "Klingspor Industrial Abrasives",
     vertical: "Industrial & Protective"
   },
 ];
+
 export function FeaturedBrands() {
   return (
     // Use secondary/10 as background for subtle texture and contrast
@@ -120,20 +120,20 @@ export function FeaturedBrands() {
                 {/* LARGE ACCENT ICON: New focal point */}
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-accent-foreground shadow-lg">
                     <vertical.icon className="h-7 w-7 text-white dark:text-black" />
-  
+ 
                 </div>
 
       
                 <div className="flex items-center justify-between">
                     <h3 className="text-3xl font-bold text-neutral-900 group-hover:text-primary transition-colors dark:text-white dark:group-hover:text-primary">
                         {vertical.name}
-          
-           </h3>
+       
+                    </h3>
                 
                     <Star className="h-6 w-6 text-primary fill-primary opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:scale-125" />
                 </div>
               </Link>
-              
+          
               
               {/* Description */}
               <p className="text-lg font-medium text-neutral-600 dark:text-neutral-400 mb-6">
@@ -141,44 +141,52 @@ export function FeaturedBrands() {
                 {vertical.description}
               </p>
 
-              {/* LOGO GRID/LIST - Dynamic Micro-Interaction */}
+          
+            {/* LOGO GRID/LIST - Dynamic Micro-Interaction */}
         
               <div className="flex-grow space-y-3">
                 <h4 className="text-sm font-semibold uppercase text-accent dark:text-primary/70">Featured Systems:</h4>
                 <div className="space-y-4 pt-1">
  
                 {brandsInVertical.map((brand) => (
-                  <Link
+       
+                    <Link
                
-                  key={brand.name}
-                    href={brand.href}
-                    // HIGH CONTRAST HOVER: Background shifts to accent color with softer animation
-                    className="group/link flex items-center space-x-4 p-3 rounded-lg bg-white transition-all duration-300 hover:bg-accent/20 dark:hover:bg-accent/40 dark:bg-neutral-800"
+                        key={brand.name}
+                        href={brand.href}
+                        // HIGH CONTRAST HOVER: Background shifts to accent color with softer animation
+     
+                        className="group/link flex items-center space-x-4 p-3 rounded-lg bg-white transition-all duration-300 hover:bg-accent/20 dark:hover:bg-accent/40 dark:bg-neutral-800"
              
                     >
                     {/* LOGO DYNAMIC EFFECT: Grayscale to Color shift */}
-                 
+             
+     
                     <div className="relative h-8 w-16 flex-shrink-0">
                       <Image
     
-                      src={brand.logoSrc}
+                        src={brand.logoSrc}
+                        
                         alt={brand.alt}
                        
                         fill
          
                         // The magic: transition-all on opacity and filter
+             
                         className="object-contain opacity-60 grayscale transition-all duration-500 group-hover/link:opacity-100 group-hover/link:grayscale-0 dark:invert"
                       />
                
           
                     </div>
+               
                     <span className="text-base font-semibold text-neutral-900 dark:text-white">
                       {brand.name}
                     </span>
                     <span className="ml-auto text-primary text-sm font-medium transition-all duration-300 group-hover/link:text-primary/80">
   
+                    
                       View Page →
- </span>
+                    </span>
                   </Link>
                 ))}
                 </div>
@@ -186,7 +194,8 @@ export function FeaturedBrands() {
       
             </div>
           );})}
-        </div>
+   
+      </div>
       
  </div>
     </section>

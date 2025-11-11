@@ -11,6 +11,9 @@
 ├── 📄 tsconfig.json
 │   ├── 📁 public
 │   │   ├── 📁 images
+│   │   │   ├── 📄 Cars Driving Tunnel Road Stock Video Footage.mp4
+│   │   │   ├── 📄 Shiny Liquid Surface in Motion - Free Stock Footage.mp4
+│   │   │   ├── 📁 logos
 │   ├── 📁 src
 │   │   ├── 📁 app
 │   │   │   ├── 📄 globals.css
@@ -73,6 +76,7 @@
 │   │   │   ├── 📄 theme-provider.tsx
 │   │   │   ├── 📁 layout
 │   │   │   │   ├── 📄 AnimatedShimmerBar.tsx
+│   │   │   │   ├── 📄 ArtisanGallery.tsx
 │   │   │   │   ├── 📄 B2B_CTA_Section.tsx
 │   │   │   │   ├── 📄 BrandSlider.tsx
 │   │   │   │   ├── 📄 CategorySection.tsx
@@ -82,6 +86,7 @@
 │   │   │   │   ├── 📄 Header.tsx
 │   │   │   │   ├── 📄 HeroSection.tsx
 │   │   │   │   ├── 📄 InteractiveBackground.tsx
+│   │   │   │   ├── 📄 SpectrometerDemo.tsx
 │   │   │   │   ├── 📄 Testimonials.tsx
 │   │   │   │   ├── 📄 ThemeToggle.tsx
 │   │   │   │   ├── 📄 TopBar.tsx
@@ -829,7 +834,6 @@ export const metadata: Metadata = {
   // UPDATED: Added approved brands
   description: "One-stop shop for professional bodyshop consumables including **HB BODY** fillers, **3M/KLINGSPOR** abrasives, **SATA PIENAAR** equipment, and **Farécla** polishing compounds. Optimized for efficient workflow.",
 };
-
 const consumableCategories = [
   {
     icon: Wrench,
@@ -850,7 +854,6 @@ const consumableCategories = [
     description: "**SATA PIENAAR** spray equipment, **Tork Craft** tools, and **Farécla** compounds needed for the final, showroom-quality finish.",
   },
 ];
-
 export default function BodyshopConsumablesPage() {
   return (
     <main>
@@ -864,14 +867,15 @@ export default function BodyshopConsumablesPage() {
               Bodyshop Consumables & Equipment
             </h1>
             <p className="mt-4 text-xl text-neutral-600 dark:text-neutral-300 max-w-lg">
-              Maximize your shop's efficiency by ordering all your high-volume consumables, from **3M** abrasives and **HB BODY** fillers to **SATA PIENAAR** spray guns, in one place.
+              Maximize your shop&apos;s efficiency by ordering all your high-volume consumables, from **3M** abrasives and **HB BODY** fillers to **SATA PIENAAR** spray guns, in one place.
             </p>
             <div className="mt-8 flex gap-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
                 <Link href="/contact-us">Place a Consumables Order</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-white">
-                <Link href="/automotive-paint/mipa-paint-supplier">View mipa Paint Systems →</Link>
+                <Link 
+                  href="/automotive-paint/mipa-paint-supplier">View mipa Paint Systems →</Link>
               </Button>
             </div>
           </div>
@@ -910,7 +914,8 @@ export default function BodyshopConsumablesPage() {
 
       {/* Final CTA: Trade Delivery */}
       <section className="py-12 bg-accent dark:bg-accent/80 text-white">
-        <div className="container text-center">
+        <div 
+          className="container text-center">
           <h2 className="text-3xl font-bold">Priority Delivery to Your Bodyshop</h2>
           <p className="mt-2 text-xl font-medium">
             Ensure zero downtime. Our Trade Delivery Program gets your order to you on time.
@@ -1039,18 +1044,16 @@ export default function HbBodyConsumablesPage() {
 --------------------------------------------------------------------------------📄 FILE PATH: src\app\automotive-paint\mipa-paint-supplier\page.tsx--------------------------------------------------------------------------------// src/app/automotive-paint/mipa-paint-supplier/page.tsx - NEW FILE
 
 import Image from "next/image";
-import { Layers, Factory, MoveRight, Wrench, Package } from "lucide-react";
+import { Layers, Factory, MoveRight, Wrench } from "lucide-react"; // Removed Package
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Metadata } from "next";
-
 export const metadata: Metadata = {
   // Targeting high-value B2B search terms
   title: "mipa Professional Coating Systems Supplier Alberton | Automotive Refinish",
   description: "Official mipa supplier in Johannesburg South. Full range of mipa paint systems, including DTM primers and clearcoats, backed by QJ's spectrophotometer matching service.",
 };
-
 // Features focused on professional shop efficiency and finish quality
 const mipaAdvantages = [
   {
@@ -1069,7 +1072,6 @@ const mipaAdvantages = [
     description: "Suitable for everything from minor spot repairs to complete refinishes, mipa offers solutions for both modern car models and restoration projects.",
   },
 ];
-
 export default function MipaPaintSupplierPage() {
   return (
     <main>
@@ -1083,7 +1085,7 @@ export default function MipaPaintSupplierPage() {
               Official mipa Professional Coating Systems
             </h1>
             <p className="mt-4 text-xl text-neutral-300 max-w-lg">
-              Maximize your panel shop's output with the reliable quality of **mipa**. We supply the full range of primers, basecoats, and clearcoats engineered for flawless, efficient refinishing.
+              Maximize your panel shop&apos;s output with the reliable quality of **mipa**. We supply the full range of primers, basecoats, and clearcoats engineered for flawless, efficient refinishing.
             </p>
             <div className="mt-8 flex gap-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
@@ -1155,13 +1157,11 @@ import { MoveRight, Droplets, Microscope, AlertTriangle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-
 export const metadata = {
   title: "Spectrophotometer Paint Matching Alberton | QJ Paint World",
   // UPDATED: Added approved brands
   description: "Advanced automotive paint colour matching service in Johannesburg. We match to mipa and HB BODY systems, eliminating costly rework. Ideal for professional bodyshops.",
 };
-
 const serviceFeatures = [
   {
     icon: Microscope,
@@ -1179,7 +1179,6 @@ const serviceFeatures = [
     description: "Stop wasting time and materials on manual tinting and rework. Get the precise colour formula instantly, guaranteed.",
   },
 ];
-
 export default function AutomotiveMatchingPage() {
   return (
     <main>
@@ -1211,7 +1210,7 @@ export default function AutomotiveMatchingPage() {
               fill
               priority
               className="object-cover rounded-xl shadow-2xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
+              sizes="(max-w: 768px) 100vw, 50vw"
             />
           </div>
         </div>
@@ -1239,19 +1238,19 @@ export default function AutomotiveMatchingPage() {
 
       {/* The Problem & Solution Section (Problem-First SEO: Storyteller's Heart) */}
       <section id="why-it-fails" className="py-16 md:py-24 bg-secondary/10 dark:bg-neutral-900">
-         <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
+        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
             <h2 className="text-3xl font-bold text-neutral-900 dark:text-white">
               Why Matching by Paint Code Fails (The Risk)
             </h2>
             <p className="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
-              The standard industry practice of ordering paint based *only* on the manufacturer's paint code is a **costly risk**.
-              The problem is that every vehicle's actual colour has shifted due to:
+              The standard industry practice of ordering paint based *only* on the manufacturer&apos;s paint code is a **costly risk**.
+              The problem is that every vehicle&apos;s actual colour has shifted due to:
             </p>
             <ul className="mt-4 space-y-3 text-neutral-700 dark:text-neutral-300 list-disc list-inside ml-4">
               <li>Environmental fade from UV exposure (sunlight).</li>
               <li>Batch-to-batch variation from the paint factory.</li>
-              <li>The manufacturer's original formula having several official colour *variants*.</li>
+              <li>The manufacturer&apos;s original formula having several official colour *variants*.</li>
             </ul>
             <p className="mt-6 text-lg font-semibold text-accent dark:text-primary">
               Using a spectrophotometer eliminates this risk by reading the current, aged colour.
@@ -1294,13 +1293,11 @@ import { MoveRight, FileText, Layers, TrendingUp, Settings } from "lucide-react"
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-
 export const metadata: Metadata = {
   // Title targets general user intent for educational content
   title: "Paint Resources & Expert Articles | Technical Guides & Decorative Trends",
   description: "Tap into QJ Paint World's technical knowledge. Read expert articles on industrial coating specification, automotive paint techniques, and professional trade tips.",
 };
-
 // Placeholder categories for the main grid (maps to the SEO strategy)
 const blogCategories = [
   {
@@ -1325,7 +1322,6 @@ const blogCategories = [
     link: "#", // Placeholder for filter/category link
   },
 ];
-
 // Placeholder articles list (Based on the Content Calendar strategy)
 const articles = [
   {
@@ -1347,7 +1343,6 @@ const articles = [
     link: "#", 
   },
 ];
-
 export default function BlogIndexPage() {
   return (
     <main>
@@ -1373,7 +1368,7 @@ export default function BlogIndexPage() {
             {blogCategories.map((cat) => (
               <Card key={cat.title} className="flex flex-col h-full hover:border-primary transition-colors duration-300">
                 <CardHeader className="flex-1">
-                    <cat.icon className={`h-8 w-8 text-${cat.color} mb-2`} />
+                  <cat.icon className={`h-8 w-8 text-${cat.color} mb-2`} />
                     <CardTitle className="text-xl">{cat.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
@@ -1382,7 +1377,7 @@ export default function BlogIndexPage() {
                 <CardFooter className="pt-0 mt-auto">
                     <Button asChild variant="link" className={`text-${cat.color} hover:text-${cat.color}/80`}>
                         <Link href={cat.link}>
-                            View All <MoveRight className="ml-2 h-4 w-4" />
+                          View All <MoveRight className="ml-2 h-4 w-4" />
                         </Link>
                     </Button>
                 </CardFooter>
@@ -1397,14 +1392,14 @@ export default function BlogIndexPage() {
         <div className="container">
             <h2 className="text-3xl font-bold text-center mb-12">Latest Insights</h2>
             <div className="grid md:grid-cols-3 gap-8">
-                {articles.map((article) => (
+              {articles.map((article) => (
                     <Card key={article.title} className="flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
                         <CardHeader className="flex-1">
                             <Badge 
-                                variant="secondary" 
+                              variant="secondary" 
                                 className="w-fit mb-2"
                             >
-                                <Layers className="h-3 w-3 mr-1" /> {article.category}
+                               <Layers className="h-3 w-3 mr-1" /> {article.category}
                             </Badge>
                             <CardTitle className="text-xl leading-snug">{article.title}</CardTitle>
                         </CardHeader>
@@ -1414,7 +1409,7 @@ export default function BlogIndexPage() {
                         <CardFooter className="pt-0 mt-auto">
                             <Button asChild variant="link" className="p-0 h-auto">
                                 <Link href={article.link}>
-                                    Read More <MoveRight className="ml-2 h-4 w-4" />
+                                  Read More <MoveRight className="ml-2 h-4 w-4" />
                                 </Link>
                             </Button>
                         </CardFooter>
@@ -1429,7 +1424,7 @@ export default function BlogIndexPage() {
         <div className="container text-center">
           <h2 className="text-3xl font-bold">Need a Technical Deep Dive?</h2>
           <p className="mt-2 text-xl font-medium">
-            Contact us for specifications that aren't covered in our public articles.
+            Contact us for specifications that aren&apos;t covered in our public articles.
           </p>
           <Button asChild size="lg" className="mt-6 bg-neutral-900 text-white hover:bg-black/80">
             <Link href="/services/on-site-technical-consultation">
@@ -1557,12 +1552,10 @@ import { Store, MapPin, Phone, Clock, Star, Truck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardTitle } from "@/components/ui/card";
-
 export const metadata = {
   title: "Alberton Trade Centre | QJ Paint World: Address, Hours & Contact",
   description: "The primary QJ Paint World location for all retail, decorative, and automotive needs. Get expert colour matching, 6 Piet Retief Rd, Alberton North.",
 };
-
 const storeServices = [
   { icon: Store, title: "Retail & Trade Counter", description: "Dedicated counter service for homeowners and professional trade partners, with large stock reserves."
 },
@@ -1581,6 +1574,7 @@ export default function AlbertonHubPage() {
         <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
           <div>
             <span className="text-sm font-semibold uppercase text-primary">Your Local Paint Headquarters</span>
+            
             <h1 className="mt-2 text-4xl font-bold md:text-6xl">
               Alberton Trade Centre
             </h1>
@@ -1629,6 +1623,7 @@ export default function AlbertonHubPage() {
           
           {/* Hours (CANONICAL HOURS FIX) */}
            <Card className="text-center p-6 shadow-md">
+            
             <Clock className="h-10 w-10 text-primary mx-auto mb-4" />
             <CardTitle>Operating Hours</CardTitle>
             <CardContent className="pt-2 space-y-1">
@@ -1653,13 +1648,13 @@ export default function AlbertonHubPage() {
       {/* Store Services CTA */}
       <section className="py-16 bg-white dark:bg-neutral-900">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold text-neutral-900 dark:text-white mb-8">What You'll Find In-Store</h2>
+          <h2 className="text-3xl font-bold text-neutral-900 dark:text-white mb-8">What You&apos;ll Find In-Store</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {storeServices.map((item) => (
               <Card key={item.title} className="p-4 flex flex-col items-center text-center hover:border-accent transition-colors">
                 <item.icon className="h-8 w-8 text-accent fill-accent/10 mb-3" />
                 <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                 <p className="text-neutral-600 dark:text-neutral-400">{item.description}</p>
+                <p className="text-neutral-600 dark:text-neutral-400">{item.description}</p>
               </Card>
             ))}
           </div>
@@ -1887,18 +1882,16 @@ export default function DecorativePaintIndexPage() {
 --------------------------------------------------------------------------------📄 FILE PATH: src\app\decorative-paint\q-bond-super-glue-solutions\page.tsx--------------------------------------------------------------------------------// src/app/decorative-paint/q-bond-super-glue-solutions/page.tsx - NEW FILE
 
 import Image from "next/image";
-import { MoveRight, Package, HardHat, LinkIcon, Settings } from "lucide-react";
+import { MoveRight, HardHat, LinkIcon, Settings } from "lucide-react"; // Removed Package
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import type { Metadata } from "next";
-
 export const metadata: Metadata = {
   // Targeting niche problem-solving searches
   title: "Q-Bond & Super Glue Solutions Alberton | High-Strength Adhesives & Fillers",
   description: "Official stockist of Q-Bond ultra-strong adhesive and filling powder repair kits. We supply industrial-grade cyanoacrylate (super glue) for contractors and complex repairs.",
 };
-
 // Features focused on problem-solving applications
 const adhesiveFocus = [
   {
@@ -1917,7 +1910,6 @@ const adhesiveFocus = [
     description: "Essential for automotive bodyshops and general contractors for quick, reliable, and structural repairs without welding or complex machinery.",
   },
 ];
-
 export default function QBondSuperGluePage() {
   return (
     <main>
@@ -1931,7 +1923,7 @@ export default function QBondSuperGluePage() {
               Q-Bond & High-Strength Adhesive Solutions
             </h1>
             <p className="mt-4 text-xl text-neutral-300 max-w-lg">
-              **Q-Bond** is more than just super glue—it's a two-part repair system designed for permanent, structural fixes. We stock the full range of Q-Bond and industrial-grade cyanoacrylate adhesives.
+              **Q-Bond** is more than just super glue—it&apos;s a two-part repair system designed for permanent, structural fixes. We stock the full range of Q-Bond and industrial-grade cyanoacrylate adhesives.
             </p>
             <div className="mt-8 flex gap-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
@@ -2140,20 +2132,18 @@ export default function TopPaintsGenkemStockistPage() {
 --------------------------------------------------------------------------------📄 FILE PATH: src\app\decorative-paint\waterproofing-roof-paint\page.tsx--------------------------------------------------------------------------------// src/app/decorative-paint/waterproofing-roof-paint/page.tsx - FULL REPLACEMENT (Flash Harry)
 
 import Image from "next/image";
-// FIX: 'Home' removed from this import
-import { Waves, CloudRain, MoveRight, Layers, Home } from "lucide-react";
+// FIX: Restored Home icon import to resolve TypeScript error
+import { CloudRain, MoveRight, Layers, Home } from "lucide-react"; 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 // FIX: Unused Card components removed
 import { Card } from "@/components/ui/card";
 import type { Metadata } from "next";
-
 export const metadata: Metadata = {
   // UPDATED: Added Flash Harry to metadata
   title: "Flash Harry Waterproofing & Roof Paint Solutions Alberton | QJ Paint World",
   description: "Specialist supplier of high-performance **Flash Harry** roof paints, sealants, and liquid waterproofing systems. Protect your home and assets against the South African weather.",
 };
-
 const protectionTypes = [
   {
     icon: CloudRain,
@@ -2171,7 +2161,6 @@ const protectionTypes = [
     description: "The most critical step: specialized cleaners and primers engineered for high adhesion and maximum system longevity.",
   },
 ];
-
 export default function WaterproofingPage() {
   return (
     <main>
@@ -2368,8 +2357,7 @@ export default function IndustrialPaintIndexPage() {
 --------------------------------------------------------------------------------📄 FILE PATH: src\app\industrial-coatings\anti-corrosion-protective-coatings\page.tsx--------------------------------------------------------------------------------// src/app/industrial-coatings/anti-corrosion-protective-coatings/page.tsx - FULL REPLACEMENT (SHIELD Brand Integration)
 
 import Image from "next/image";
-// FIX: 'AlertTriangle' removed from this import
-import { Shield, Hammer, MoveRight, Layers, Factory } from "lucide-react";
+import { Shield, Hammer, MoveRight, Layers } from "lucide-react"; // Removed Factory
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -2381,7 +2369,6 @@ export const metadata: Metadata = {
   // UPDATED: Added SHIELD
   description: "Specialized supplier of SHIELD anti-corrosion and protective coatings for steel in mining and manufacturing. Solutions include Zinc-Rich Primers and DTM systems for asset protection.",
 };
-
 const solutionHighlights = [
   {
     icon: Shield,
@@ -2400,7 +2387,6 @@ const solutionHighlights = [
     description: "Tough topcoats formulated to withstand mechanical impact and friction typical of heavy manufacturing and port operations. Ideal for industrial machinery.",
   },
 ];
-
 export default function AntiCorrosionPage() {
   return (
     <main>
@@ -2952,7 +2938,6 @@ const matchingSteps = [
   {
     icon: Droplets,
     title: "Step 3: Test and Tint",
-   
     description: "Our expert technician mixes a small sample, tests the match against your original, and fine-tunes the tinting process.",
   },
   {
@@ -2970,35 +2955,34 @@ export default function ExpertColourMatchingPage() {
         <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
             <span className="text-sm font-semibold uppercase text-primary">In-House Technical Service</span>
-            <h1 className="mt-2 
-text-4xl font-bold md:text-6xl">
+            <h1 className="mt-2 text-4xl font-bold md:text-6xl">
               Expert Paint Colour Matching Service
             </h1>
-            {/* FIX: Replaced ' with ' */}
+            {/* FIX: Replaced ' with &apos; */}
             <p className="mt-4 text-xl text-neutral-600 dark:text-neutral-300 max-w-lg">
-              Don't compromise on colour. Whether it's restoring a vehicle or matching an antique wall shade, our digital spectrophotometer 
-guarantees a perfect, repeatable result.
+              Don&apos;t compromise on colour. Whether it&apos;s restoring a vehicle or matching an antique wall shade, our digital spectrophotometer 
+              guarantees 
+              a perfect, repeatable result.
             </p>
             <div className="mt-8 flex gap-4">
               <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
                 <Link href="/contact-us/alberton-north">Bring in Your Sample Today</Link>
               </Button>
               <Button asChild 
-variant="link" size="lg" className="text-accent hover:text-accent/80">
+                variant="link" 
+                size="lg" className="text-accent hover:text-accent/80">
                  <Link href="#process">See The 4-Step Process →</Link>
               </Button>
             </div>
           </div>
           <div className="order-1 md:order-2 relative aspect-[4/3] min-h-[300px]">
             <Image
-            
               src="/images/colour-matching-station.png" // Placeholder image for mixing counter
               alt="Expert technician using a paint mixing machine and spectrophotometer"
               fill
               priority
               className="object-cover rounded-xl shadow-2xl"
               sizes="(max-width: 768px) 100vw, 50vw"
-         
             />
           </div>
         </div>
@@ -3009,7 +2993,6 @@ variant="link" size="lg" className="text-accent hover:text-accent/80">
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-12">Our Guaranteed 4-Step Matching Process</h2>
           <div className="grid md:grid-cols-4 gap-8">
-         
             {matchingSteps.map((step, index) => ( // <<< FIX APPLIED: Added 'index' here
               <Card key={step.title} className="p-4 flex flex-col items-center text-center border-accent/30 border-2">
                 {/* FIX APPLIED: Used 'index' */}
@@ -3024,13 +3007,12 @@ variant="link" size="lg" className="text-accent hover:text-accent/80">
       </section>
 
       {/* CTA to Automotive & Decorative */}
-      <section className="py-16 
-bg-primary dark:bg-primary/90 text-neutral-900">
+      <section className="py-16 bg-primary dark:bg-primary/90 text-neutral-900">
         <div className="container text-center">
            <h2 className="text-3xl font-bold">This Service Supports All Your Projects</h2>
           <p className="mt-2 text-xl font-medium">
             From industrial equipment to **PAINTCHEM** decorative schemes, we match it all.
- </p>
+          </p>
           <Button asChild size="lg" className="mt-6 bg-neutral-900 text-white hover:bg-black/80">
             <Link href="/automotive-paint/spectrophotometer-paint-matching">
                 Learn About Automotive Matching <MoveRight className="ml-2 h-5 w-5" />
@@ -3260,12 +3242,10 @@ import { Briefcase, DollarSign, Users, Clock, MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
 export const metadata = {
   title: "Contractor's Hub | QJ Trade Partner Program",
   description: "Join the QJ Trade Partner Program for exclusive discounts, priority delivery, and our QJ-Approved Contractor Referral Directory. Get more work and save money.",
 };
-
 const programBenefits = [
   {
     icon: DollarSign,
@@ -3288,7 +3268,6 @@ const programBenefits = [
     description: "Use our secure online portal to view order history and place quick-orders for reliable, on-site delivery.",
   },
 ];
-
 export default function TradePartnerProgramPage() {
   return (
     <main>
@@ -3298,7 +3277,7 @@ export default function TradePartnerProgramPage() {
         <div className="container max-w-screen-xl text-center">
           <Briefcase className="h-12 w-12 text-primary mx-auto mb-4" />
           <h1 className="text-4xl font-bold md:text-6xl">
-            The Contractor's Hub
+            The Contractor&apos;s Hub
           </h1>
           <h2 className="mt-4 text-xl md:text-2xl font-medium text-white max-w-3xl mx-auto">
             More than a supplier, we are your **lead-generation partner**. Join the QJ Trade Program to get priority support, exclusive pricing, and clients.
@@ -3518,6 +3497,108 @@ export function AnimatedShimmerBar() {
       
     </div>
   );
+}
+
+--------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\ArtisanGallery.tsx--------------------------------------------------------------------------------import Image from "next/image";
+import Link from "next/link";
+import { cn } from "@/lib/utils";
+import { Card, CardContent, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { ArrowRight, Zap } from "lucide-react";
+
+const galleryItems = [
+    { 
+        title: "High-Gloss Automotive Clearcoat", 
+        vertical: "Automotive", 
+        image: "/images/gallery-auto-gloss.png", // CORRECTED: Using .png
+        link: "/automotive-paint",
+        badgeColor: "primary",
+    },
+    { 
+        title: "Thermal Shock Polyurethane Screed", 
+        vertical: "Industrial", 
+        image: "/images/gallery-industrial-floor.png", // CORRECTED: Using .png
+        link: "/industrial-coatings",
+        badgeColor: "accent",
+    },
+    { 
+        title: "Custom Decorative Color Match", 
+        vertical: "Decorative", 
+        image: "/images/gallery-decorative-custom.png", // CORRECTED: Using .png
+        link: "/services/expert-paint-colour-matching",
+        badgeColor: "primary",
+    },
+    { 
+        title: "Zinc-Rich Primer Anti-Corrosion", 
+        vertical: "Industrial", 
+        image: "/images/gallery-anti-corrosion.png", // CORRECTED: Using .png
+        link: "/industrial-coatings/anti-corrosion-protective-coatings",
+        badgeColor: "accent",
+    },
+];
+
+/**
+ * High-Density, Visually Driven Gallery Component.
+ */
+export function ArtisanGallery() {
+    return (
+        <section className="w-full bg-white py-16 md:py-24 dark:bg-neutral-800">
+            <div className="container px-4 md:px-6">
+                
+                {/* Header: Title and Subtitle */}
+                <div className="mx-auto max-w-4xl text-center mb-12">
+                    <Zap className="h-6 w-6 text-primary mx-auto mb-3" />
+                    <h2 className="text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl dark:text-white">
+                        Artisan&apos;s Praxis: Proof of Finish Quality {/* FIX 1: Apostrophe */}
+                    </h2>
+                    <p className="mt-4 text-lg leading-8 text-neutral-600 dark:text-neutral-400">
+                        The difference is in the depth, gloss, and texture. See real-world applications of our high-performance coatings.
+                    </p>
+                </div>
+
+                {/* Gallery Grid */}
+                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+                    {galleryItems.map((item) => (
+                        <Link href={item.link} key={item.title} className="group">
+                            <Card className="flex flex-col h-full overflow-hidden transition-shadow duration-300 hover:shadow-2xl dark:bg-neutral-900">
+                                <div className="relative aspect-square w-full">
+                                    <Image
+                                        src={item.image}
+                                        alt={item.title}
+                                        fill
+                                        sizes="(max-width: 768px) 100vw, 25vw"
+                                        className={cn(
+                                            "object-cover transition-transform duration-500",
+                                            // Grayscale filter removed permanently, maintaining scale-up on hover
+                                            "group-hover:scale-105" 
+                                        )}
+                                    />
+                                    {/* Badge Overlay */}
+                                    <Badge 
+                                        className={cn(
+                                            "absolute top-3 left-3 px-3 py-1 text-xs font-bold",
+                                            item.badgeColor === "primary" ? "bg-primary text-primary-foreground" : "bg-accent text-white"
+                                        )}
+                                    >
+                                        {item.vertical}
+                                    </Badge>
+                                </div>
+                                
+                                <CardContent className="p-4 flex-1 flex flex-col justify-between">
+                                    <CardTitle className="text-lg font-semibold group-hover:text-primary transition-colors">
+                                        {item.title}
+                                    </CardTitle>
+                                    <span className="mt-2 text-sm text-accent flex items-center">
+                                        View Details <ArrowRight className="ml-1 h-3 w-3 transition-transform group-hover:translate-x-1" />
+                                    </span>
+                                </CardContent>
+                            </Card>
+                        </Link>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
 }
 
 --------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\B2B_CTA_Section.tsx--------------------------------------------------------------------------------// src/components/layout/B2B_CTA_Section.tsx - FULL REPLACEMENT (Escaping final entity)
@@ -3789,11 +3870,11 @@ const allFaqs = [
     value: "item-2",
     question: "I have a specific colour I need. Can you match it?",
     answer:
-      "Yes, specialist colour matching is one of our key services. We have an advanced spectrophotometer in-store. Bring us a sample of what you're trying to match (a paint chip, a piece of fabric, etc.), and our experts can create a perfect match for you.",
+      "Yes, specialist colour matching is one of our key services. We have an advanced spectrophotometer in-store. Bring us a sample of what you&apos;re trying to match (a paint chip, a piece of fabric, etc.), and our experts can create a perfect match for you.",
   },
   {
     value: "item-3",
-    question: "What's the advantage of using PAINTCHEM Trade over retail paint?",
+    question: "What&apos;s the advantage of using PAINTCHEM Trade over retail paint?",
     answer:
       // UPDATED: Replacing Dulux comparison with PAINTCHEM's general trade advantage
       "PAINTCHEM Trade paints are formulated for professional use. They typically have higher durability, better application properties, and greater batch consistency, designed specifically to save contractors time and money on high-volume jobs.",
@@ -3806,9 +3887,9 @@ const allFaqs = [
   },
   {
     value: "item-5",
-    question: "I'm a contractor. What's the benefit of the Contractor's Hub?",
+    question: "I&apos;m a contractor. What&apos;s the benefit of the Contractor&apos;s Hub?",
     answer:
-      "Our Trade Partner Program gives you access to exclusive trade-only pricing, priority on-site technical support, a dedicated account manager, and our on-site delivery service. It's designed to be a true partnership to help your business run more efficiently.",
+      "Our Trade Partner Program gives you access to exclusive trade-only pricing, priority on-site technical support, a dedicated account manager, and our on-site delivery service. It&apos;s designed to be a true partnership to help your business run more efficiently.",
   },
   {
     value: "item-6",
@@ -3825,9 +3906,9 @@ const allFaqs = [
   },
   {
     value: "item-8",
-    question: "I'm not sure what coating I need for my factory floor. Can you help?",
+    question: "I&apos;m not sure what coating I need for my factory floor. Can you help?",
     answer:
-      "Absolutely. This is our specialty. We provide on-site technical consultations. We'll come to your site, assess the surface, understand the chemical and traffic exposure, and provide a full specification for the correct industrial coating system, whether it's epoxy or polyurethane.",
+      "Absolutely. This is our specialty. We provide on-site technical consultations. We&apos;ll come to your site, assess the surface, understand the chemical and traffic exposure, and provide a full specification for the correct industrial coating system, whether it&apos;s epoxy or polyurethane.",
   },
   {
     value: "item-9",
@@ -3840,7 +3921,7 @@ const allFaqs = [
     value: "item-10",
     question: "Where exactly are you located in Alberton?",
     answer:
-      "We are located at Piet Retief St, Alberton, 1450. You'll find us in the Courtney Court building. There is plenty of parking for contractors and trailers. You can click the 'Get Directions' button in our hero section for a direct link to Google Maps.",
+      "We are located at Piet Retief St, Alberton, 1450. You&apos;ll find us in the Courtney Court building. There is plenty of parking for contractors and trailers. You can click the &apos;Get Directions&apos; button in our hero section for a direct link to Google Maps.",
   },
 ];
 
@@ -3857,7 +3938,7 @@ export function FAQ() {
             Frequently Asked Questions
           </h2>
           <p className="mt-4 text-lg leading-8 text-neutral-600">
-            Got questions? We've got answers. Here are some of the things
+            Got questions? We&apos;ve got answers. Here are some of the things
             our customers ask most.
           </p>
         </div>
@@ -3925,6 +4006,7 @@ const brandVerticals = [
     href: "/industrial-coatings",
     icon: Shield, // Icon for Industrial (Protection/Authority)
   
+  
   },
 ];
 
@@ -3947,6 +4029,7 @@ const allBrands = [
   {
     name: "mipa Coating Systems",
     logoSrc: "https://logo.clearbit.com/mipa.com",
+  
     href: "/automotive-paint/mipa-paint-supplier",
     alt: "mipa Professional Automotive Coating Systems",
     vertical: "Automotive Refinish"
@@ -3967,6 +4050,7 @@ const allBrands = [
     vertical: "Industrial & Protective"
   },
  
+  
   {
     name: "Klingspor Abrasives",
     logoSrc: "https://logo.clearbit.com/klingspor.de", 
@@ -3989,7 +4073,8 @@ export function FeaturedBrands() {
           
           {/* SEO-Enhanced Subheading (Readable) */}
           <p className="mt-4 text-xl leading-8 text-neutral-600 dark:text-neutral-300">
-            We are your trusted, technical partner, offering authoritative, confirmed systems for **Industrial Coatings (SHIELD)**, **Automotive Refinish (mipa, HB BODY)**, and **Premium Decorative Paint (PAINTCHEM)**. Our expertise is your project's advantage.
+            We are your trusted, technical partner, offering authoritative, confirmed systems for **Industrial Coatings (SHIELD)**, **Automotive Refinish (mipa, HB BODY)**, and **Premium Decorative Paint (PAINTCHEM)**. Our expertise is your project&apos;s advantage.
+          
           </p>
         </div>
 
@@ -4011,22 +4096,26 @@ export function FeaturedBrands() {
               
               {/* Icon, Title & CTA Link */}
               <Link href={vertical.href} className="mb-6 flex flex-col space-y-4">
-           
+  
+          
                 
                 {/* LARGE ACCENT ICON: New focal point */}
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-accent-foreground shadow-lg">
                     <vertical.icon className="h-7 w-7 text-white dark:text-black" />
+  
                 </div>
 
       
                 <div className="flex items-center justify-between">
                     <h3 className="text-3xl font-bold text-neutral-900 group-hover:text-primary transition-colors dark:text-white dark:group-hover:text-primary">
                         {vertical.name}
-                    </h3>
+          
+           </h3>
                 
                     <Star className="h-6 w-6 text-primary fill-primary opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:scale-125" />
                 </div>
               </Link>
+              
               
               {/* Description */}
               <p className="text-lg font-medium text-neutral-600 dark:text-neutral-400 mb-6">
@@ -4035,29 +4124,35 @@ export function FeaturedBrands() {
               </p>
 
               {/* LOGO GRID/LIST - Dynamic Micro-Interaction */}
+        
               <div className="flex-grow space-y-3">
                 <h4 className="text-sm font-semibold uppercase text-accent dark:text-primary/70">Featured Systems:</h4>
                 <div className="space-y-4 pt-1">
  
                 {brandsInVertical.map((brand) => (
                   <Link
-                    key={brand.name}
+               
+                  key={brand.name}
                     href={brand.href}
                     // HIGH CONTRAST HOVER: Background shifts to accent color with softer animation
                     className="group/link flex items-center space-x-4 p-3 rounded-lg bg-white transition-all duration-300 hover:bg-accent/20 dark:hover:bg-accent/40 dark:bg-neutral-800"
-                  >
+             
+                    >
                     {/* LOGO DYNAMIC EFFECT: Grayscale to Color shift */}
                  
                     <div className="relative h-8 w-16 flex-shrink-0">
                       <Image
-                        src={brand.logoSrc}
+    
+                      src={brand.logoSrc}
                         alt={brand.alt}
                        
                         fill
+         
                         // The magic: transition-all on opacity and filter
                         className="object-contain opacity-60 grayscale transition-all duration-500 group-hover/link:opacity-100 group-hover/link:grayscale-0 dark:invert"
                       />
                
+          
                     </div>
                     <span className="text-base font-semibold text-neutral-900 dark:text-white">
                       {brand.name}
@@ -4070,6 +4165,7 @@ export function FeaturedBrands() {
                 ))}
                 </div>
               </div>
+      
             </div>
           );})}
         </div>
@@ -4163,14 +4259,14 @@ export function Footer() {
           <div className="col-span-1">
             <h5 className="text-lg font-semibold text-white border-b border-primary/20 pb-2 mb-4">Core Verticals</h5>
             <ul className="space-y-3">
-                <FooterLink href="/decorative-paint">Decorative Paint (PAINTCHEM)</FooterLink>
+              <FooterLink href="/decorative-paint">Decorative Paint (PAINTCHEM)</FooterLink>
                 <FooterLink href="/automotive-paint">Automotive Systems (mipa)</FooterLink>
                 <FooterLink href="/industrial-coatings">Industrial & Protective (SHIELD)</FooterLink>
             </ul>
             
             <h5 className="text-lg font-semibold text-white border-b border-primary/20 pb-2 mb-4 mt-8">B2B Portal</h5>
             <ul className="space-y-3">
-                <FooterLink href="/trade-partner-program">Contractor's Hub (Sign-up)</FooterLink>
+                <FooterLink href="/trade-partner-program">Contractor&apos;s Hub (Sign-up)</FooterLink>
                 <FooterLink href="/contact-us/wadeville">Wadeville Industrial Hub (B2B)</FooterLink>
             </ul>
           </div>
@@ -4297,6 +4393,7 @@ const automotiveLinks: { title: string; href: string; description: string; color
     title: "Advanced Paint Matching",
     href: "/automotive-paint/spectrophotometer-paint-matching",
     description: "Our high-tech spectrophotometer service for a perfect blend.",
+    
     color: "accent",
   },
   {
@@ -4324,6 +4421,7 @@ const industrialLinks: { title: string; href: string; description: string; color
     title: "Mining & Manufacturing",
     href: "/industrial-coatings/mining-manufacturing-solutions",
     description: "Specialized DTM and Zinc-Rich primer solutions.",
+   
     color: "secondary",
   },
   {
@@ -4383,6 +4481,7 @@ export function Header()
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center space-x-2">
            
+          
             <span className="font-bold text-primary sm:inline-block">
               QJ Paint World
             </span>
@@ -4391,6 +4490,7 @@ export function Header()
 
         {/* 2. Main Navigation (Center) - Highlighting technical verticals */}
         <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:block">
+         
           <NavigationMenu>
         
             <NavigationMenuList>
@@ -4398,6 +4498,7 @@ export function Header()
               {/* Decorative Link */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
+                
                   Decorative
                
                 </NavigationMenuTrigger>
@@ -4408,11 +4509,13 @@ export function Header()
           
                         key={item.title}
                         title={item.title}
+                    
                         href={item.href}
                         colorClass={item.color} // Pass the color
           
                       >
                         {item.description}
+            
                       </ListItem>
                     ))}
                   </ul>
@@ -4421,27 +4524,32 @@ export function Header()
               </NavigationMenuItem>
 
               {/* Automotive Link */}
+ 
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
                   Automotive
        
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
+            
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-card text-card-foreground border border-border">
                     {automotiveLinks.map((item) => (
                       <ListItem
   
                         key={item.title}
+             
                         title={item.title}
                         href={item.href}
                         colorClass={item.color} // Pass the color
   
                       >
+             
                         {item.description}
                       </ListItem>
                     ))}
               
                     </ul>
+             
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
@@ -4449,20 +4557,24 @@ export function Header()
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
                  
-                 Industrial
+                 
+                  Industrial
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-card text-card-foreground border border-border">
                     {industrialLinks.map((item) => (
+                 
                       <ListItem
                         key={item.title}
                         title={item.title}
                         href={item.href}
                       
+ 
                         colorClass={item.color} // Pass the color
                       >
                         {item.description}
                       </ListItem>
+     
                     ))}
       
                     </ul>
@@ -4476,20 +4588,24 @@ export function Header()
                   Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
+   
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px] bg-card text-card-foreground border border-border">
                  
                     {serviceLinks.map((item) => (
                       
+              
                       <ListItem
                         key={item.title}
                         title={item.title}
    
                         href={item.href}
+                 
                         colorClass={item.color} // Pass the color
                       >
                         {item.description}
      
                       </ListItem>
+                
                     ))}
                   </ul>
                 </NavigationMenuContent>
@@ -4497,6 +4613,7 @@ export function Header()
           
      
               {/* NEW: Locations Link (Architectural Clarity) */}
+             
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
                   Locations
@@ -4508,17 +4625,20 @@ export function Header()
                       <ListItem
                         key={item.title}
        
+                        
                         title={item.title}
                         href={item.href}
                         colorClass={item.color} // Pass the color
                       >
          
+                 
                         {item.description}
                       </ListItem>
                     ))}
                   </ul>
                 </NavigationMenuContent>
          
+        
               </NavigationMenuItem>
 
             </NavigationMenuList>
@@ -4529,7 +4649,7 @@ export function Header()
         <div className="flex flex-shrink-0 items-center justify-end space-x-4">
           <Link
             href="tel:010-216-9131"
-         
+        
             className="hidden items-center space-x-2 text-sm font-medium hover:text-primary lg:flex"
           >
             <Phone className="h-4 w-4" />
@@ -4538,11 +4658,12 @@ export function Header()
 
           <Button
             asChild
+            
             // Use primary color for maximum visibility and impact
   
             className="bg-primary text-primary-foreground hover:bg-primary/90"
           >
-            <Link href="/trade-partner-program">Contractor's Hub</Link>
+            <Link href="/trade-partner-program">Contractor&apos;s Hub</Link>
           </Button>
         </div>
       </div>
@@ -4557,10 +4678,12 @@ const ListItem = React.forwardRef<
 >(({ className, title, children, colorClass = 'primary', ...props }, ref) => {
 
   // Dynamically map colorClass to Tailwind classes
-  const hoverClass = colorClass === 'primary' ? 'hover:text-primary' : colorClass === 'accent' ?
+  const hoverClass = colorClass === 'primary' ?
+'hover:text-primary' : colorClass === 'accent' ?
  'hover:text-accent' : 'hover:text-secondary-foreground';
-  const borderClass = colorClass === 'primary' ? 'border-primary/50' : colorClass === 'accent' ? 'border-accent/50' : 'border-secondary/50';
-return (
+  const borderClass = colorClass === 'primary' ?
+'border-primary/50' : colorClass === 'accent' ? 'border-accent/50' : 'border-secondary/50';
+  return (
     <li>
       <NavigationMenuLink asChild>
         <a
@@ -4577,6 +4700,7 @@ return (
           {/* Title - Apply Dynamic Color and Border */}
           <div className={cn(
             "text-sm font-medium leading-none transition-colors group-hover:underline",
+      
             `border-l-4 pl-2 ${borderClass} dark:text-white`, // Add Vertical Color Bar
   
             hoverClass // Apply Text Hover Color
@@ -4585,6 +4709,7 @@ return (
           </div>
           {/* Description */}
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground pl-3">
+        
             {children}
           </p>
     
@@ -4598,9 +4723,8 @@ ListItem.displayName = "ListItem"
 --------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\HeroSection.tsx--------------------------------------------------------------------------------// src/components/layout/HeroSection.tsx - FULL REPLACEMENT (Glitter & Swirl Animation)
 
 import Link from "next/link"
-import Image from "next/image"
 import { Button } from "@/components/ui/button"
-import { Phone, MapPin, Star, Zap } from "lucide-react" 
+import { MapPin, Star, Zap } from "lucide-react" // Removed unused Phone import
 import { cn } from "@/lib/utils";
 import { BrandSlider } from "@/components/layout/BrandSlider";
 
@@ -4622,8 +4746,6 @@ const AnimatedDiv = ({
         {children}
     </div>
 );
-
-
 export function HeroSection() {
   return (
     // Primary Black/Deep background for contrast
@@ -4633,16 +4755,19 @@ export function HeroSection() {
         <div className="absolute inset-0 z-0">
             {/* LAYER 1: PULSATING/SWIRLING PAINT EFFECT (The main liquid motion) */}
             <div 
-                className={cn(
+  
+              className={cn(
                     "absolute w-[250%] h-[250%] md:w-[200%] md:h-[200%] top-1/2 left-1/2 opacity-60",
                     "bg-radial-gradient from-accent/70 via-transparent to-neutral-950/0 rounded-full",
                     // Swirl animation sped up here
+          
                     "animate-swirl" 
                 )}
                 style={{ transform: "translate(-50%, -50%)" }}
             />
             
             {/* LAYER 2: GLITTER/METALLIC BURST OVERLAY (NEW) */}
+          
             <div 
                 className={cn(
                     "absolute inset-0 z-10 opacity-70",
@@ -4652,6 +4777,7 @@ export function HeroSection() {
                 style={{
                     backgroundImage: 'radial-gradient(circle at 15% 50%, rgba(255, 255, 255, 0.2) 1px, transparent 0%)',
                     backgroundSize: '20px 20px', // Smaller size for dense particles
+                   
                     backgroundRepeat: 'repeat',
                 }}
             />
@@ -4659,6 +4785,7 @@ export function HeroSection() {
              {/* LAYER 3: Subtle High-Tech Grid Overlay (Kept for depth) */}
             <div 
                 className="absolute inset-0 z-20 opacity-10"
+   
                 style={{ 
                     backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%236b7280' d='M0 0h1v1H0zM15 0h1v1h-1zM0 15h1v1H0zM15 15h1v1h-1zM4 4h1v1H4zM11 4h1v1h-1zM4 11h1v1H4zM11 11h1v1h-1z'/%3E%3C/svg%3E")`
                 }}
@@ -4673,11 +4800,13 @@ export function HeroSection() {
                 
                 <div className="flex flex-col justify-center space-y-4">
 
+           
                     <AnimatedDiv delay={100} className="text-sm font-semibold uppercase tracking-widest text-primary flex items-center space-x-2">
                         <Zap className="h-4 w-4 fill-primary text-neutral-950" />
                         <span>The Technical Difference</span>
                     </AnimatedDiv>
 
+       
                     <AnimatedDiv delay={300}>
                         <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl leading-tight">
                             Paint is <span className="text-hyper-red">Science</span>, not just color.
@@ -4691,27 +4820,33 @@ export function HeroSection() {
                     <AnimatedDiv delay={700} className="flex items-center gap-2">
                         <Star className="h-5 w-5 text-primary fill-primary animate-pulse" />
                         <span className="text-md font-medium text-white">
+                  
                             4,824 Verified Google Reviews
                         </span>
                     </AnimatedDiv>
 
                     <AnimatedDiv delay={900} className="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-y-0 sm:space-x-4">
+               
                         <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
                             <Link href="/services/on-site-technical-consultation">
                                 <Zap className="mr-2 h-5 w-5" />
+                     
                                 Book Technical Consult
                             </Link>
                         </Button>
                         <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-white">
+    
                             <Link href="/contact-us/alberton-north">
                                 <MapPin className="mr-2 h-5 w-5" />
                                 Find Our Store
+     
                             </Link>
                         </Button>
                     </AnimatedDiv>
                 </div>
 
             </div>
+     
         </div>
 
         {/* === BRAND SLIDER LAYER (Z-40) === */}
@@ -4792,6 +4927,74 @@ export function InteractiveBackground() {
   );
 }
 
+--------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\SpectrometerDemo.tsx--------------------------------------------------------------------------------"use client"
+
+import React from 'react';
+// FIX 6: Removed unused 'cn' import
+import { Zap } from "lucide-react";
+
+// IMPORT FOR BRAND SLIDER INTEGRATION (Still needed for bottom of section)
+import { BrandSlider } from "@/components/layout/BrandSlider"; 
+
+/**
+ * Final Clean Hero Component with Centered Text over Video.
+ */
+export function SpectrometerDemo() {
+    return (
+        // 1. Height Correction retained
+        <section 
+            className="relative w-full bg-neutral-950 text-white overflow-hidden flex flex-col justify-end"
+            style={{ minHeight: 'calc(100vh - 96px)' }}
+        >
+            
+            {/* 1. VIDEO BACKGROUND LAYER (Z-0) */}
+            <div className="absolute inset-0 z-0">
+                <video 
+                    // Reference the public path where the video file should be located
+                    src="/images/Cars Driving Tunnel Road Stock Video Footage.mp4" 
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="w-full h-full object-cover"
+                />
+                {/* 2. DARK OVERLAY (OPACITY REDUCED FROM 80% TO 60%) */}
+                <div className="absolute inset-0 bg-neutral-950 opacity-60" />
+            </div>
+
+            {/* CONTENT LAYER (Z-30) - Centered and Simplified */}
+            <div className="container relative z-30 px-4 md:px-6 py-10 md:py-16 flex items-center justify-center">
+                
+                {/* Centered Content Block (Text Alignment) */}
+                <div className="flex flex-col items-center justify-center space-y-6 max-w-4xl text-center">
+                    <span className="text-sm font-semibold uppercase tracking-widest text-primary flex items-center space-x-2">
+                        <Zap className="h-4 w-4 fill-primary text-neutral-950" />
+                        <span>The Technical Difference</span>
+                    </span>
+                    
+                    {/* TEXT SHADOW APPLIED HERE */}
+                    <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-7xl lg:text-8xl leading-tight text-shadow-lg">
+                        Paint is <span className="text-hyper-red">Science</span>, not just color.
+                    </h1>
+                    
+                    {/* TEXT SHADOW APPLIED HERE */}
+                    <p className="max-w-xl text-lg leading-relaxed text-neutral-300 mx-auto mt-4 text-shadow-lg">
+                        We are the expert supplier for Automotive, Industrial, and Decorative certified systems, providing guaranteed technical support right here in Alberton.
+                    </p>
+
+                </div>
+
+            </div>
+            
+            {/* BRAND SLIDER INTEGRATION: Fixed to bottom edge of Hero Section */}
+            <div className="relative z-40 w-full">
+                <BrandSlider />
+            </div>
+
+        </section>
+    );
+}
+
 --------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\Testimonials.tsx--------------------------------------------------------------------------------// src/components/layout/Testimonials.tsx - FULL REPLACEMENT (Brand Replacement in Text)
 
 import { Star } from "lucide-react";
@@ -4801,7 +5004,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-
 // We'll create some realistic testimonial data based on your business verticals.
 const testimonials = [
   {
@@ -4823,7 +5025,7 @@ const testimonials = [
     title: "Homeowner, Meyersdal",
     rating: 5,
     review:
-      "I had no idea what paint to use for my roof. The team at QJ Paint (Alberton) didn't just sell me a bucket; they explained *why* I needed a specific **Flash Harry** waterproofing paint. Amazing service!",
+      "I had no idea what paint to use for my roof. The team at QJ Paint (Alberton) didn&apos;t just sell me a bucket; they explained *why* I needed a specific **Flash Harry** waterproofing paint. Amazing service!",
   },
 ];
 // Helper component for star ratings
@@ -4855,7 +5057,7 @@ export function Testimonials() {
             Trusted by Professionals in Alberton
           </h2>
           <p className="mt-4 text-lg leading-8 text-neutral-600">
-            Don't just take our word for it. Here's what our customers say about
+            Don&apos;t just take our word for it. Here&apos;s what our customers say about
             our expert service and technical support.
           </p>
         </div>
@@ -4881,7 +5083,7 @@ export function Testimonials() {
                 </div>
               </CardHeader>
               <CardContent>
-                <p className="text-neutral-700">"{testimonial.review}"</p>
+                <p className="text-neutral-700">{`"${testimonial.review}"`}</p>
               </CardContent>
             </Card>
           ))}
@@ -5184,6 +5386,7 @@ const buttonVariants = cva(
       variant: {
         default:
           "bg-primary text-primary-foreground shadow hover:bg-primary/90",
+        
         destructive:
           "bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90",
         outline:
@@ -5205,6 +5408,7 @@ const buttonVariants = cva(
     defaultVariants: {
       variant: "default",
       size: "default",
+   
     },
   }
 )

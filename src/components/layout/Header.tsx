@@ -1,4 +1,4 @@
-// src/components/layout/Header.tsx - FULL REPLACEMENT (Brand Links Replaced)
+// src/components/layout/Header.tsx - FULL REPLACEMENT (Fixing Apostrophe)
 
 "use client"
 
@@ -17,7 +17,10 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 
-// --- Link Data from Strategic Blueprint (UPDATED WITH NEW BRANDS/FOCUS) ---
+// 1. IMPORT THE NEW MOBILE NAVIGATION COMPONENT
+import { MobileNav } from "@/components/layout/MobileNav"
+
+// --- Link Data (RETAINED from original Header.tsx) ---
 const decorativeLinks: { title: string; href: string; description: string; color: string }[] = [
   {
     title: "Q-Bond & Super Glue",
@@ -44,7 +47,6 @@ const decorativeLinks: { title: string; href: string; description: string; color
     color: "primary",
   },
 ]
-// Automotive Refinish Vertical 
 const automotiveLinks: { title: string; href: string; description: string; color: string }[] = [
   {
     title: "mipa Coating Systems",
@@ -72,7 +74,6 @@ const automotiveLinks: { title: string; href: string; description: string; color
     color: "accent",
   },
 ]
-// Industrial Coatings Vertical
 const industrialLinks: { title: string; href: string; description: string; color: string }[] = [
   {
     title: "Heavy-Duty Floor Coatings",
@@ -100,7 +101,6 @@ const industrialLinks: { title: string; href: string; description: string; color
     color: "secondary",
   },
 ]
-// Services & Expertise
 const serviceLinks: { title: string; href: string; description: string; color: string }[] = [
   {
     title: "Expert Colour Matching",
@@ -121,7 +121,6 @@ const serviceLinks: { title: string; href: string; description: string; color: s
     color: "primary",
   },
 ]
-// Locations
 const locationLinks: { title: string; href: string; description: string; color: string }[] = [
   {
     title: "Alberton Trade Centre",
@@ -157,7 +156,7 @@ export function Header()
           </Link>
         </div>
 
-        {/* 2. Main Navigation (Center) - Highlighting technical verticals */}
+        {/* 2. Main Navigation (Center) - DESKTOP ONLY */}
         <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:block">
          
           <NavigationMenu>
@@ -166,27 +165,32 @@ export function Header()
               
               {/* Decorative Link */}
               <NavigationMenuItem>
+               
                 <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
                 
                   Decorative
                
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
+                
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-card text-card-foreground border border-border">
                     {decorativeLinks.map((item) => (
                       <ListItem
           
                         key={item.title}
+         
                         title={item.title}
                     
                         href={item.href}
                         colorClass={item.color} // Pass the color
           
-                      >
+   
+                    >
                         {item.description}
             
                       </ListItem>
                     ))}
+   
                   </ul>
     
                 </NavigationMenuContent>
@@ -196,114 +200,134 @@ export function Header()
  
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
+ 
                   Automotive
        
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
             
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-card text-card-foreground border border-border">
-                    {automotiveLinks.map((item) => (
+   
+                  {automotiveLinks.map((item) => (
                       <ListItem
   
                         key={item.title}
              
+                    
                         title={item.title}
                         href={item.href}
                         colorClass={item.color} // Pass the color
   
                       >
              
+       
                         {item.description}
                       </ListItem>
                     ))}
               
                     </ul>
-             
+       
+       
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               {/* Industrial Link */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
-                 
+               
+   
                  
                   Industrial
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-card text-card-foreground border border-border">
-                    {industrialLinks.map((item) => (
+  
+                  {industrialLinks.map((item) => (
                  
                       <ListItem
                         key={item.title}
+                 
                         title={item.title}
                         href={item.href}
                       
  
                         colorClass={item.color} // Pass the color
-                      >
+                  
+     >
                         {item.description}
                       </ListItem>
      
                     ))}
       
-                    </ul>
+                   
+ </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
               
               {/* Services Link */}
               <NavigationMenuItem>
              
+           
                 <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
                   Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
    
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px] bg-card text-card-foreground border border-border">
-                 
+            
+      
                     {serviceLinks.map((item) => (
                       
               
                       <ListItem
-                        key={item.title}
+               
+                          key={item.title}
                         title={item.title}
    
                         href={item.href}
                  
+                       
                         colorClass={item.color} // Pass the color
                       >
                         {item.description}
      
                       </ListItem>
                 
-                    ))}
+      
+               ))}
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
           
      
               {/* NEW: Locations Link (Architectural Clarity) */}
-             
+   
+           
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
                   Locations
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
    
-                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px] bg-card text-card-foreground border border-border">
+     
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px] bg-card text-card-foreground border border-border">
                     {locationLinks.map((item) => (
                       <ListItem
                         key={item.title}
        
+ 
                         
                         title={item.title}
                         href={item.href}
                         colorClass={item.color} // Pass the color
+ 
                       >
          
                  
                         {item.description}
                       </ListItem>
-                    ))}
+       
+              ))}
                   </ul>
                 </NavigationMenuContent>
          
@@ -311,15 +335,17 @@ export function Header()
               </NavigationMenuItem>
 
             </NavigationMenuList>
+          
           </NavigationMenu>
         </div>
 
-        {/* 3. Right-Side B2B Actions (Far Right) - Use primary color for CTA */}
-        <div className="flex flex-shrink-0 items-center justify-end space-x-4">
+        {/* 3. Right-Side B2B Actions (Far Right) - DESKTOP ONLY */}
+        <div className="flex flex-shrink-0 items-center justify-end space-x-4 md:flex">
           <Link
             href="tel:010-216-9131"
         
             className="hidden items-center space-x-2 text-sm font-medium hover:text-primary lg:flex"
+          
           >
             <Phone className="h-4 w-4" />
             <span>010-216-9131</span>
@@ -330,17 +356,23 @@ export function Header()
             
             // Use primary color for maximum visibility and impact
   
-            className="bg-primary text-primary-foreground hover:bg-primary/90"
+       
+            className="bg-primary text-primary-foreground hover:bg-primary/90 hidden md:inline-flex"
           >
             <Link href="/trade-partner-program">Contractor&apos;s Hub</Link>
           </Button>
+          
+          {/* 4. MOBILE HAMBURGER MENU (MOBILE ONLY) */}
+          <div className="md:hidden">
+              <MobileNav />
+          </div>
         </div>
       </div>
     </header>
   )
 }
 
-// Helper component for fly-out menu (UPDATED)
+// Helper component for fly-out menu (RETAINED from original Header.tsx)
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a"> & {colorClass?: string} // ADDED colorClass prop
@@ -350,7 +382,7 @@ const ListItem = React.forwardRef<
   const hoverClass = colorClass === 'primary' ?
 'hover:text-primary' : colorClass === 'accent' ?
  'hover:text-accent' : 'hover:text-secondary-foreground';
-  const borderClass = colorClass === 'primary' ?
+const borderClass = colorClass === 'primary' ?
 'border-primary/50' : colorClass === 'accent' ? 'border-accent/50' : 'border-secondary/50';
   return (
     <li>
@@ -362,6 +394,7 @@ const ListItem = React.forwardRef<
             "focus:bg-accent focus:text-accent-foreground",
             "hover:bg-accent/10 dark:hover:bg-neutral-900", // Base hover for entire card
        
+ 
             className
           )}
           {...props}
@@ -370,6 +403,7 @@ const ListItem = React.forwardRef<
           <div className={cn(
             "text-sm font-medium leading-none transition-colors group-hover:underline",
       
+         
             `border-l-4 pl-2 ${borderClass} dark:text-white`, // Add Vertical Color Bar
   
             hoverClass // Apply Text Hover Color
@@ -379,6 +413,7 @@ const ListItem = React.forwardRef<
           {/* Description */}
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground pl-3">
         
+   
             {children}
           </p>
     
