@@ -1,16 +1,14 @@
-// src/app/services/page.tsx - NEW FILE
+// src/app/services/page.tsx - FULL REPLACEMENT (Wadeville Text Removed)
 
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MoveRight, Droplets, ClipboardCheck, Truck, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
 export const metadata: Metadata = {
   title: "QJ Technical Services Hub | Colour Matching, Consultation, Delivery",
   description: "The core technical services that separate QJ from retailers. Expert paint colour matching, on-site industrial consultation, and our reliable Trade Delivery Program.",
 };
-
 const serviceLinks = [
   {
     title: "Expert Paint Colour Matching",
@@ -21,7 +19,7 @@ const serviceLinks = [
   {
     title: "On-Site Technical Consultation",
     href: "/services/on-site-technical-consultation",
-    description: "Engineers assess your industrial site (e.g., Wadeville) to provide certified specifications for protective coatings.",
+    description: "Engineers assess your industrial site to provide certified specifications for protective coatings.",
     icon: ClipboardCheck,
   },
   {
@@ -31,7 +29,6 @@ const serviceLinks = [
     icon: Truck,
   },
 ];
-
 export default function ServicesIndexPage() {
   return (
     <main>

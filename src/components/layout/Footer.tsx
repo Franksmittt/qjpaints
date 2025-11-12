@@ -1,4 +1,4 @@
-// src/components/layout/Footer.tsx - FULL REPLACEMENT (Brand Links Replaced)
+// src/components/layout/Footer.tsx - FULL REPLACEMENT (Apostrophe Fix)
 import Link from "next/link";
 import { Facebook, Instagram, MapPin, Phone, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -82,15 +82,15 @@ export function Footer() {
           <div className="col-span-1">
             <h5 className="text-lg font-semibold text-white border-b border-primary/20 pb-2 mb-4">Core Verticals</h5>
             <ul className="space-y-3">
-              <FooterLink href="/decorative-paint">Decorative Paint (PAINTCHEM)</FooterLink>
+                <FooterLink href="/decorative-paint">Decorative Paint (PAINTCHEM)</FooterLink>
                 <FooterLink href="/automotive-paint">Automotive Systems (mipa)</FooterLink>
                 <FooterLink href="/industrial-coatings">Industrial & Protective (SHIELD)</FooterLink>
             </ul>
             
             <h5 className="text-lg font-semibold text-white border-b border-primary/20 pb-2 mb-4 mt-8">B2B Portal</h5>
             <ul className="space-y-3">
+                {/* FIX: Replaced ' with &apos; */}
                 <FooterLink href="/trade-partner-program">Contractor&apos;s Hub (Sign-up)</FooterLink>
-                <FooterLink href="/contact-us/wadeville">Wadeville Industrial Hub (B2B)</FooterLink>
             </ul>
           </div>
           
@@ -115,7 +115,7 @@ export function Footer() {
           <div className="col-span-1">
             <h5 className="text-lg font-semibold text-white border-b border-primary/20 pb-2 mb-4">Key Brands</h5>
             <ul className="space-y-3">
-              <FooterLink href="/decorative-paint/paintchem-trade-supplier">PAINTCHEM Supplier</FooterLink>
+                <FooterLink href="/decorative-paint/paintchem-trade-supplier">PAINTCHEM Supplier</FooterLink>
               <FooterLink href="/automotive-paint/mipa-paint-supplier">mipa Coating Systems</FooterLink>
               <FooterLink href="/industrial-coatings/anti-corrosion-protective-coatings">SHIELD Anti-Corrosion</FooterLink>
               <FooterLink href="/decorative-paint/waterproofing-roof-paint">Flash Harry Waterproofing</FooterLink>

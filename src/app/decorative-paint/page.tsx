@@ -1,14 +1,12 @@
-// src/app/decorative-paint/page.tsx - FULL REPLACEMENT (New Brands)
+// src/app/decorative-paint/page.tsx - FULL REPLACEMENT (Q-Bond Removed)
 
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MoveRight, Paintbrush, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-// REMOVED: import { DecorativePaintData } from '@/lib/decorative-data';
 
 export const metadata: Metadata = {
-  // UPDATED: Removed Plascon, Dulux, Prominent
   title: "Decorative Paint Systems Alberton | PAINTCHEM, Top Paints, Genkem Stockist",
   description: "Your expert local supplier for all decorative paint needs. We stock the full range of PAINTCHEM, Top Paints, and Genkem, backed by specialist colour matching.",
 };
@@ -24,11 +22,6 @@ const DecorativePaintData = [
     title: "Top Paints & Genkem",
     href: "/decorative-paint/top-paints-genkem-stockist",
     description: "Quality paints (Top Paints) and specialty adhesives (Genkem) in one place.",
-  },
-  {
-    title: "Q-Bond & Super Glue",
-    href: "/decorative-paint/q-bond-super-glue-solutions", // Assumed New Page
-    description: "Industrial strength Q-Bond adhesives and repair compounds.",
   },
   {
     title: "Waterproofing & Roofs",
@@ -58,7 +51,8 @@ export default function DecorativePaintIndexPage() {
       <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-12">Key Decorative Services & Brands</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* UPDATED GRID TO 3 COLUMNS */}
+          <div className="grid md:grid-cols-3 gap-8">
             {DecorativePaintData.map((item) => (
               <Card key={item.title} className="flex flex-col h-full hover:border-primary transition-colors duration-300">
                 <CardHeader>

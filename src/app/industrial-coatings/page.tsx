@@ -1,17 +1,17 @@
-// src/app/industrial-coatings/page.tsx - FULL REPLACEMENT (Pillar Page - FIXED IMPORTS)
+// src/app/industrial-coatings/page.tsx - FULL REPLACEMENT (Unused Import Removed)
 
 import Image from "next/image";
 import Link from "next/link";
-import { MoveRight, Factory, Hammer, Warehouse, Shield, MapPin } from "lucide-react";
+import { MoveRight, Factory, Hammer, Warehouse, Shield } from "lucide-react"; // MapPin removed
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import type { Metadata } from "next"; // <<< FIX: MISSING IMPORT
+import type { Metadata } from "next";
+// <<< FIX: MISSING IMPORT
 
 export const metadata: Metadata = {
   title: "Industrial Coatings Hub Johannesburg | Anti-Corrosion, Epoxy, Mining",
   description: "The definitive B2B supplier for specialized anti-corrosion, protective coatings, and heavy-duty epoxy/polyurethane floor systems in Johannesburg South.",
 };
-
 // Data structure based on the strategic sitemap (Problem/Solution Focus)
 const IndustrialPaintData = [
   {
@@ -39,7 +39,6 @@ const IndustrialPaintData = [
     icon: Factory,
   },
 ];
-
 export default function IndustrialPaintIndexPage() {
   return (
     <main>
@@ -104,18 +103,7 @@ export default function IndustrialPaintIndexPage() {
         </div>
       </section>
       
-      {/* Final CTA: Wadeville Hub */}
-      <section className="py-12 bg-primary dark:bg-primary/90 text-neutral-900">
-        <div className="container text-center">
-          <h2 className="text-3xl font-bold">Bulk Orders & Technical Dispatch</h2>
-          <p className="mt-2 text-xl font-medium">
-            Industrial orders are processed exclusively from our Wadeville Industrial Hub.
-          </p>
-          <Button asChild size="lg" className="mt-6 bg-neutral-900 text-white hover:bg-black/80">
-            <Link href="/contact-us/wadeville">Contact Wadeville Hub <MapPin className="ml-2 h-5 w-5" /></Link>
-          </Button>
-        </div>
-      </section>
+      {/* Final CTA: Wadeville Hub (REMOVED) */}
 
     </main>
   );

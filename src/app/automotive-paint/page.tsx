@@ -1,4 +1,4 @@
-// src/app/automotive-paint/page.tsx - FULL REPLACEMENT (New Brands)
+// src/app/automotive-paint/page.tsx - FULL REPLACEMENT (Consumables Card Removed)
 
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -8,7 +8,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  // UPDATED: Removed R-M, baslac
   title: "Automotive Refinish Systems Alberton | mipa, HB BODY, Consumables",
   description: "The expert supplier for professional bodyshops. We stock premium mipa, HB BODY systems, and all essential consumables, backed by spectrophotometer matching.",
 };
@@ -29,11 +28,6 @@ const AutomotivePaintData = [
     title: "Advanced Paint Matching",
     href: "/automotive-paint/spectrophotometer-paint-matching",
     description: "Our high-tech spectrophotometer service for a perfect blend.",
-  },
-  {
-    title: "Bodyshop Consumables (3M, Klingspor)",
-    href: "/automotive-paint/bodyshop-consumables-abrasives-fillers",
-    description: "Abrasives (3M, Klingspor), fillers, and polishing compounds.",
   },
 ];
 
@@ -75,7 +69,8 @@ export default function AutomotivePaintIndexPage() {
       <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-12">Our Automotive Solutions</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* UPDATED GRID TO 3 COLUMNS */}
+          <div className="grid md:grid-cols-3 gap-8">
             {AutomotivePaintData.map((item) => (
               <Card key={item.title} className="flex flex-col h-full hover:border-accent transition-colors duration-300">
                 <CardHeader>

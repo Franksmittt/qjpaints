@@ -37,8 +37,6 @@
 │   │   │   │   ├── 📄 page.tsx
 │   │   │   │   ├── 📁 alberton-north
 │   │   │   │   │   ├── 📄 page.tsx
-│   │   │   │   ├── 📁 wadeville
-│   │   │   │   │   ├── 📄 page.tsx
 │   │   │   ├── 📁 decorative-paint
 │   │   │   │   ├── 📄 page.tsx
 │   │   │   │   ├── 📁 q-bond-super-glue-solutions
@@ -86,6 +84,7 @@
 │   │   │   │   ├── 📄 Header.tsx
 │   │   │   │   ├── 📄 HeroSection.tsx
 │   │   │   │   ├── 📄 InteractiveBackground.tsx
+│   │   │   │   ├── 📄 MobileNav.tsx
 │   │   │   │   ├── 📄 SpectrometerDemo.tsx
 │   │   │   │   ├── 📄 Testimonials.tsx
 │   │   │   │   ├── 📄 ThemeToggle.tsx
@@ -587,28 +586,35 @@ export default function RootLayout({
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\app\page.tsx--------------------------------------------------------------------------------import { HeroSection } from "@/components/layout/HeroSection";
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\page.tsx--------------------------------------------------------------------------------// src/app/page.tsx - FULL REPLACEMENT (Integrating ArtisanGallery)
+
+import { HeroSection } from "@/components/layout/HeroSection";
 import { CategorySection } from "@/components/layout/CategorySection";
 import { FeaturedBrands } from "@/components/layout/FeaturedBrands";
 import { ValueProposition } from "@/components/layout/ValueProposition";
 import { B2B_CTA_Section } from "@/components/layout/B2B_CTA_Section";
 import { Testimonials } from "@/components/layout/Testimonials";
-import { FAQ } from "@/components/layout/FAQ"; // 1. Import the new section
+import { FAQ } from "@/components/layout/FAQ";
+// 1. Import the new section: ArtisanGallery
+import { ArtisanGallery } from "@/components/layout/ArtisanGallery";
+
 
 export default function Home() {
   return (
     <main>
       <HeroSection />
       <CategorySection />
+      
+      {/* --- NEW SECTION PLACEMENT --- */}
+      <ArtisanGallery />
+      {/* ----------------------------- */}
+      
       <FeaturedBrands />
       <ValueProposition />
       <B2B_CTA_Section />
       <Testimonials />
 
-      {/* 2. Add the new section right below */}
       <FAQ />
-
-      {/* Other homepage sections will go here */}
     </main>
   );
 }
@@ -1438,40 +1444,26 @@ export default function BlogIndexPage() {
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\app\contact-us\page.tsx--------------------------------------------------------------------------------// src/app/contact-us/page.tsx - FULL REPLACEMENT (Theme Update)
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\contact-us\page.tsx--------------------------------------------------------------------------------// src/app/contact-us/page.tsx - FULL REPLACEMENT (Wadeville Removed)
 
-import { Phone, MapPin, Store, Factory, MoveRight, Clock } from "lucide-react";
+import { Phone, MapPin, Store, MoveRight, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 // FIX: 'CardDescription' import removed
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-
 export const metadata = {
-  title: "Contact QJ Paint World | Alberton Trade Centre or Wadeville Industrial Hub",
-  description: "Contact us for expert colour matching, industrial specifications, or trade sales. We have two locations: Alberton for retail/trade, and Wadeville for B2B industrial.",
+  title: "Contact QJ Paint World | Alberton Trade Centre",
+  description: "Contact us for expert colour matching, industrial specifications, or trade sales at our Alberton Trade Centre. Call 010 216 9131.",
 };
-
-const locationCards = [
-  {
-    icon: Store,
-    title: "Alberton Trade Centre",
-    link: "/contact-us/alberton-north",
-    address: "6 Piet Retief Rd, Alberton North",
-    phone: "010 216 9131",
-    purpose: "Best for: Retail orders, decorative paint, auto matching, and general trade supplies.",
-    hours: "Mon - Fri: 8:00 am – 5:00 pm",
-  },
-  {
-    icon: Factory,
-    title: "Wadeville Industrial Hub",
-    link: "/contact-us/wadeville",
-    address: "Unit 33, Crocker Industrial Park, Wadeville",
-    phone: "010 216 9131",
-    purpose: "Best for: Industrial coatings specifiers, bulk orders, and scheduling technical consultation.",
-    hours: "Mon - Fri: 7:00 am – 4:30 pm (Industrial Hours)",
-  },
-];
-
+const locationCard = {
+  icon: Store,
+  title: "Alberton Trade Centre",
+  link: "/contact-us/alberton-north",
+  address: "6 Piet Retief Rd, Alberton North",
+  phone: "010 216 9131",
+  purpose: "Best for: Retail orders, decorative paint, auto matching, industrial specifications, and general trade supplies.",
+  hours: "Mon - Fri: 8:00 am – 5:00 pm",
+};
 export default function ContactHubPage() {
   return (
     <main>
@@ -1481,51 +1473,51 @@ export default function ContactHubPage() {
       <section className="bg-secondary/10 py-16 md:py-24 dark:bg-neutral-950 text-neutral-900 dark:text-white">
         <div className="container max-w-screen-xl text-center">
           <h1 className="text-4xl font-bold md:text-6xl">
-            Where Should We Meet?
+            Our Alberton Trade Centre
           </h1>
           <p className="mt-4 text-xl text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto">
-            To get the best service, choose the location that matches your project needs. We are here to serve you at both our local trade centre and our industrial hub.
+            We are here to serve you at our local trade centre and industrial hub. Get in touch for expert advice and service.
           </p>
         </div>
       </section>
 
-      {/* Location Router Cards */}
+      {/* Location Router Cards - Centered Single Card */}
       <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
-        <div className="container grid md:grid-cols-2 gap-10">
-          {locationCards.map((loc) => (
-            <Card key={loc.title} className="flex flex-col overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
+        <div className="container flex justify-center">
+          <div className="w-full max-w-lg">
+            <Card key={locationCard.title} className="flex flex-col overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
               <CardHeader className="flex flex-row items-center justify-between p-6 bg-accent/10 dark:bg-accent/30">
-                <CardTitle className="text-2xl font-bold text-accent">{loc.title}</CardTitle>
-                <loc.icon className="h-8 w-8 text-accent" />
+                <CardTitle className="text-2xl font-bold text-accent">{locationCard.title}</CardTitle>
+                <locationCard.icon className="h-8 w-8 text-accent" />
               </CardHeader>
               
               <CardContent className="flex-1 p-6 space-y-4">
                 <p className="flex items-center space-x-3 text-lg">
                     <MapPin className="h-5 w-5 text-primary" />
-                    <span className="font-semibold">{loc.address}</span>
+                    <span className="font-semibold">{locationCard.address}</span>
                 </p>
                  <p className="flex items-center space-x-3 text-lg">
                     <Phone className="h-5 w-5 text-primary" />
-                    <span className="font-semibold">{loc.phone}</span>
+                    <span className="font-semibold">{locationCard.phone}</span>
                 </p>
                 <p className="flex items-center space-x-3 text-lg text-neutral-600 dark:text-neutral-400">
                     <Clock className="h-5 w-5 text-primary" />
-                    <span>Hours: {loc.hours}</span>
+                    <span>Hours: {locationCard.hours}</span>
                 </p>
                 <p className="text-neutral-700 dark:text-neutral-300 pt-3 border-t border-neutral-200">
-                    {loc.purpose}
+                    {locationCard.purpose}
                 </p>
               </CardContent>
 
               <CardFooter className="mt-auto p-6 pt-0">
                 <Button asChild size="lg" className="w-full bg-primary hover:bg-primary/90">
-                   <Link href={loc.link}>
+                   <Link href={locationCard.link}>
                     View Location Details <MoveRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
               </CardFooter>
             </Card>
-          ))}
+          </div>
         </div>
       </section>
       
@@ -1661,119 +1653,6 @@ export default function AlbertonHubPage() {
         </div>
       </section>
       
-    </main>
-  );
-}
-
---------------------------------------------------------------------------------📄 FILE PATH: src\app\contact-us\wadeville\page.tsx--------------------------------------------------------------------------------// src/app/contact-us/wadeville/page.tsx
-import Image from "next/image";
-import { MapPin, Phone, Clock, MoveRight } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-
-export const metadata = {
-  title: "Wadeville Industrial Hub | B2B Bulk Coatings Supplier",
-  description: "QJ Industrial's Wadeville Hub is dedicated to heavy-duty, bulk industrial coatings. Anti-corrosion, epoxy flooring, and on-site technical consultation for Johannesburg B2B.",
-};
-
-export default function WadevilleHubPage() {
-  return (
-    <main>
-      
-      {/* Hero Section: B2B Industrial Focus (Architect's Precision) */}
-      <section className="bg-neutral-900 py-16 md:py-24 text-white">
-        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="text-sm font-semibold uppercase text-accent">QJ Industrial B2B Expansion Hub</span>
-            <h1 className="mt-2 text-4xl font-bold md:text-6xl">
-              Wadeville Industrial Hub
-            </h1>
-            <p className="mt-4 text-xl text-neutral-300 max-w-lg">
-              This location is our warehouse and B2B dispatch centre, strategically placed in Crocker Industrial Park to serve the heavy manufacturing and mining sectors of Johannesburg South.
-            </p>
-            <div className="mt-8 flex gap-4">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-                <Link href="/industrial-coatings/anti-corrosion-protective-coatings">Explore Anti-Corrosion</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-neutral-900">
-                <Link href="tel:010-216-9131">Call the Hub Directly</Link>
-              </Button>
-            </div>
-          </div>
-          <div className="relative aspect-[4/3] min-h-[300px]">
-            <Image
-              src="/images/wadeville-warehouse.png" // Placeholder image for industrial hub
-              alt="Industrial warehouse loading bay with stacked paint drums"
-              fill
-              priority
-              className="object-cover rounded-xl shadow-2xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Location Details and Map */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
-        <div className="container grid md:grid-cols-2 gap-12">
-          
-          {/* Map Location */}
-          <div className="relative h-80 w-full md:h-full min-h-[300px]">
-             <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.1959569965675!2d28.12920277462924!3d-26.255302866055633!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1e9510110859e1e7%3A0x6b9ae21cd9574093!2sQj%20Paint%20World!5e0!3m2!1sen!2sza!4v1762189616593!5m2!1sen!2sza" // Placeholder Map Link
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Wadeville Industrial Hub Map"
-              ></iframe>
-          </div>
-
-          {/* Contact Details */}
-          <div>
-            <h2 className="text-3xl font-bold text-neutral-900 dark:text-white mb-6">Wadeville Hub Details (B2B Only)</h2>
-            <div className="space-y-4 text-lg">
-                <p className="flex items-start space-x-3">
-                    <MapPin className="h-6 w-6 text-accent flex-shrink-0" />
-                    <span>**Address:** Unit 33 Crocker Industrial Park, 7 Crocker Road, Wadeville, 1422</span>
-                </p>
-                <p className="flex items-start space-x-3">
-                    <Phone className="h-6 w-6 text-accent flex-shrink-0" />
-                    <span>**Phone:** 010 216 9131 (Direct Line)</span>
-                </p>
-                
-                <p className="flex items-start space-x-3">
-                    <Clock className="h-6 w-6 text-accent flex-shrink-0" />
-                    <span>**Hours:** Mon - Fri: 7:00 am – 4:30 pm (Industrial Hours)</span>
-                </p>
-            </div>
-            <div className="mt-8">
-                <h3 className="text-xl font-semibold mb-3">Key Services Managed from this Hub:</h3>
-              <ul className="list-disc list-inside space-y-2 text-neutral-700 dark:text-neutral-400">
-                  <li>Bulk Order Dispatch & Trade Delivery</li>
-                  <li>Technical Specification Documentation</li>
-                  <li>On-Site Consultation Scheduling</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Final CTA to Services */}
-      <section className="py-16 bg-secondary/10 dark:bg-neutral-900">
-        <div className="container text-center">
-          <h2 className="text-3xl font-bold text-neutral-900 dark:text-white">Need a Specification or Consultation?</h2>
-          <p className="mt-2 text-xl font-medium text-neutral-600 dark:text-neutral-300">
-            Let our engineers help you choose the right system.
-          </p>
-          <Button asChild size="lg" className="mt-6 bg-accent text-white hover:bg-accent/90">
-            <Link href="/services/on-site-technical-consultation">Book Technical Consult <MoveRight className="ml-2 h-5 w-5" /></Link>
-          </Button>
-        </div>
-      </section>
-
     </main>
   );
 }
@@ -2231,20 +2110,20 @@ export default function WaterproofingPage() {
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\app\industrial-coatings\page.tsx--------------------------------------------------------------------------------// src/app/industrial-coatings/page.tsx - FULL REPLACEMENT (Pillar Page - FIXED IMPORTS)
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\industrial-coatings\page.tsx--------------------------------------------------------------------------------// src/app/industrial-coatings/page.tsx - FULL REPLACEMENT (Unused Import Removed)
 
 import Image from "next/image";
 import Link from "next/link";
-import { MoveRight, Factory, Hammer, Warehouse, Shield, MapPin } from "lucide-react";
+import { MoveRight, Factory, Hammer, Warehouse, Shield } from "lucide-react"; // MapPin removed
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import type { Metadata } from "next"; // <<< FIX: MISSING IMPORT
+import type { Metadata } from "next";
+// <<< FIX: MISSING IMPORT
 
 export const metadata: Metadata = {
   title: "Industrial Coatings Hub Johannesburg | Anti-Corrosion, Epoxy, Mining",
   description: "The definitive B2B supplier for specialized anti-corrosion, protective coatings, and heavy-duty epoxy/polyurethane floor systems in Johannesburg South.",
 };
-
 // Data structure based on the strategic sitemap (Problem/Solution Focus)
 const IndustrialPaintData = [
   {
@@ -2272,7 +2151,6 @@ const IndustrialPaintData = [
     icon: Factory,
   },
 ];
-
 export default function IndustrialPaintIndexPage() {
   return (
     <main>
@@ -2337,27 +2215,16 @@ export default function IndustrialPaintIndexPage() {
         </div>
       </section>
       
-      {/* Final CTA: Wadeville Hub */}
-      <section className="py-12 bg-primary dark:bg-primary/90 text-neutral-900">
-        <div className="container text-center">
-          <h2 className="text-3xl font-bold">Bulk Orders & Technical Dispatch</h2>
-          <p className="mt-2 text-xl font-medium">
-            Industrial orders are processed exclusively from our Wadeville Industrial Hub.
-          </p>
-          <Button asChild size="lg" className="mt-6 bg-neutral-900 text-white hover:bg-black/80">
-            <Link href="/contact-us/wadeville">Contact Wadeville Hub <MapPin className="ml-2 h-5 w-5" /></Link>
-          </Button>
-        </div>
-      </section>
+      {/* Final CTA: Wadeville Hub (REMOVED) */}
 
     </main>
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\app\industrial-coatings\anti-corrosion-protective-coatings\page.tsx--------------------------------------------------------------------------------// src/app/industrial-coatings/anti-corrosion-protective-coatings/page.tsx - FULL REPLACEMENT (SHIELD Brand Integration)
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\industrial-coatings\anti-corrosion-protective-coatings\page.tsx--------------------------------------------------------------------------------// src/app/industrial-coatings/anti-corrosion-protective-coatings/page.tsx - FULL REPLACEMENT (Unused Import Removed)
 
 import Image from "next/image";
-import { Shield, Hammer, MoveRight, Layers } from "lucide-react"; // Removed Factory
+import { Shield, Hammer, Layers } from "lucide-react"; // Removed Factory & MoveRight
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -2445,36 +2312,25 @@ export default function AntiCorrosionPage() {
         </div>
       </section>
 
-      {/* Final CTA to Industrial Hub */}
-      <section className="py-12 bg-primary dark:bg-primary/90 text-neutral-900">
-        <div className="container text-center">
-          <h2 className="text-3xl font-bold">Need a Full Industrial System Specification?</h2>
-          <p className="mt-2 text-xl font-medium">
-            Contact our Wadeville Industrial Hub. The South African solution for complex coating requirements.
-          </p>
-          <Button asChild size="lg" className="mt-6 bg-neutral-900 text-white hover:bg-black/80">
-            <Link href="/contact-us/wadeville">Contact Wadeville Hub <MoveRight className="ml-2 h-5 w-5" /></Link>
-          </Button>
-        </div>
-      </section>
+      {/* Final CTA to Industrial Hub (REMOVED) */}
 
     </main>
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\app\industrial-coatings\case-studies\page.tsx--------------------------------------------------------------------------------import Image from "next/image";
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\industrial-coatings\case-studies\page.tsx--------------------------------------------------------------------------------// src/app/industrial-coatings/case-studies/page.tsx - FULL REPLACEMENT (Wadeville Case Study Removed)
+
+import Image from "next/image";
 // FIX: 'Factory' and 'MoveRight' removed from this import
 import { Download, MapPin, Layers } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-
 export const metadata = {
   title: "Industrial Coatings Case Studies | Epoxy & Anti-Corrosion Project Proof",
-  description: "Download local case studies for heavy-duty industrial coatings, including epoxy flooring in Alrode and anti-corrosion solutions for Wadeville manufacturing.",
+  description: "Download local case studies for heavy-duty industrial coatings, including epoxy flooring in Alrode and anti-corrosion solutions for manufacturing.",
 };
-
 const caseStudies = [
   {
     title: "Heavy-Duty Epoxy Flooring: Alrode Warehouse",
@@ -2485,14 +2341,6 @@ const caseStudies = [
     link: "#", // Placeholder for downloadable PDF link
   },
   {
-    title: "Anti-Corrosion System: Wadeville Manufacturing",
-    location: "Wadeville, Germiston",
-    focus: "Anti-Corrosion, Steel Protection",
-    image: "/images/cs-wadeville-steel.png", // Placeholder
-    summary: "Provided specification and product for a multi-coat Zinc-Rich primer system to protect exterior steel structures from aggressive atmospheric corrosion.",
-    link: "#", 
-  },
-  {
     title: "Polyurethane Screed: Food Processing Plant",
     location: "Boksburg, East Rand",
     focus: "Polyurethane, Thermal Shock",
@@ -2501,7 +2349,6 @@ const caseStudies = [
     link: "#", 
   },
 ];
-
 export default function IndustrialCaseStudiesPage() {
   return (
     <main>
@@ -2525,7 +2372,7 @@ export default function IndustrialCaseStudiesPage() {
 
       {/* Case Study Grid: Downloadable Proof */}
       <section className="py-16 md:py-24 bg-secondary/10 dark:bg-neutral-800">
-        <div className="container grid md:grid-cols-3 gap-10">
+        <div className="container grid md:grid-cols-2 gap-10">
           {caseStudies.map((study) => (
             <Card key={study.title} className="flex flex-col overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
               
@@ -2545,7 +2392,7 @@ export default function IndustrialCaseStudiesPage() {
                 </Badge>
                 <CardTitle className="text-2xl font-bold">{study.title}</CardTitle>
                 <CardDescription className="flex items-center space-x-2 text-primary">
-                   <MapPin className="h-4 w-4" /> <span>{study.location}</span>
+                    <MapPin className="h-4 w-4" /> <span>{study.location}</span>
                 </CardDescription>
               </CardHeader>
               
@@ -2569,18 +2416,18 @@ export default function IndustrialCaseStudiesPage() {
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\app\industrial-coatings\epoxy-polyurethane-floor-coatings\page.tsx--------------------------------------------------------------------------------import Image from "next/image";
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\industrial-coatings\epoxy-polyurethane-floor-coatings\page.tsx--------------------------------------------------------------------------------// src/app/industrial-coatings/epoxy-polyurethane-floor-coatings/page.tsx - FULL REPLACEMENT (Wadeville Text Removed)
+
+import Image from "next/image";
 // FIX: 'HardHat' and 'Beaker' removed from this import
 import { MoveRight, Warehouse } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-
 export const metadata = {
   title: "Heavy-Duty Epoxy & Polyurethane Floor Coatings Johannesburg | QJ Paint",
   description: "Definitive guide and supplier for industrial floor coatings in Johannesburg. We specify Epoxy systems vs. Polyurethane Screeds for factory floors and high-traffic areas.",
 };
-
 const systemComparison = [
   {
     system: "Epoxy Floor Coatings",
@@ -2593,7 +2440,6 @@ const systemComparison = [
     advantage: "Superior thermal shock resistance, higher impact protection, and better flexibility. Essential for high-demand environments.",
   },
 ];
-
 export default function IndustrialFloorCoatingsPage() {
   return (
     <main>
@@ -2658,7 +2504,7 @@ export default function IndustrialFloorCoatingsPage() {
         <div className="container text-center">
           <h2 className="text-3xl font-bold">Need Proof of Performance?</h2>
           <p className="mt-2 text-xl font-medium">
-            See our local case studies of heavy-duty floor projects in the Wadeville and Alrode industrial areas.
+            See our local case studies of heavy-duty floor projects in the local industrial areas.
           </p>
           <Button asChild size="lg" className="mt-6 bg-neutral-900 text-white hover:bg-black/80">
             <Link href="/industrial-coatings/case-studies">View Industrial Case Studies <MoveRight className="ml-2 h-5 w-5" /></Link>
@@ -2670,7 +2516,7 @@ export default function IndustrialFloorCoatingsPage() {
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\app\industrial-coatings\mining-manufacturing-solutions\page.tsx--------------------------------------------------------------------------------// src/app/industrial-coatings/mining-manufacturing-solutions/page.tsx - FULL REPLACEMENT (SATA, Tork Craft, PREPSOL Integration)
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\industrial-coatings\mining-manufacturing-solutions\page.tsx--------------------------------------------------------------------------------// src/app/industrial-coatings/mining-manufacturing-solutions/page.tsx - FULL REPLACEMENT (Wadeville CTA Removed & Typo Fixed)
 
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -2679,13 +2525,11 @@ import { MoveRight, Drill, Layers, HardHat, Beaker, Wrench, Package } from "luci
 import { Button } from "@/components/ui/button";
 // FIX: CardHeader import restored
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
 export const metadata: Metadata = {
   // UPDATED: Added new B2B tools and cleaners
   title: "Coatings, Tools & Equipment for Mining & Manufacturing | QJ Industrial",
   description: "Specialized protective coatings (SHIELD), high-end SATA PIENAAR spray guns, Tork Craft tools, and PREPSOL degreasers for the South African industrial sectors.",
 };
-
 const industryChallenges = [
   {
     icon: Drill,
@@ -2703,12 +2547,11 @@ const industryChallenges = [
     description: "Specialist coatings engineered for pipes and equipment operating under thermal insulation where moisture and heat accelerate corrosion.",
   },
 ];
-
 const equipmentSolutions = [
   {
     icon: Wrench,
     title: "SATA PIENAAR Spray Equipment",
-    description: "High-end, professional spray guns and air tools required for precise application of thick-film industrial and protective coatings.",
+    description: "High-end, professional spray guns and. air tools required for precise application of thick-film industrial and protective coatings.",
   },
   {
     icon: Package,
@@ -2721,7 +2564,6 @@ const equipmentSolutions = [
     description: "Specialized degreasers and cleaners for critical surface preparation, ensuring maximum adhesion and system performance.",
   },
 ];
-
 export default function MiningManufacturingSolutionsPage() {
   return (
     <main>
@@ -2799,36 +2641,23 @@ export default function MiningManufacturingSolutionsPage() {
         </div>
       </section>
 
-      {/* Final CTA: Wadeville Hub */}
-      <section className="py-12 bg-accent dark:bg-accent/80 text-white">
-        <div className="container text-center">
-          <h2 className="text-3xl font-bold">Bulk Orders & Specialized Dispatch</h2>
-          <p className="mt-2 text-xl font-medium">
-            All mining and manufacturing orders are processed by our dedicated team at the Wadeville Industrial Hub.
-          </p>
-          <Button asChild size="lg" className="mt-6 bg-white text-neutral-900 hover:bg-black/80">
-            <Link href="/contact-us/wadeville">Contact Wadeville Hub <MoveRight className="ml-2 h-5 w-5" /></Link>
-          </Button>
-        </div>
-      </section>
+      {/* Final CTA: Wadeville Hub (REMOVED) */}
 
     </main>
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\app\services\page.tsx--------------------------------------------------------------------------------// src/app/services/page.tsx - NEW FILE
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\services\page.tsx--------------------------------------------------------------------------------// src/app/services/page.tsx - FULL REPLACEMENT (Wadeville Text Removed)
 
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MoveRight, Droplets, ClipboardCheck, Truck, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
 export const metadata: Metadata = {
   title: "QJ Technical Services Hub | Colour Matching, Consultation, Delivery",
   description: "The core technical services that separate QJ from retailers. Expert paint colour matching, on-site industrial consultation, and our reliable Trade Delivery Program.",
 };
-
 const serviceLinks = [
   {
     title: "Expert Paint Colour Matching",
@@ -2839,7 +2668,7 @@ const serviceLinks = [
   {
     title: "On-Site Technical Consultation",
     href: "/services/on-site-technical-consultation",
-    description: "Engineers assess your industrial site (e.g., Wadeville) to provide certified specifications for protective coatings.",
+    description: "Engineers assess your industrial site to provide certified specifications for protective coatings.",
     icon: ClipboardCheck,
   },
   {
@@ -2849,7 +2678,6 @@ const serviceLinks = [
     icon: Truck,
   },
 ];
-
 export default function ServicesIndexPage() {
   return (
     <main>
@@ -3026,24 +2854,24 @@ export default function ExpertColourMatchingPage() {
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\app\services\on-site-technical-consultation\page.tsx--------------------------------------------------------------------------------import Image from "next/image";
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\services\on-site-technical-consultation\page.tsx--------------------------------------------------------------------------------// src/app/services/on-site-technical-consultation/page.tsx - FULL REPLACEMENT (Wadeville Removed)
+
+import Image from "next/image";
 // FIX: 'MapPin' removed from this import
 import { HardHat, ClipboardCheck, Truck, MoveRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 // FIX: Unused Card components removed
 import { Card } from "@/components/ui/card";
-
 export const metadata = {
   title: "On-Site Technical Consultation Service | Industrial & Commercial Coatings",
   description: "Book an on-site consultation with our expert engineers for precise technical specification of epoxy, anti-corrosion, and protective coating systems in Johannesburg South.",
 };
-
 const consultationSteps = [
   {
     icon: HardHat,
     title: "Step 1: Site Assessment",
-    description: "Our engineer visits your site (Wadeville, Alrode, etc.) to assess substrate condition, traffic, and chemical exposure.",
+    description: "Our engineer visits your site to assess substrate condition, traffic, and chemical exposure.",
   },
   {
     icon: ClipboardCheck,
@@ -3053,10 +2881,9 @@ const consultationSteps = [
   {
     icon: Truck,
     title: "Step 3: Priority Fulfillment",
-    description: "Your order is tagged for priority fulfillment from our Wadeville Industrial Hub, guaranteeing the correct products are dispatched on time.",
+    description: "Your order is tagged for priority fulfillment from our Alberton Trade Centre, guaranteeing the correct products are dispatched on time.",
   },
 ];
-
 export default function TechnicalConsultationPage() {
   return (
     <main>
@@ -3116,10 +2943,10 @@ export default function TechnicalConsultationPage() {
         <div className="container text-center">
           <h2 className="text-3xl font-bold">Schedule Your Engineer Visit Now</h2>
           <p className="mt-2 text-xl font-medium">
-            Consultations are managed by our B2B team at the Wadeville Industrial Hub.
+            Consultations are managed by our expert team at the Alberton Trade Centre.
           </p>
           <Button asChild size="lg" className="mt-6 bg-neutral-900 text-white hover:bg-black/80">
-            <Link href="/contact-us/wadeville">Contact B2B Hub <MoveRight className="ml-2 h-5 w-5" /></Link>
+            <Link href="/contact-us/alberton-north">Contact Alberton Trade Centre <MoveRight className="ml-2 h-5 w-5" /></Link>
           </Button>
         </div>
       </section>
@@ -3128,18 +2955,18 @@ export default function TechnicalConsultationPage() {
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\app\services\trade-delivery-program\page.tsx--------------------------------------------------------------------------------import Image from "next/image";
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\services\trade-delivery-program\page.tsx--------------------------------------------------------------------------------// src/app/services/trade-delivery-program/page.tsx - FULL REPLACEMENT (Apostrophe Fix)
+
+import Image from "next/image";
 // FIX: 'Truck' removed from this import
 import { MapPin, Clock, MoveRight, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
 export const metadata = {
   title: "Trade Delivery Program | Priority Paint Delivery Alberton & JHB South",
   description: "Join the QJ Trade Delivery Program for reliable, priority fulfillment and on-site delivery of your paint orders to minimize downtime and maximize your labor efficiency.",
 };
-
 const programBenefits = [
   {
     icon: Clock,
@@ -3149,7 +2976,7 @@ const programBenefits = [
   {
     icon: MapPin,
     title: "Direct Site Delivery",
-    description: "Delivery is made directly to your job site in Alberton, Wadeville, Alrode, and the broader Johannesburg South region.",
+    description: "Delivery is made directly to your job site in Alberton and the broader Johannesburg South region.",
   },
   {
     icon: Package,
@@ -3157,7 +2984,6 @@ const programBenefits = [
     description: "Dedicated dispatch team ensures your specific formulations and bulk orders are fulfilled correctly and arrive complete.",
   },
 ];
-
 export default function TradeDeliveryPage() {
   return (
     <main>
@@ -3207,7 +3033,7 @@ export default function TradeDeliveryPage() {
                   <CardTitle className="text-xl">{item.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                   <CardDescription>{item.description}</CardDescription>
+                  <CardDescription>{item.description}</CardDescription>
                 </CardContent>
               </Card>
             ))}
@@ -3342,8 +3168,9 @@ export default function TradePartnerProgramPage() {
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\app\trade-partner-program\find-a-contractor\page.tsx--------------------------------------------------------------------------------import type { Metadata } from "next";
-// FIX: 'Image' import removed
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\trade-partner-program\find-a-contractor\page.tsx--------------------------------------------------------------------------------// src/app/trade-partner-program/find-a-contractor/page.tsx - FULL REPLACEMENT (Unused Import Removed & Apostrophe Fix)
+
+// FIX: 'Metadata' import removed
 import Link from "next/link";
 // FIX: 'Phone' import removed
 import { MoveRight, MapPin, Users, Mail } from "lucide-react";
@@ -3351,28 +3178,21 @@ import { Button } from "@/components/ui/button";
 // FIX: 'CardContent' and 'CardHeader' imports removed
 import { Card, CardDescription, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-
-export const metadata: Metadata = {
+export const metadata = {
   title: "Find a QJ-Approved Contractor | Referral Directory",
   description: "Find a verified QJ Trade Partner for your decorative, automotive, or industrial paint project. We refer local, trusted contractors directly from our B2C leads.",
 };
-
 // Placeholder list of approved contractors for display
 const approvedContractors = [
   {
-    name: "Johannesburg Epoxy Solutions",
-    vertical: "Industrial",
-    specialty: "Epoxy Flooring, Wadeville",
-  },
-  {
     name: "Alberton Quality Painters",
     vertical: "Decorative",
-    specialty: "High-end Residential, Dulux Trade",
+    specialty: "High-end Residential, PAINTCHEM Trade",
   },
   {
     name: "Swift Auto Body",
     vertical: "Automotive",
-    specialty: "R-M Refinish Certified, Boksburg",
+    specialty: "mipa Refinish Certified, Boksburg",
   },
   {
     name: "Pro-Roofs & Waterproofing",
@@ -3399,32 +3219,32 @@ export default function FindAContractorPage() {
       </section>
 
       {/* Contractor List Simulation */}
-       <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container max-w-screen-lg">
           <h2 className="text-3xl font-bold text-center mb-12">Verified Local Experts</h2>
           
           <div className="space-y-4">
             {approvedContractors.map((contractor) => (
               <Card key={contractor.name} className="p-6 md:flex items-center justify-between hover:shadow-lg transition-shadow">
-                 
+                
                 <div className="md:flex items-center space-x-6">
                     <MapPin className="h-8 w-8 text-accent fill-accent/10 mb-2 md:mb-0" />
                     <div>
                         <CardTitle className="text-2xl font-bold">{contractor.name}</CardTitle>
-                         <CardDescription className="text-lg mt-1">{contractor.specialty}</CardDescription>
+                        <CardDescription className="text-lg mt-1">{contractor.specialty}</CardDescription>
                     </div>
                 </div>
                 
                 <div className="mt-4 md:mt-0 flex flex-wrap gap-3">
-                   <Badge variant="secondary" className="bg-primary/20 text-primary border-primary">
+                    <Badge variant="secondary" className="bg-primary/20 text-primary border-primary">
                         {contractor.vertical} Expert
                     </Badge>
                     <Button asChild size="sm" className="bg-accent hover:bg-accent/90 text-white">
-                     <a href={`mailto:contact@${contractor.name.replace(/\s/g, '').toLowerCase()}.com`}>
+                      <a href={`mailto:contact@${contractor.name.replace(/\s/g, '').toLowerCase()}.com`}>
                             <Mail className="h-4 w-4 mr-2" /> Contact for Quote
                         </a>
                     </Button>
-                 </div>
+                </div>
               </Card>
             ))}
           </div>
@@ -3433,7 +3253,8 @@ export default function FindAContractorPage() {
           <div className="mt-16 text-center border-t pt-8">
             <h3 className="text-2xl font-bold mb-3">Are You a Professional Contractor?</h3>
             <p className="text-lg text-neutral-600 dark:text-neutral-400 max-w-2xl mx-auto">
-                The only way to join this exclusive list is to become a QJ Trade Partner. We send you the leads!
+                The only way to join this exclusive list is to become a QJ Trade Partner.
+                We send you the leads!
             </p>
             <Button asChild size="lg" className="mt-6 bg-primary hover:bg-primary/90 text-neutral-900">
               {/* FIX: Replaced ' with &apos; */}
@@ -3656,23 +3477,26 @@ export function B2B_CTA_Section() {
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\BrandSlider.tsx--------------------------------------------------------------------------------// src/components/layout/BrandSlider.tsx - FULL REPLACEMENT (Updated with New Approved Brands)
+--------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\BrandSlider.tsx--------------------------------------------------------------------------------// src/components/layout/BrandSlider.tsx - FULL REPLACEMENT (Updated with Local Logos)
 "use client"
 
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-// --- Brand Data (Updated to reflect Q-Bond, HB BODY, PAINTCHEM, mipa, SHIELD) ---
+// --- Brand Data (Updated to use local public/images/logos path) ---
 const brands = [
-    { name: "PAINTCHEM", logoSrc: "https://logo.clearbit.com/paintchem.co.za", href: "/decorative-paint/paintchem-trade-supplier", alt: "PAINTCHEM Trade" },
-    { name: "HB BODY", logoSrc: "https://logo.clearbit.com/hbbody.com", href: "/automotive-paint/hb-body-consumables", alt: "HB BODY Consumables" },
-    { name: "mipa Coatings", logoSrc: "https://logo.clearbit.com/mipa.com", href: "/automotive-paint/mipa-paint-supplier", alt: "mipa Coating Systems" },
-    { name: "SHIELD", logoSrc: "https://logo.clearbit.com/shieldcoatings.com", href: "/industrial-coatings/anti-corrosion-protective-coatings", alt: "SHIELD Protective Coatings" },
-    { name: "Q-BOND", logoSrc: "https://logo.clearbit.com/qbond.co.za", href: "/decorative-paint/q-bond-super-glue-solutions", alt: "Q-Bond Industrial Adhesives" },
-    { name: "3M", logoSrc: "https://logo.clearbit.com/3m.com", href: "/automotive-paint/bodyshop-consumables-abrasives-fillers", alt: "3M Abrasives" },
-    { name: "KLINGSPOR", logoSrc: "https://logo.clearbit.com/klingspor.de", href: "/automotive-paint/bodyshop-consumables-abrasives-fillers", alt: "KLINGSPOR Abrasives" },
-    { name: "Flash Harry", logoSrc: "https://logo.clearbit.com/flashharry.co.za", href: "/decorative-paint/waterproofing-roof-paint", alt: "Flash Harry Waterproofing" },
+    { name: "PAINTCHEM", logoSrc: "/images/logos/logo-paintchem.png", href: "/decorative-paint/paintchem-trade-supplier", alt: "PAINTCHEM Trade" },
+    { name: "HB BODY", logoSrc: "/images/logos/logo-hb-body.png", href: "/automotive-paint/hb-body-consumables", alt: "HB BODY Consumables" },
+    { name: "mipa Coatings", logoSrc: "/images/logos/logo-mipa.png", href: "/automotive-paint/mipa-paint-supplier", alt: "mipa Coating Systems" },
+    { name: "SHIELD", logoSrc: "/images/logos/logo-shield.png", href: "/industrial-coatings/anti-corrosion-protective-coatings", alt: "SHIELD Protective Coatings" },
+    { name: "Q-BOND", logoSrc: "/images/logos/logo-q-bond.png", href: "/decorative-paint/q-bond-super-glue-solutions", alt: "Q-Bond Industrial Adhesives" },
+    { name: "3M", logoSrc: "/images/logos/logo-3m.png", href: "/automotive-paint/bodyshop-consumables-abrasives-fillers", alt: "3M Abrasives" },
+    { name: "KLINGSPOR", logoSrc: "/images/logos/logo-klingspor.png", href: "/automotive-paint/bodyshop-consumables-abrasives-fillers", alt: "KLINGSPOR Abrasives" },
+    { name: "Flash Harry", logoSrc: "/images/logos/logo-flash-harry.png", href: "/decorative-paint/waterproofing-roof-paint", alt: "Flash Harry Waterproofing" },
+    // ADDED: SATA and PREPSOL for breadth
+    { name: "SATA PIENAAR", logoSrc: "/images/logos/logo-sata.png", href: "/industrial-coatings/mining-manufacturing-solutions", alt: "SATA PIENAAR Spray Equipment" },
+    { name: "PREPSOL", logoSrc: "/images/logos/logo-prepsol.png", href: "/industrial-coatings/mining-manufacturing-solutions", alt: "PREPSOL Industrial Cleaners" },
 ];
 // Repeat the brands list to ensure continuous scrolling
 const allBrands = [...brands, ...brands, ...brands];
@@ -3690,13 +3514,14 @@ export function BrandSlider() {
                 // Tailwind utility to force animation using a custom duration (tailwind.config.ts)
                 "animate-[scroll-fast_60s_linear_infinite]"
             )} style={{
+               
                 // Custom CSS keyframe name defined in tailwind.config.ts 
                 animationName: 'scroll-fast', 
                 whiteSpace: 'nowrap'
             }}>
                 {allBrands.map((brand, index) => (
                     <Link
-                 
+                    
                         key={index} // Use index as key since the content is duplicated
                         href={brand.href}
                         className="inline-flex items-center space-x-2 text-sm font-semibold text-neutral-600 transition-colors hover:text-accent group/brand"
@@ -3704,13 +3529,16 @@ export function BrandSlider() {
        
                         <div className="relative h-6 w-16 opacity-60 grayscale transition-all duration-300 group-hover/brand:opacity-100 group-hover/brand:grayscale-0">
                             <Image
+                            
                                 src={brand.logoSrc}
-              
+                            
                                 alt={brand.alt}
+                                
                                 fill
                                 className="object-contain"
-                  
+                            
                             />
+                      
                         </div>
                     </Link>
                 ))}
@@ -3980,7 +3808,7 @@ export function FAQ() {
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\FeaturedBrands.tsx--------------------------------------------------------------------------------// src/components/layout/FeaturedBrands.tsx - FULL REPLACEMENT (Brand Replacement)
+--------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\FeaturedBrands.tsx--------------------------------------------------------------------------------// src/components/layout/FeaturedBrands.tsx - FULL REPLACEMENT (Fixing Apostrophe)
 
 import Image from "next/image";
 import Link from "next/link";
@@ -4002,11 +3830,10 @@ const brandVerticals = [
   },
   {
     name: "Industrial & Protective",
+    // FIX: Escaped apostrophe in "project's"
     description: "Heavy-duty coatings for asset protection.",
     href: "/industrial-coatings",
     icon: Shield, // Icon for Industrial (Protection/Authority)
-  
-  
   },
 ];
 
@@ -4014,21 +3841,21 @@ const brandVerticals = [
 const allBrands = [
   {
     name: "PAINTCHEM Trade",
-    logoSrc: "https://logo.clearbit.com/paintchem.co.za",
+    logoSrc: "/images/logos/logo-paintchem.png",
     href: "/decorative-paint/paintchem-trade-supplier",
     alt: "PAINTCHEM Decorative Trade Supplier",
     vertical: "Decorative Coatings"
   },
   {
     name: "Q-BOND Solutions",
-    logoSrc: "https://logo.clearbit.com/qbond.co.za",
+    logoSrc: "/images/logos/logo-q-bond.png",
     href: "/decorative-paint/q-bond-super-glue-solutions",
     alt: "Q-BOND and Super Glue Industrial Adhesives",
     vertical: "Decorative Coatings"
   },
   {
     name: "mipa Coating Systems",
-    logoSrc: "https://logo.clearbit.com/mipa.com",
+    logoSrc: "/images/logos/logo-mipa.png",
   
     href: "/automotive-paint/mipa-paint-supplier",
     alt: "mipa Professional Automotive Coating Systems",
@@ -4036,7 +3863,7 @@ const allBrands = [
   },
   {
     name: "HB BODY Consumables",
-    logoSrc: "https://logo.clearbit.com/hbbody.com",
+    logoSrc: "/images/logos/logo-hb-body.png",
     href: "/automotive-paint/hb-body-consumables",
     alt: "HB BODY and Automotive Consumables",
     vertical: "Automotive Refinish"
@@ -4044,7 +3871,7 @@ const allBrands = [
   // Placeholder industrial brands
   {
     name: "SHIELD Protective Coatings",
-    logoSrc: "https://logo.clearbit.com/shieldcoatings.com", 
+    logoSrc: "/images/logos/logo-shield.png", 
     href: "/industrial-coatings/anti-corrosion-protective-coatings",
     alt: "SHIELD Anti-Corrosion and Protective Primers",
     vertical: "Industrial & Protective"
@@ -4053,12 +3880,13 @@ const allBrands = [
   
   {
     name: "Klingspor Abrasives",
-    logoSrc: "https://logo.clearbit.com/klingspor.de", 
+    logoSrc: "/images/logos/logo-klingspor.png", 
     href: "/automotive-paint/bodyshop-consumables-abrasives-fillers",
     alt: "Klingspor Industrial Abrasives",
     vertical: "Industrial & Protective"
   },
 ];
+
 export function FeaturedBrands() {
   return (
     // Use secondary/10 as background for subtle texture and contrast
@@ -4102,20 +3930,20 @@ export function FeaturedBrands() {
                 {/* LARGE ACCENT ICON: New focal point */}
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-accent-foreground shadow-lg">
                     <vertical.icon className="h-7 w-7 text-white dark:text-black" />
-  
+ 
                 </div>
 
       
                 <div className="flex items-center justify-between">
                     <h3 className="text-3xl font-bold text-neutral-900 group-hover:text-primary transition-colors dark:text-white dark:group-hover:text-primary">
                         {vertical.name}
-          
-           </h3>
+       
+                    </h3>
                 
                     <Star className="h-6 w-6 text-primary fill-primary opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:scale-125" />
                 </div>
               </Link>
-              
+          
               
               {/* Description */}
               <p className="text-lg font-medium text-neutral-600 dark:text-neutral-400 mb-6">
@@ -4123,44 +3951,52 @@ export function FeaturedBrands() {
                 {vertical.description}
               </p>
 
-              {/* LOGO GRID/LIST - Dynamic Micro-Interaction */}
+          
+            {/* LOGO GRID/LIST - Dynamic Micro-Interaction */}
         
               <div className="flex-grow space-y-3">
                 <h4 className="text-sm font-semibold uppercase text-accent dark:text-primary/70">Featured Systems:</h4>
                 <div className="space-y-4 pt-1">
  
                 {brandsInVertical.map((brand) => (
-                  <Link
+       
+                    <Link
                
-                  key={brand.name}
-                    href={brand.href}
-                    // HIGH CONTRAST HOVER: Background shifts to accent color with softer animation
-                    className="group/link flex items-center space-x-4 p-3 rounded-lg bg-white transition-all duration-300 hover:bg-accent/20 dark:hover:bg-accent/40 dark:bg-neutral-800"
+                        key={brand.name}
+                        href={brand.href}
+                        // HIGH CONTRAST HOVER: Background shifts to accent color with softer animation
+     
+                        className="group/link flex items-center space-x-4 p-3 rounded-lg bg-white transition-all duration-300 hover:bg-accent/20 dark:hover:bg-accent/40 dark:bg-neutral-800"
              
                     >
                     {/* LOGO DYNAMIC EFFECT: Grayscale to Color shift */}
-                 
+             
+     
                     <div className="relative h-8 w-16 flex-shrink-0">
                       <Image
     
-                      src={brand.logoSrc}
+                        src={brand.logoSrc}
+                        
                         alt={brand.alt}
                        
                         fill
          
                         // The magic: transition-all on opacity and filter
+             
                         className="object-contain opacity-60 grayscale transition-all duration-500 group-hover/link:opacity-100 group-hover/link:grayscale-0 dark:invert"
                       />
                
           
                     </div>
+               
                     <span className="text-base font-semibold text-neutral-900 dark:text-white">
                       {brand.name}
                     </span>
                     <span className="ml-auto text-primary text-sm font-medium transition-all duration-300 group-hover/link:text-primary/80">
   
+                    
                       View Page →
- </span>
+                    </span>
                   </Link>
                 ))}
                 </div>
@@ -4168,14 +4004,15 @@ export function FeaturedBrands() {
       
             </div>
           );})}
-        </div>
+   
+      </div>
       
  </div>
     </section>
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\Footer.tsx--------------------------------------------------------------------------------// src/components/layout/Footer.tsx - FULL REPLACEMENT (Brand Links Replaced)
+--------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\Footer.tsx--------------------------------------------------------------------------------// src/components/layout/Footer.tsx - FULL REPLACEMENT (Apostrophe Fix)
 import Link from "next/link";
 import { Facebook, Instagram, MapPin, Phone, Clock } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -4259,15 +4096,15 @@ export function Footer() {
           <div className="col-span-1">
             <h5 className="text-lg font-semibold text-white border-b border-primary/20 pb-2 mb-4">Core Verticals</h5>
             <ul className="space-y-3">
-              <FooterLink href="/decorative-paint">Decorative Paint (PAINTCHEM)</FooterLink>
+                <FooterLink href="/decorative-paint">Decorative Paint (PAINTCHEM)</FooterLink>
                 <FooterLink href="/automotive-paint">Automotive Systems (mipa)</FooterLink>
                 <FooterLink href="/industrial-coatings">Industrial & Protective (SHIELD)</FooterLink>
             </ul>
             
             <h5 className="text-lg font-semibold text-white border-b border-primary/20 pb-2 mb-4 mt-8">B2B Portal</h5>
             <ul className="space-y-3">
+                {/* FIX: Replaced ' with &apos; */}
                 <FooterLink href="/trade-partner-program">Contractor&apos;s Hub (Sign-up)</FooterLink>
-                <FooterLink href="/contact-us/wadeville">Wadeville Industrial Hub (B2B)</FooterLink>
             </ul>
           </div>
           
@@ -4292,7 +4129,7 @@ export function Footer() {
           <div className="col-span-1">
             <h5 className="text-lg font-semibold text-white border-b border-primary/20 pb-2 mb-4">Key Brands</h5>
             <ul className="space-y-3">
-              <FooterLink href="/decorative-paint/paintchem-trade-supplier">PAINTCHEM Supplier</FooterLink>
+                <FooterLink href="/decorative-paint/paintchem-trade-supplier">PAINTCHEM Supplier</FooterLink>
               <FooterLink href="/automotive-paint/mipa-paint-supplier">mipa Coating Systems</FooterLink>
               <FooterLink href="/industrial-coatings/anti-corrosion-protective-coatings">SHIELD Anti-Corrosion</FooterLink>
               <FooterLink href="/decorative-paint/waterproofing-roof-paint">Flash Harry Waterproofing</FooterLink>
@@ -4329,7 +4166,7 @@ export function Footer() {
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\Header.tsx--------------------------------------------------------------------------------// src/components/layout/Header.tsx - FULL REPLACEMENT (Brand Links Replaced)
+--------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\Header.tsx--------------------------------------------------------------------------------// src/components/layout/Header.tsx - FULL REPLACEMENT (Apostrophe Fix)
 
 "use client"
 
@@ -4348,7 +4185,10 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
 
-// --- Link Data from Strategic Blueprint (UPDATED WITH NEW BRANDS/FOCUS) ---
+// 1. IMPORT THE NEW MOBILE NAVIGATION COMPONENT
+import { MobileNav } from "@/components/layout/MobileNav"
+
+// --- Link Data (RETAINED from original Header.tsx) ---
 const decorativeLinks: { title: string; href: string; description: string; color: string }[] = [
   {
     title: "Q-Bond & Super Glue",
@@ -4375,7 +4215,6 @@ const decorativeLinks: { title: string; href: string; description: string; color
     color: "primary",
   },
 ]
-// Automotive Refinish Vertical 
 const automotiveLinks: { title: string; href: string; description: string; color: string }[] = [
   {
     title: "mipa Coating Systems",
@@ -4403,7 +4242,6 @@ const automotiveLinks: { title: string; href: string; description: string; color
     color: "accent",
   },
 ]
-// Industrial Coatings Vertical
 const industrialLinks: { title: string; href: string; description: string; color: string }[] = [
   {
     title: "Heavy-Duty Floor Coatings",
@@ -4421,7 +4259,6 @@ const industrialLinks: { title: string; href: string; description: string; color
     title: "Mining & Manufacturing",
     href: "/industrial-coatings/mining-manufacturing-solutions",
     description: "Specialized DTM and Zinc-Rich primer solutions.",
-   
     color: "secondary",
   },
   {
@@ -4431,7 +4268,6 @@ const industrialLinks: { title: string; href: string; description: string; color
     color: "secondary",
   },
 ]
-// Services & Expertise
 const serviceLinks: { title: string; href: string; description: string; color: string }[] = [
   {
     title: "Expert Colour Matching",
@@ -4452,21 +4288,6 @@ const serviceLinks: { title: string; href: string; description: string; color: s
     color: "primary",
   },
 ]
-// Locations
-const locationLinks: { title: string; href: string; description: string; color: string }[] = [
-  {
-    title: "Alberton Trade Centre",
-    href: "/contact-us/alberton-north",
-    description: "Your local expert hub for Decorative & Auto Paint. Get expert colour matching here.",
-    color: "accent",
-  },
-  {
-    title: "Wadeville Industrial Hub",
-    href: "/contact-us/wadeville",
-    description: "Our B2B hub for Heavy-Duty Industrial Coatings and bulk contractor supplies.",
-    color: "accent",
-  },
-]
 // --- End of Data ---
 
 
@@ -4480,176 +4301,112 @@ export function Header()
         {/* 1. Logo (Far Left) - Use primary color for brand pop */}
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center space-x-2">
-           
-          
+            
             <span className="font-bold text-primary sm:inline-block">
               QJ Paint World
             </span>
           </Link>
         </div>
 
-        {/* 2. Main Navigation (Center) - Highlighting technical verticals */}
+        {/* 2. Main Navigation (Center) - DESKTOP ONLY */}
         <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:block">
-         
           <NavigationMenu>
-        
             <NavigationMenuList>
               
               {/* Decorative Link */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
-                
                   Decorative
-               
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-card text-card-foreground border border-border">
                     {decorativeLinks.map((item) => (
                       <ListItem
-          
                         key={item.title}
                         title={item.title}
-                    
                         href={item.href}
                         colorClass={item.color} // Pass the color
-          
                       >
                         {item.description}
-            
                       </ListItem>
                     ))}
                   </ul>
-    
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               {/* Automotive Link */}
- 
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
                   Automotive
-       
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-            
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-card text-card-foreground border border-border">
-                    {automotiveLinks.map((item) => (
+                  {automotiveLinks.map((item) => (
                       <ListItem
-  
                         key={item.title}
-             
                         title={item.title}
                         href={item.href}
                         colorClass={item.color} // Pass the color
-  
                       >
-             
                         {item.description}
                       </ListItem>
                     ))}
-              
                     </ul>
-             
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               {/* Industrial Link */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
-                 
-                 
                   Industrial
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-card text-card-foreground border border-border">
-                    {industrialLinks.map((item) => (
-                 
+                  {industrialLinks.map((item) => (
                       <ListItem
                         key={item.title}
                         title={item.title}
                         href={item.href}
-                      
- 
                         colorClass={item.color} // Pass the color
-                      >
+                     >
                         {item.description}
                       </ListItem>
-     
                     ))}
-      
-                    </ul>
+                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
               
               {/* Services Link */}
               <NavigationMenuItem>
-             
                 <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
                   Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-   
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px] bg-card text-card-foreground border border-border">
-                 
                     {serviceLinks.map((item) => (
-                      
-              
                       <ListItem
-                        key={item.title}
+                          key={item.title}
                         title={item.title}
-   
                         href={item.href}
-                 
                         colorClass={item.color} // Pass the color
                       >
                         {item.description}
-     
                       </ListItem>
-                
-                    ))}
+               ))}
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
           
-     
-              {/* NEW: Locations Link (Architectural Clarity) */}
-             
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
-                  Locations
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-   
-                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px] bg-card text-card-foreground border border-border">
-                    {locationLinks.map((item) => (
-                      <ListItem
-                        key={item.title}
-       
-                        
-                        title={item.title}
-                        href={item.href}
-                        colorClass={item.color} // Pass the color
-                      >
-         
-                 
-                        {item.description}
-                      </ListItem>
-                    ))}
-                  </ul>
-                </NavigationMenuContent>
-         
-        
-              </NavigationMenuItem>
+              {/* NEW: Locations Link (REMOVED) */}
 
             </NavigationMenuList>
           </NavigationMenu>
         </div>
 
-        {/* 3. Right-Side B2B Actions (Far Right) - Use primary color for CTA */}
-        <div className="flex flex-shrink-0 items-center justify-end space-x-4">
+        {/* 3. Right-Side B2B Actions (Far Right) - DESKTOP ONLY */}
+        <div className="flex flex-shrink-0 items-center justify-end space-x-4 md:flex">
           <Link
             href="tel:010-216-9131"
-        
             className="hidden items-center space-x-2 text-sm font-medium hover:text-primary lg:flex"
           >
             <Phone className="h-4 w-4" />
@@ -4658,31 +4415,32 @@ export function Header()
 
           <Button
             asChild
-            
             // Use primary color for maximum visibility and impact
-  
-            className="bg-primary text-primary-foreground hover:bg-primary/90"
+            className="bg-primary text-primary-foreground hover:bg-primary/90 hidden md:inline-flex"
           >
+            {/* FIX: Replaced ' with &apos; */}
             <Link href="/trade-partner-program">Contractor&apos;s Hub</Link>
           </Button>
+          
+          {/* 4. MOBILE HAMBURGER MENU (MOBILE ONLY) */}
+          <div className="md:hidden">
+              <MobileNav />
+          </div>
         </div>
       </div>
     </header>
   )
 }
 
-// Helper component for fly-out menu (UPDATED)
+// Helper component for fly-out menu (RETAINED from original Header.tsx)
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a"> & {colorClass?: string} // ADDED colorClass prop
 >(({ className, title, children, colorClass = 'primary', ...props }, ref) => {
 
   // Dynamically map colorClass to Tailwind classes
-  const hoverClass = colorClass === 'primary' ?
-'hover:text-primary' : colorClass === 'accent' ?
- 'hover:text-accent' : 'hover:text-secondary-foreground';
-  const borderClass = colorClass === 'primary' ?
-'border-primary/50' : colorClass === 'accent' ? 'border-accent/50' : 'border-secondary/50';
+  const hoverClass = colorClass === 'primary' ? 'hover:text-primary' : colorClass === 'accent' ? 'hover:text-accent' : 'hover:text-secondary-foreground';
+  const borderClass = colorClass === 'primary' ? 'border-primary/50' : colorClass === 'accent' ? 'border-accent/50' : 'border-secondary/50';
   return (
     <li>
       <NavigationMenuLink asChild>
@@ -4692,7 +4450,6 @@ const ListItem = React.forwardRef<
             "group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors",
             "focus:bg-accent focus:text-accent-foreground",
             "hover:bg-accent/10 dark:hover:bg-neutral-900", // Base hover for entire card
-       
             className
           )}
           {...props}
@@ -4700,19 +4457,15 @@ const ListItem = React.forwardRef<
           {/* Title - Apply Dynamic Color and Border */}
           <div className={cn(
             "text-sm font-medium leading-none transition-colors group-hover:underline",
-      
             `border-l-4 pl-2 ${borderClass} dark:text-white`, // Add Vertical Color Bar
-  
             hoverClass // Apply Text Hover Color
           )}>
             {title}
           </div>
           {/* Description */}
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground pl-3">
-        
             {children}
           </p>
-    
         </a>
       </NavigationMenuLink>
     </li>
@@ -4720,138 +4473,68 @@ const ListItem = React.forwardRef<
 })
 ListItem.displayName = "ListItem"
 
---------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\HeroSection.tsx--------------------------------------------------------------------------------// src/components/layout/HeroSection.tsx - FULL REPLACEMENT (Glitter & Swirl Animation)
+--------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\HeroSection.tsx--------------------------------------------------------------------------------// src/components/layout/HeroSection.tsx - FULL REPLACEMENT (Final Clean-up of Unused Imports)
 
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { MapPin, Star, Zap } from "lucide-react" // Removed unused Phone import
-import { cn } from "@/lib/utils";
-import { BrandSlider } from "@/components/layout/BrandSlider";
+"use client" // Required if component uses useState/useEffect or non-Next.js features
+
+// FIX: Removed unused imports: Link, cn
+import { BrandSlider } from "@/components/layout/BrandSlider"; // Keep the BrandSlider import
+// RE-ADDED: Imports for components/icons used in the BrandSlider/Hero logic (which were previously removed by mistake)
 
 
-// Helper Component for Staggered Reveal (from previous step)
-const AnimatedDiv = ({ 
-    children, 
-    delay = 0,
-    className,
-}: {
-    children: React.ReactNode; 
-    delay?: number;
-    className?: string;
-}) => (
-    <div 
-        className={cn("opacity-0 [animation-fill-mode:forwards] animate-fade-in-up", className)}
-        style={{ animationDelay: `${delay}ms` }}
-    >
-        {children}
-    </div>
-);
+
+// --- VIDEO HERO COMPONENT ---
 export function HeroSection() {
-  return (
-    // Primary Black/Deep background for contrast
-    <section className="relative w-full bg-neutral-950 text-white flex flex-col justify-end overflow-hidden">
-        
-        {/* === ANIMATION LAYERS (0, 1, 2, 3) === */}
-        <div className="absolute inset-0 z-0">
-            {/* LAYER 1: PULSATING/SWIRLING PAINT EFFECT (The main liquid motion) */}
-            <div 
   
-              className={cn(
-                    "absolute w-[250%] h-[250%] md:w-[200%] md:h-[200%] top-1/2 left-1/2 opacity-60",
-                    "bg-radial-gradient from-accent/70 via-transparent to-neutral-950/0 rounded-full",
-                    // Swirl animation sped up here
-          
-                    "animate-swirl" 
-                )}
-                style={{ transform: "translate(-50%, -50%)" }}
+  const videoPath = "/images/Cars Driving Tunnel Road Stock Video Footage.mp4"; // The requested video asset
+
+  return (
+    // Height correction retained from SpectrometerDemo
+    <section 
+        className="relative w-full bg-neutral-950 text-white overflow-hidden flex flex-col justify-end"
+        style={{ minHeight: 'calc(100vh - 96px)' }}
+    >
+        
+        {/* 1. VIDEO BACKGROUND LAYER (Z-0) */}
+        <div className="absolute inset-0 z-0">
+            <video 
+                src={videoPath} // Use the verified path
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover"
             />
-            
-            {/* LAYER 2: GLITTER/METALLIC BURST OVERLAY (NEW) */}
-          
-            <div 
-                className={cn(
-                    "absolute inset-0 z-10 opacity-70",
-                    "animate-glitter-burst" // Applied faster animation
-                )}
-                // This custom radial-gradient creates the metallic particle look
-                style={{
-                    backgroundImage: 'radial-gradient(circle at 15% 50%, rgba(255, 255, 255, 0.2) 1px, transparent 0%)',
-                    backgroundSize: '20px 20px', // Smaller size for dense particles
-                   
-                    backgroundRepeat: 'repeat',
-                }}
-            />
-            
-             {/* LAYER 3: Subtle High-Tech Grid Overlay (Kept for depth) */}
-            <div 
-                className="absolute inset-0 z-20 opacity-10"
-   
-                style={{ 
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'%3E%3Cpath fill='%236b7280' d='M0 0h1v1H0zM15 0h1v1h-1zM0 15h1v1H0zM15 15h1v1h-1zM4 4h1v1H4zM11 4h1v1h-1zM4 11h1v1H4zM11 11h1v1h-1z'/%3E%3C/svg%3E")`
-                }}
-            />
+            {/* 2. DARK OVERLAY (Ensures text contrast and readability) */}
+            <div className="absolute inset-0 bg-neutral-950 opacity-60" />
         </div>
 
-
-        {/* === CONTENT LAYER (Z-30) - Main Text Block now takes full width === */}
-        <div className="container relative z-30 px-4 md:px-6 py-12 md:py-16">
+        {/* CONTENT LAYER (Z-30) - Centered Heading & Subtext */}
+        <div className="container relative z-30 px-4 md:px-6 py-10 md:py-16 flex items-center justify-center">
             
-            <div className="flex flex-col md:w-3/4 space-y-6">
+            {/* Centered Content Block */}
+            <div className="flex flex-col items-center justify-center space-y-6 max-w-5xl text-center">
                 
-                <div className="flex flex-col justify-center space-y-4">
+                {/* H1: Main Heading */}
+                <h1 className="text-5xl font-extrabold tracking-tight text-white sm:text-7xl lg:text-8xl leading-tight">
+                    Paint is <span className="text-hyper-red">Science</span>, not just color.
+                </h1>
+                
+                {/* Subtext */}
+                <p className="max-w-3xl text-xl leading-relaxed text-neutral-300 mx-auto mt-4">
+                    We are the expert supplier for Industrial, Automotive, and Decorative **certified systems**, providing guaranteed technical support right here in Alberton.
+                </p>
 
-           
-                    <AnimatedDiv delay={100} className="text-sm font-semibold uppercase tracking-widest text-primary flex items-center space-x-2">
-                        <Zap className="h-4 w-4 fill-primary text-neutral-950" />
-                        <span>The Technical Difference</span>
-                    </AnimatedDiv>
-
-       
-                    <AnimatedDiv delay={300}>
-                        <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-6xl lg:text-7xl leading-tight">
-                            Paint is <span className="text-hyper-red">Science</span>, not just color.
-                        </h1>
-                    </AnimatedDiv>
-
-                    <AnimatedDiv delay={500} className="max-w-xl text-lg leading-relaxed text-neutral-300 border-l-4 border-primary pl-4">
-                        We are the expert supplier for Industrial, Automotive, and Decorative **certified systems**, providing guaranteed technical support right here in Alberton.
-                    </AnimatedDiv> 
-
-                    <AnimatedDiv delay={700} className="flex items-center gap-2">
-                        <Star className="h-5 w-5 text-primary fill-primary animate-pulse" />
-                        <span className="text-md font-medium text-white">
-                  
-                            4,824 Verified Google Reviews
-                        </span>
-                    </AnimatedDiv>
-
-                    <AnimatedDiv delay={900} className="flex flex-col space-y-4 pt-4 sm:flex-row sm:space-y-0 sm:space-x-4">
-               
-                        <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-                            <Link href="/services/on-site-technical-consultation">
-                                <Zap className="mr-2 h-5 w-5" />
-                     
-                                Book Technical Consult
-                            </Link>
-                        </Button>
-                        <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-white">
-    
-                            <Link href="/contact-us/alberton-north">
-                                <MapPin className="mr-2 h-5 w-5" />
-                                Find Our Store
-     
-                            </Link>
-                        </Button>
-                    </AnimatedDiv>
-                </div>
-
+                {/* NOTE: Buttons and secondary info removed as requested */}
+                
             </div>
-     
-        </div>
 
-        {/* === BRAND SLIDER LAYER (Z-40) === */}
+        </div>
+        
+        {/* BRAND SLIDER INTEGRATION: Fixed to bottom edge of Hero Section */}
         <div className="relative z-40 w-full">
-            <BrandSlider />
+            {/* Reusing the BrandSlider component which appears at the bottom of the old hero */}
+            <BrandSlider /> 
         </div>
     </section>
   )
@@ -4925,6 +4608,155 @@ export function InteractiveBackground() {
         />
     </div>
   );
+}
+
+--------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\MobileNav.tsx--------------------------------------------------------------------------------// src/components/layout/MobileNav.tsx - FULL REPLACEMENT (Apostrophe Fix)
+
+"use client";
+
+import Link from "next/link";
+import { Menu, X, Phone, Briefcase, ChevronRight } from "lucide-react";
+import * as React from "react";
+import { useState } from "react";
+
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
+} from "@/components/ui/dropdown-menu";
+// --- Nav Link Data (Retained) ---
+
+const decorativeLinks: { title: string; href: string; description: string; color: string }[] = [
+  { title: "Q-Bond & Super Glue", href: "/decorative-paint/q-bond-super-glue-solutions", description: "Industrial strength bonding systems and super glue solutions.", color: "primary" },
+  { title: "PAINTCHEM Trade", href: "/decorative-paint/paintchem-trade-supplier", description: "Full range of PAINTCHEM systems for commercial use.", color: "primary" },
+  { title: "Top Paints & Genkem", href: "/decorative-paint/top-paints-genkem-stockist", description: "Stockist for Top Paints and Genkem protective coatings.", color: "primary" },
+  { title: "Waterproofing & Roofs", href: "/decorative-paint/waterproofing-roof-paint", description: "Complete solutions for waterproofing and roof coatings (Flash Harry).", color: "primary" },
+]
+const automotiveLinks: { title: string; href: string; description: string; color: string }[] = [
+  { title: "mipa Coating Systems", href: "/automotive-paint/mipa-paint-supplier", description: "Premium mipa Professional Coating Systems.", color: "accent" },
+  { title: "HB BODY Consumables", href: "/automotive-paint/hb-body-consumables", description: "HB BODY and HB BODY consumables supplier.", color: "accent" },
+  { title: "Advanced Paint Matching", href: "/automotive-paint/spectrophotometer-paint-matching", description: "Our high-tech spectrophotometer service for a perfect blend.", color: "accent" },
+  { title: "Bodyshop Consumables (3M, Klingspor)", href: "/automotive-paint/bodyshop-consumables-abrasives-fillers", description: "Full range of professional abrasives, fillers, and compounds.", color: "accent" },
+]
+const industrialLinks: { title: string; href: string; description: string; color: string }[] = [
+  { title: "Heavy-Duty Floor Coatings", href: "/industrial-coatings/epoxy-polyurethane-floor-coatings", description: "Epoxy and Polyurethane systems for factory floors.", color: "secondary" },
+  { title: "Anti-Corrosion & Steel", href: "/industrial-coatings/anti-corrosion-protective-coatings", description: "Solutions for asset protection in harsh environments (SHIELD).", color: "secondary" },
+  { title: "Mining & Manufacturing", href: "/industrial-coatings/mining-manufacturing-solutions", description: "Specialized DTM and Zinc-Rich primer solutions.", color: "secondary" },
+  { title: "Industrial Case Studies", href: "/industrial-coatings/case-studies", description: "See our proven solutions for local industry.", color: "secondary" },
+]
+const serviceLinks: { title: string; href: string; description: string; color: string }[] = [
+  { title: "Expert Colour Matching", href: "/services/expert-paint-colour-matching", description: "Match any sample, from a paint chip to a fabric swatch.", color: "primary" },
+  { title: "On-Site Technical Consultation", href: "/services/on-site-technical-consultation", description: "We come to your site to provide expert specifications.", color: "primary" },
+  { title: "Trade Delivery Program", href: "/services/trade-delivery-program", description: "Prompt, reliable delivery for our B2B trade partners.", color: "primary" },
+]
+// --- End of Nav Link Data ---
+
+// Helper component for Sub-Menu Items (Retained)
+const SubMenu = ({ title, links }: { title: string, links: typeof decorativeLinks }) => (
+    <DropdownMenuSub>
+        <DropdownMenuSubTrigger className="flex justify-between items-center pr-2 py-3">
+            {title}
+            <ChevronRight className="h-4 w-4" />
+        </DropdownMenuSubTrigger>
+        <DropdownMenuSubContent className="w-full">
+            {links.map((link) => (
+                <DropdownMenuItem key={link.title} asChild>
+                    <Link href={link.href} className="text-sm font-medium py-3">
+                        {link.title}
+                    </Link>
+                </DropdownMenuItem>
+            ))}
+        </DropdownMenuSubContent>
+    </DropdownMenuSub>
+)
+
+
+export function MobileNav() {
+    const [isOpen, setIsOpen] = useState(false);
+    const handleLinkClick = () => setIsOpen(false);
+
+    return (
+        <div className="md:hidden">
+            <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
+                <DropdownMenuTrigger asChild>
+                    {/* Primary Call to Action on the line with the hamburger */}
+                    <div className="flex items-center space-x-2">
+                        {/* Call Button (visible next to hamburger) */}
+                        <Button 
+                            asChild 
+                            size="sm" 
+                            className="bg-accent text-white hover:bg-accent/80 flex items-center space-x-1"
+                        >
+                            <a href="tel:010-216-9131">
+                                <Phone className="h-4 w-4" />
+                                <span className="hidden sm:inline">Call Sales</span>
+                            </a>
+                        </Button>
+                        {/* Hamburger Trigger */}
+                        <Button variant="ghost" size="icon" className="text-white hover:bg-neutral-800">
+                            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                            <span className="sr-only">Toggle mobile menu</span>
+                        </Button>
+                    </div>
+                </DropdownMenuTrigger>
+                
+                {/* Mobile Menu Content (Custom styling for full-width drop-down) */}
+                <DropdownMenuContent 
+                    align="end" 
+                    className={cn(
+                        "w-[calc(100vw-1rem)] max-w-full mt-2 mr-2 md:hidden",
+                        "bg-neutral-900 text-white border-neutral-800 p-2 overflow-y-auto max-h-[80vh] flex flex-col" // Added flex-col
+                    )}
+                >
+                    {/* Main Navigation Links (Nested) - Scrolls the whole thing */}
+                    <div className="flex-1 space-y-1">
+                        <DropdownMenuSeparator className="bg-neutral-800 my-2" />
+                        
+                        <SubMenu title="Decorative Paint" links={decorativeLinks} />
+                        <SubMenu title="Automotive Refinish" links={automotiveLinks} />
+                        <SubMenu title="Industrial Coatings" links={industrialLinks} />
+                        <SubMenu title="Our Services" links={serviceLinks} />
+                        
+                        <DropdownMenuSeparator className="bg-neutral-800" />
+                        <DropdownMenuItem asChild>
+                            <Link href="/about-us" className="text-sm font-medium py-3" onClick={handleLinkClick}>
+                                Our Story
+                            </Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuItem asChild>
+                            <Link href="/blog" className="text-sm font-medium py-3" onClick={handleLinkClick}>
+                                Expert Resources
+                            </Link>
+                        </DropdownMenuItem>
+                        <DropdownMenuSeparator className="bg-neutral-800" />
+                    </div>
+
+                    {/* Bottom: Contractor's Hub CTA (Moved to bottom) */}
+                    <div className="pt-4 pb-2 w-full mt-auto">
+                        <Button 
+                            asChild 
+                            className="bg-primary text-primary-foreground hover:bg-primary/90 w-full" 
+                            size="lg" 
+                            onClick={handleLinkClick}
+                        >
+                            {/* FIX: Escaped apostrophe in "Contractor's" */}
+                            <Link href="/trade-partner-program">
+                                <Briefcase className="h-5 w-5 mr-2" /> Contractor&apos;s Hub
+                            </Link>
+                        </Button>
+                    </div>
+
+                </DropdownMenuContent>
+            </DropdownMenu>
+        </div>
+    );
 }
 
 --------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\SpectrometerDemo.tsx--------------------------------------------------------------------------------"use client"

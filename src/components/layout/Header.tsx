@@ -1,4 +1,4 @@
-// src/components/layout/Header.tsx - FULL REPLACEMENT (Fixing Apostrophe)
+// src/components/layout/Header.tsx - FULL REPLACEMENT (Consumables Nav Added)
 
 "use client"
 
@@ -22,12 +22,6 @@ import { MobileNav } from "@/components/layout/MobileNav"
 
 // --- Link Data (RETAINED from original Header.tsx) ---
 const decorativeLinks: { title: string; href: string; description: string; color: string }[] = [
-  {
-    title: "Q-Bond & Super Glue",
-    href: "/decorative-paint/q-bond-super-glue-solutions",
-    description: "Industrial strength bonding systems and super glue solutions.",
-    color: "primary",
-  },
   {
     title: "PAINTCHEM Trade",
     href: "/decorative-paint/paintchem-trade-supplier",
@@ -64,14 +58,34 @@ const automotiveLinks: { title: string; href: string; description: string; color
     title: "Advanced Paint Matching",
     href: "/automotive-paint/spectrophotometer-paint-matching",
     description: "Our high-tech spectrophotometer service for a perfect blend.",
-    
     color: "accent",
   },
+]
+// NEW CONSUMABLES LINKS
+const consumableLinks: { title: string; href: string; description: string; color: string }[] = [
   {
-    title: "Bodyshop Consumables (3M, Klingspor)",
-    href: "/automotive-paint/bodyshop-consumables-abrasives-fillers",
-    description: "Full range of professional abrasives, fillers, and compounds.",
-    color: "accent",
+    title: "General Paint Supplies",
+    href: "/consumables/general-paint-supplies",
+    description: "Abrasives, masking, brushes, rollers, & PPE.",
+    color: "secondary",
+  },
+  {
+    title: "Automotive Bodyshop",
+    href: "/consumables/automotive-bodyshop",
+    description: "Fillers, degreasers (PREPSOL), & polishing (Farécla).",
+    color: "secondary",
+  },
+  {
+    title: "Industrial & Heavy-Duty",
+    href: "/consumables/industrial-heavy-duty",
+    description: "Rust converters, solvents, & thick-film rollers.",
+    color: "secondary",
+  },
+  {
+    title: "Q-Bond Adhesive Kits",
+    href: "/consumables/q-bond-adhesives",
+    description: "Ultra-strong adhesives for structural repairs.",
+    color: "secondary",
   },
 ]
 const industrialLinks: { title: string; href: string; description: string; color: string }[] = [
@@ -91,7 +105,6 @@ const industrialLinks: { title: string; href: string; description: string; color
     title: "Mining & Manufacturing",
     href: "/industrial-coatings/mining-manufacturing-solutions",
     description: "Specialized DTM and Zinc-Rich primer solutions.",
-   
     color: "secondary",
   },
   {
@@ -121,20 +134,6 @@ const serviceLinks: { title: string; href: string; description: string; color: s
     color: "primary",
   },
 ]
-const locationLinks: { title: string; href: string; description: string; color: string }[] = [
-  {
-    title: "Alberton Trade Centre",
-    href: "/contact-us/alberton-north",
-    description: "Your local expert hub for Decorative & Auto Paint. Get expert colour matching here.",
-    color: "accent",
-  },
-  {
-    title: "Wadeville Industrial Hub",
-    href: "/contact-us/wadeville",
-    description: "Our B2B hub for Heavy-Duty Industrial Coatings and bulk contractor supplies.",
-    color: "accent",
-  },
-]
 // --- End of Data ---
 
 
@@ -148,8 +147,7 @@ export function Header()
         {/* 1. Logo (Far Left) - Use primary color for brand pop */}
         <div className="flex-shrink-0">
           <Link href="/" className="flex items-center space-x-2">
-           
-          
+            
             <span className="font-bold text-primary sm:inline-block">
               QJ Paint World
             </span>
@@ -158,184 +156,115 @@ export function Header()
 
         {/* 2. Main Navigation (Center) - DESKTOP ONLY */}
         <div className="absolute left-1/2 top-1/2 hidden -translate-x-1/2 -translate-y-1/2 md:block">
-         
           <NavigationMenu>
-        
             <NavigationMenuList>
               
               {/* Decorative Link */}
               <NavigationMenuItem>
-               
                 <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
-                
                   Decorative
-               
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-card text-card-foreground border border-border">
                     {decorativeLinks.map((item) => (
                       <ListItem
-          
                         key={item.title}
-         
                         title={item.title}
-                    
                         href={item.href}
                         colorClass={item.color} // Pass the color
-          
-   
-                    >
+                      >
                         {item.description}
-            
                       </ListItem>
                     ))}
-   
                   </ul>
-    
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               {/* Automotive Link */}
- 
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
- 
                   Automotive
-       
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-            
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-card text-card-foreground border border-border">
-   
                   {automotiveLinks.map((item) => (
                       <ListItem
-  
                         key={item.title}
-             
-                    
                         title={item.title}
                         href={item.href}
                         colorClass={item.color} // Pass the color
-  
                       >
-             
-       
                         {item.description}
                       </ListItem>
                     ))}
-              
                     </ul>
-       
-       
                 </NavigationMenuContent>
               </NavigationMenuItem>
 
               {/* Industrial Link */}
               <NavigationMenuItem>
                 <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
-               
-   
-                 
                   Industrial
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-card text-card-foreground border border-border">
-  
                   {industrialLinks.map((item) => (
-                 
                       <ListItem
                         key={item.title}
-                 
                         title={item.title}
                         href={item.href}
-                      
- 
                         colorClass={item.color} // Pass the color
-                  
-     >
+                     >
                         {item.description}
                       </ListItem>
-     
                     ))}
-      
-                   
- </ul>
+                   </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
+
+              {/* NEW: Consumables Link */}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
+                  Consumables
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-card text-card-foreground border border-border">
+                  {consumableLinks.map((item) => (
+                      <ListItem
+                        key={item.title}
+                        title={item.title}
+                        href={item.href}
+                        colorClass={item.color} // Pass the color
+                     >
+                        {item.description}
+                      </ListItem>
+                    ))}
+                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
               
               {/* Services Link */}
               <NavigationMenuItem>
-             
-           
                 <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
                   Services
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
-   
                   <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px] bg-card text-card-foreground border border-border">
-            
-      
                     {serviceLinks.map((item) => (
-                      
-              
                       <ListItem
-               
                           key={item.title}
                         title={item.title}
-   
                         href={item.href}
-                 
-                       
                         colorClass={item.color} // Pass the color
                       >
                         {item.description}
-     
                       </ListItem>
-                
-      
                ))}
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
           
-     
-              {/* NEW: Locations Link (Architectural Clarity) */}
-   
-           
-              <NavigationMenuItem>
-                <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
-                  Locations
-                </NavigationMenuTrigger>
-                <NavigationMenuContent>
-   
-     
-                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] lg:w-[600px] bg-card text-card-foreground border border-border">
-                    {locationLinks.map((item) => (
-                      <ListItem
-                        key={item.title}
-       
- 
-                        
-                        title={item.title}
-                        href={item.href}
-                        colorClass={item.color} // Pass the color
- 
-                      >
-         
-                 
-                        {item.description}
-                      </ListItem>
-       
-              ))}
-                  </ul>
-                </NavigationMenuContent>
-         
-        
-              </NavigationMenuItem>
-
             </NavigationMenuList>
-          
           </NavigationMenu>
         </div>
 
@@ -343,9 +272,7 @@ export function Header()
         <div className="flex flex-shrink-0 items-center justify-end space-x-4 md:flex">
           <Link
             href="tel:010-216-9131"
-        
             className="hidden items-center space-x-2 text-sm font-medium hover:text-primary lg:flex"
-          
           >
             <Phone className="h-4 w-4" />
             <span>010-216-9131</span>
@@ -353,12 +280,10 @@ export function Header()
 
           <Button
             asChild
-            
             // Use primary color for maximum visibility and impact
-  
-       
             className="bg-primary text-primary-foreground hover:bg-primary/90 hidden md:inline-flex"
           >
+            {/* FIX: Replaced ' with &apos; */}
             <Link href="/trade-partner-program">Contractor&apos;s Hub</Link>
           </Button>
           
@@ -379,11 +304,8 @@ const ListItem = React.forwardRef<
 >(({ className, title, children, colorClass = 'primary', ...props }, ref) => {
 
   // Dynamically map colorClass to Tailwind classes
-  const hoverClass = colorClass === 'primary' ?
-'hover:text-primary' : colorClass === 'accent' ?
- 'hover:text-accent' : 'hover:text-secondary-foreground';
-const borderClass = colorClass === 'primary' ?
-'border-primary/50' : colorClass === 'accent' ? 'border-accent/50' : 'border-secondary/50';
+  const hoverClass = colorClass === 'primary' ? 'hover:text-primary' : colorClass === 'accent' ? 'hover:text-accent' : 'hover:text-secondary-foreground';
+  const borderClass = colorClass === 'primary' ? 'border-primary/50' : colorClass === 'accent' ? 'border-accent/50' : 'border-secondary/50';
   return (
     <li>
       <NavigationMenuLink asChild>
@@ -393,8 +315,6 @@ const borderClass = colorClass === 'primary' ?
             "group block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors",
             "focus:bg-accent focus:text-accent-foreground",
             "hover:bg-accent/10 dark:hover:bg-neutral-900", // Base hover for entire card
-       
- 
             className
           )}
           {...props}
@@ -402,21 +322,15 @@ const borderClass = colorClass === 'primary' ?
           {/* Title - Apply Dynamic Color and Border */}
           <div className={cn(
             "text-sm font-medium leading-none transition-colors group-hover:underline",
-      
-         
             `border-l-4 pl-2 ${borderClass} dark:text-white`, // Add Vertical Color Bar
-  
             hoverClass // Apply Text Hover Color
           )}>
             {title}
           </div>
           {/* Description */}
           <p className="line-clamp-2 text-sm leading-snug text-muted-foreground pl-3">
-        
-   
             {children}
           </p>
-    
         </a>
       </NavigationMenuLink>
     </li>

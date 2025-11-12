@@ -1,4 +1,4 @@
-// src/components/layout/MobileNav.tsx - FULL REPLACEMENT (Fixing Apostrophe)
+// src/components/layout/MobileNav.tsx - FULL REPLACEMENT (Consumables Nav Added)
 
 "use client";
 
@@ -19,11 +19,9 @@ import {
   DropdownMenuSubTrigger,
   DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
-
 // --- Nav Link Data (Retained) ---
 
 const decorativeLinks: { title: string; href: string; description: string; color: string }[] = [
-  { title: "Q-Bond & Super Glue", href: "/decorative-paint/q-bond-super-glue-solutions", description: "Industrial strength bonding systems and super glue solutions.", color: "primary" },
   { title: "PAINTCHEM Trade", href: "/decorative-paint/paintchem-trade-supplier", description: "Full range of PAINTCHEM systems for commercial use.", color: "primary" },
   { title: "Top Paints & Genkem", href: "/decorative-paint/top-paints-genkem-stockist", description: "Stockist for Top Paints and Genkem protective coatings.", color: "primary" },
   { title: "Waterproofing & Roofs", href: "/decorative-paint/waterproofing-roof-paint", description: "Complete solutions for waterproofing and roof coatings (Flash Harry).", color: "primary" },
@@ -32,7 +30,13 @@ const automotiveLinks: { title: string; href: string; description: string; color
   { title: "mipa Coating Systems", href: "/automotive-paint/mipa-paint-supplier", description: "Premium mipa Professional Coating Systems.", color: "accent" },
   { title: "HB BODY Consumables", href: "/automotive-paint/hb-body-consumables", description: "HB BODY and HB BODY consumables supplier.", color: "accent" },
   { title: "Advanced Paint Matching", href: "/automotive-paint/spectrophotometer-paint-matching", description: "Our high-tech spectrophotometer service for a perfect blend.", color: "accent" },
-  { title: "Bodyshop Consumables (3M, Klingspor)", href: "/automotive-paint/bodyshop-consumables-abrasives-fillers", description: "Full range of professional abrasives, fillers, and compounds.", color: "accent" },
+]
+// NEW CONSUMABLES LINKS
+const consumableLinks: { title: string; href: string; description: string; color: string }[] = [
+  { title: "General Paint Supplies", href: "/consumables/general-paint-supplies", description: "Abrasives, masking, brushes, rollers, & PPE.", color: "secondary" },
+  { title: "Automotive Bodyshop", href: "/consumables/automotive-bodyshop", description: "Fillers, degreasers (PREPSOL), & polishing (Farécla).", color: "secondary" },
+  { title: "Industrial & Heavy-Duty", href: "/consumables/industrial-heavy-duty", description: "Rust converters, solvents, & thick-film rollers.", color: "secondary" },
+  { title: "Q-Bond Adhesive Kits", href: "/consumables/q-bond-adhesives", description: "Ultra-strong adhesives for structural repairs.", color: "secondary" },
 ]
 const industrialLinks: { title: string; href: string; description: string; color: string }[] = [
   { title: "Heavy-Duty Floor Coatings", href: "/industrial-coatings/epoxy-polyurethane-floor-coatings", description: "Epoxy and Polyurethane systems for factory floors.", color: "secondary" },
@@ -44,10 +48,6 @@ const serviceLinks: { title: string; href: string; description: string; color: s
   { title: "Expert Colour Matching", href: "/services/expert-paint-colour-matching", description: "Match any sample, from a paint chip to a fabric swatch.", color: "primary" },
   { title: "On-Site Technical Consultation", href: "/services/on-site-technical-consultation", description: "We come to your site to provide expert specifications.", color: "primary" },
   { title: "Trade Delivery Program", href: "/services/trade-delivery-program", description: "Prompt, reliable delivery for our B2B trade partners.", color: "primary" },
-]
-const locationLinks: { title: string; href: string; description: string; color: string }[] = [
-  { title: "Alberton Trade Centre", href: "/contact-us/alberton-north", description: "Your local expert hub for Decorative & Auto Paint. Get expert colour matching here.", color: "accent" },
-  { title: "Wadeville Industrial Hub", href: "/contact-us/wadeville", description: "Our B2B hub for Heavy-Duty Industrial Coatings and bulk contractor supplies.", color: "accent" },
 ]
 // --- End of Nav Link Data ---
 
@@ -73,7 +73,6 @@ const SubMenu = ({ title, links }: { title: string, links: typeof decorativeLink
 
 export function MobileNav() {
     const [isOpen, setIsOpen] = useState(false);
-
     const handleLinkClick = () => setIsOpen(false);
 
     return (
@@ -116,8 +115,8 @@ export function MobileNav() {
                         <SubMenu title="Decorative Paint" links={decorativeLinks} />
                         <SubMenu title="Automotive Refinish" links={automotiveLinks} />
                         <SubMenu title="Industrial Coatings" links={industrialLinks} />
+                        <SubMenu title="Consumables & Tools" links={consumableLinks} />
                         <SubMenu title="Our Services" links={serviceLinks} />
-                        <SubMenu title="Locations" links={locationLinks} />
                         
                         <DropdownMenuSeparator className="bg-neutral-800" />
                         <DropdownMenuItem asChild>
@@ -130,12 +129,12 @@ export function MobileNav() {
                                 Expert Resources
                             </Link>
                         </DropdownMenuItem>
-                         <DropdownMenuSeparator className="bg-neutral-800" />
+                        <DropdownMenuSeparator className="bg-neutral-800" />
                     </div>
 
                     {/* Bottom: Contractor's Hub CTA (Moved to bottom) */}
                     <div className="pt-4 pb-2 w-full mt-auto">
-                         <Button 
+                        <Button 
                             asChild 
                             className="bg-primary text-primary-foreground hover:bg-primary/90 w-full" 
                             size="lg" 

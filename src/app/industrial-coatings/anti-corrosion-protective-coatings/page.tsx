@@ -1,7 +1,7 @@
-// src/app/industrial-coatings/anti-corrosion-protective-coatings/page.tsx - FULL REPLACEMENT (SHIELD Brand Integration)
+// src/app/industrial-coatings/anti-corrosion-protective-coatings/page.tsx - FULL REPLACEMENT (Unused Import Removed)
 
 import Image from "next/image";
-import { Shield, Hammer, MoveRight, Layers } from "lucide-react"; // Removed Factory
+import { Shield, Hammer, Layers } from "lucide-react"; // Removed Factory & MoveRight
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -89,18 +89,7 @@ export default function AntiCorrosionPage() {
         </div>
       </section>
 
-      {/* Final CTA to Industrial Hub */}
-      <section className="py-12 bg-primary dark:bg-primary/90 text-neutral-900">
-        <div className="container text-center">
-          <h2 className="text-3xl font-bold">Need a Full Industrial System Specification?</h2>
-          <p className="mt-2 text-xl font-medium">
-            Contact our Wadeville Industrial Hub. The South African solution for complex coating requirements.
-          </p>
-          <Button asChild size="lg" className="mt-6 bg-neutral-900 text-white hover:bg-black/80">
-            <Link href="/contact-us/wadeville">Contact Wadeville Hub <MoveRight className="ml-2 h-5 w-5" /></Link>
-          </Button>
-        </div>
-      </section>
+      {/* Final CTA to Industrial Hub (REMOVED) */}
 
     </main>
   );

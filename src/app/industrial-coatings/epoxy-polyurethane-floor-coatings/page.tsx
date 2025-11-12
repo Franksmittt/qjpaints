@@ -1,15 +1,15 @@
+// src/app/industrial-coatings/epoxy-polyurethane-floor-coatings/page.tsx - FULL REPLACEMENT (Wadeville Text Removed)
+
 import Image from "next/image";
 // FIX: 'HardHat' and 'Beaker' removed from this import
 import { MoveRight, Warehouse } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-
 export const metadata = {
   title: "Heavy-Duty Epoxy & Polyurethane Floor Coatings Johannesburg | QJ Paint",
   description: "Definitive guide and supplier for industrial floor coatings in Johannesburg. We specify Epoxy systems vs. Polyurethane Screeds for factory floors and high-traffic areas.",
 };
-
 const systemComparison = [
   {
     system: "Epoxy Floor Coatings",
@@ -22,7 +22,6 @@ const systemComparison = [
     advantage: "Superior thermal shock resistance, higher impact protection, and better flexibility. Essential for high-demand environments.",
   },
 ];
-
 export default function IndustrialFloorCoatingsPage() {
   return (
     <main>
@@ -87,7 +86,7 @@ export default function IndustrialFloorCoatingsPage() {
         <div className="container text-center">
           <h2 className="text-3xl font-bold">Need Proof of Performance?</h2>
           <p className="mt-2 text-xl font-medium">
-            See our local case studies of heavy-duty floor projects in the Wadeville and Alrode industrial areas.
+            See our local case studies of heavy-duty floor projects in the local industrial areas.
           </p>
           <Button asChild size="lg" className="mt-6 bg-neutral-900 text-white hover:bg-black/80">
             <Link href="/industrial-coatings/case-studies">View Industrial Case Studies <MoveRight className="ml-2 h-5 w-5" /></Link>

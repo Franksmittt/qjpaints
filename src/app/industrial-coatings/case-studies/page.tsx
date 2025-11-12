@@ -1,3 +1,5 @@
+// src/app/industrial-coatings/case-studies/page.tsx - FULL REPLACEMENT (Wadeville Case Study Removed)
+
 import Image from "next/image";
 // FIX: 'Factory' and 'MoveRight' removed from this import
 import { Download, MapPin, Layers } from "lucide-react";
@@ -5,12 +7,10 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-
 export const metadata = {
   title: "Industrial Coatings Case Studies | Epoxy & Anti-Corrosion Project Proof",
-  description: "Download local case studies for heavy-duty industrial coatings, including epoxy flooring in Alrode and anti-corrosion solutions for Wadeville manufacturing.",
+  description: "Download local case studies for heavy-duty industrial coatings, including epoxy flooring in Alrode and anti-corrosion solutions for manufacturing.",
 };
-
 const caseStudies = [
   {
     title: "Heavy-Duty Epoxy Flooring: Alrode Warehouse",
@@ -21,14 +21,6 @@ const caseStudies = [
     link: "#", // Placeholder for downloadable PDF link
   },
   {
-    title: "Anti-Corrosion System: Wadeville Manufacturing",
-    location: "Wadeville, Germiston",
-    focus: "Anti-Corrosion, Steel Protection",
-    image: "/images/cs-wadeville-steel.png", // Placeholder
-    summary: "Provided specification and product for a multi-coat Zinc-Rich primer system to protect exterior steel structures from aggressive atmospheric corrosion.",
-    link: "#", 
-  },
-  {
     title: "Polyurethane Screed: Food Processing Plant",
     location: "Boksburg, East Rand",
     focus: "Polyurethane, Thermal Shock",
@@ -37,7 +29,6 @@ const caseStudies = [
     link: "#", 
   },
 ];
-
 export default function IndustrialCaseStudiesPage() {
   return (
     <main>
@@ -61,7 +52,7 @@ export default function IndustrialCaseStudiesPage() {
 
       {/* Case Study Grid: Downloadable Proof */}
       <section className="py-16 md:py-24 bg-secondary/10 dark:bg-neutral-800">
-        <div className="container grid md:grid-cols-3 gap-10">
+        <div className="container grid md:grid-cols-2 gap-10">
           {caseStudies.map((study) => (
             <Card key={study.title} className="flex flex-col overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
               
@@ -81,7 +72,7 @@ export default function IndustrialCaseStudiesPage() {
                 </Badge>
                 <CardTitle className="text-2xl font-bold">{study.title}</CardTitle>
                 <CardDescription className="flex items-center space-x-2 text-primary">
-                   <MapPin className="h-4 w-4" /> <span>{study.location}</span>
+                    <MapPin className="h-4 w-4" /> <span>{study.location}</span>
                 </CardDescription>
               </CardHeader>
               

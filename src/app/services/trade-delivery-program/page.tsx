@@ -1,15 +1,15 @@
+// src/app/services/trade-delivery-program/page.tsx - FULL REPLACEMENT (Apostrophe Fix)
+
 import Image from "next/image";
 // FIX: 'Truck' removed from this import
 import { MapPin, Clock, MoveRight, Package } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-
 export const metadata = {
   title: "Trade Delivery Program | Priority Paint Delivery Alberton & JHB South",
   description: "Join the QJ Trade Delivery Program for reliable, priority fulfillment and on-site delivery of your paint orders to minimize downtime and maximize your labor efficiency.",
 };
-
 const programBenefits = [
   {
     icon: Clock,
@@ -19,7 +19,7 @@ const programBenefits = [
   {
     icon: MapPin,
     title: "Direct Site Delivery",
-    description: "Delivery is made directly to your job site in Alberton, Wadeville, Alrode, and the broader Johannesburg South region.",
+    description: "Delivery is made directly to your job site in Alberton and the broader Johannesburg South region.",
   },
   {
     icon: Package,
@@ -27,7 +27,6 @@ const programBenefits = [
     description: "Dedicated dispatch team ensures your specific formulations and bulk orders are fulfilled correctly and arrive complete.",
   },
 ];
-
 export default function TradeDeliveryPage() {
   return (
     <main>
@@ -77,7 +76,7 @@ export default function TradeDeliveryPage() {
                   <CardTitle className="text-xl">{item.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                   <CardDescription>{item.description}</CardDescription>
+                  <CardDescription>{item.description}</CardDescription>
                 </CardContent>
               </Card>
             ))}

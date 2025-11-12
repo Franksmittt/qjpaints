@@ -1,3 +1,5 @@
+// src/app/services/on-site-technical-consultation/page.tsx - FULL REPLACEMENT (Wadeville Removed)
+
 import Image from "next/image";
 // FIX: 'MapPin' removed from this import
 import { HardHat, ClipboardCheck, Truck, MoveRight } from "lucide-react";
@@ -5,17 +7,15 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 // FIX: Unused Card components removed
 import { Card } from "@/components/ui/card";
-
 export const metadata = {
   title: "On-Site Technical Consultation Service | Industrial & Commercial Coatings",
   description: "Book an on-site consultation with our expert engineers for precise technical specification of epoxy, anti-corrosion, and protective coating systems in Johannesburg South.",
 };
-
 const consultationSteps = [
   {
     icon: HardHat,
     title: "Step 1: Site Assessment",
-    description: "Our engineer visits your site (Wadeville, Alrode, etc.) to assess substrate condition, traffic, and chemical exposure.",
+    description: "Our engineer visits your site to assess substrate condition, traffic, and chemical exposure.",
   },
   {
     icon: ClipboardCheck,
@@ -25,10 +25,9 @@ const consultationSteps = [
   {
     icon: Truck,
     title: "Step 3: Priority Fulfillment",
-    description: "Your order is tagged for priority fulfillment from our Wadeville Industrial Hub, guaranteeing the correct products are dispatched on time.",
+    description: "Your order is tagged for priority fulfillment from our Alberton Trade Centre, guaranteeing the correct products are dispatched on time.",
   },
 ];
-
 export default function TechnicalConsultationPage() {
   return (
     <main>
@@ -88,10 +87,10 @@ export default function TechnicalConsultationPage() {
         <div className="container text-center">
           <h2 className="text-3xl font-bold">Schedule Your Engineer Visit Now</h2>
           <p className="mt-2 text-xl font-medium">
-            Consultations are managed by our B2B team at the Wadeville Industrial Hub.
+            Consultations are managed by our expert team at the Alberton Trade Centre.
           </p>
           <Button asChild size="lg" className="mt-6 bg-neutral-900 text-white hover:bg-black/80">
-            <Link href="/contact-us/wadeville">Contact B2B Hub <MoveRight className="ml-2 h-5 w-5" /></Link>
+            <Link href="/contact-us/alberton-north">Contact Alberton Trade Centre <MoveRight className="ml-2 h-5 w-5" /></Link>
           </Button>
         </div>
       </section>

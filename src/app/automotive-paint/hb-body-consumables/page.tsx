@@ -1,4 +1,4 @@
-// src/app/automotive-paint/hb-body-consumables/page.tsx - NEW FILE
+// src/app/automotive-paint/hb-body-consumables/page.tsx - FULL REPLACEMENT (Link Fix)
 
 import Image from "next/image";
 import { MoveRight, Package, HardHat, Layers } from "lucide-react";
@@ -52,21 +52,21 @@ export default function HbBodyConsumablesPage() {
                 <Link href="/automotive-paint/mipa-paint-supplier">Explore mipa Paint Systems</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-white">
-                <Link href="/services/trade-delivery-program">Priority Trade Delivery →</Link>
+                 <Link href="/services/trade-delivery-program">Priority Trade Delivery →</Link>
               </Button>
             </div>
           </div>
           <div className="order-1 md:order-2 relative aspect-[4/3] min-h-[300px]">
             <Image
               src="/images/hb-body-fillers-polishes.png" // Placeholder image for HB BODY products
-              alt="Assortment of HB BODY fillers, putties, and clearcoats"
+               alt="Assortment of HB BODY fillers, putties, and clearcoats"
               fill
               priority
               className="object-cover rounded-xl shadow-2xl"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
-        </div>
+         </div>
       </section>
 
       {/* Consumables Advantage Grid: Focus on Workflow Efficiency */}
@@ -75,19 +75,19 @@ export default function HbBodyConsumablesPage() {
           <h2 className="text-3xl font-bold text-center mb-12">The QJ Consumables Advantage (HB BODY & More)</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {consumablesFocus.map((item) => (
-              <Card key={item.title} className="hover:shadow-xl transition-shadow duration-300">
+               <Card key={item.title} className="hover:shadow-xl transition-shadow duration-300">
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-3 text-xl">
                     <item.icon className="h-6 w-6 text-primary" /> <span>{item.title}</span>
                   </CardTitle>
-                </CardHeader>
+                 </CardHeader>
                 <CardContent>
                   <CardDescription>{item.description}</CardDescription>
                 </CardContent>
               </Card>
             ))}
           </div>
-        </div>
+         </div>
       </section>
 
       {/* Final CTA: Related Consumables */}
@@ -98,7 +98,8 @@ export default function HbBodyConsumablesPage() {
             We stock the full range of preparation, cutting, and polishing accessories.
           </p>
           <Button asChild size="lg" className="mt-6 bg-accent text-white hover:bg-accent/90">
-            <Link href="/automotive-paint/bodyshop-consumables-abrasives-fillers">
+            {/* UPDATED LINK */}
+            <Link href="/consumables/automotive-bodyshop">
               View All Bodyshop Consumables <MoveRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
