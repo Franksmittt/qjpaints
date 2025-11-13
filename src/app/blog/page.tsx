@@ -61,10 +61,10 @@ export default function BlogIndexPage() {
     <main>
       
       {/* Hero Section: Content Hub Focus */}
-      <section className="bg-secondary/10 py-16 md:py-24 dark:bg-neutral-900 text-neutral-900 dark:text-white">
+      <section className="bg-secondary/10 py-12 sm:py-16 md:py-24 dark:bg-neutral-900 text-neutral-900 dark:text-white">
         <div className="container max-w-screen-xl text-center">
           <FileText className="h-12 w-12 text-primary mx-auto mb-4" />
-          <h1 className="text-4xl font-bold md:text-6xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
             QJ Expert Resources & Articles
           </h1>
           <p className="mt-4 text-xl text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto">
@@ -74,10 +74,10 @@ export default function BlogIndexPage() {
       </section>
 
       {/* Categories Grid - Visualizing the Content Strategy */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+      <section className="py-12 sm:py-16 md:py-24 bg-white dark:bg-neutral-800">
           <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">Browse By Technical Vertical</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Browse By Technical Vertical</h2>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {blogCategories.map((cat) => (
               <Card key={cat.title} className="flex flex-col h-full hover:border-primary transition-colors duration-300">
                 <CardHeader className="flex-1">
@@ -101,10 +101,10 @@ export default function BlogIndexPage() {
       </section>
       
       {/* Featured Articles Section */}
-      <section className="py-16 md:py-24 bg-secondary/10 dark:bg-neutral-900">
+      <section className="py-12 sm:py-16 md:py-24 bg-secondary/10 dark:bg-neutral-900">
         <div className="container">
-            <h2 className="text-3xl font-bold text-center mb-12">Latest Insights</h2>
-            <div className="grid md:grid-cols-3 gap-8">
+            <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Latest Insights</h2>
+            <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
               {articles.map((article) => (
                     <Card key={article.title} className="flex flex-col h-full hover:shadow-xl transition-shadow duration-300">
                         <CardHeader className="flex-1">
@@ -135,7 +135,7 @@ export default function BlogIndexPage() {
       {/* Final CTA: Consult our experts */}
       <section className="py-12 bg-primary dark:bg-primary/90 text-neutral-900">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold">Need a Technical Deep Dive?</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold">Need a Technical Deep Dive?</h2>
           <p className="mt-2 text-xl font-medium">
             Contact us for specifications that aren&apos;t covered in our public articles.
           </p>

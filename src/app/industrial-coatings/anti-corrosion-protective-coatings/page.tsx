@@ -36,40 +36,42 @@ export default function AntiCorrosionPage() {
     <main>
       
       {/* Hero Section: Asset Protection Focus (Storyteller's Heart) */}
-      <section className="bg-neutral-900 py-16 md:py-24 text-white">
-        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="text-sm font-semibold uppercase text-accent">High-Stakes Asset Protection with SHIELD</span>
-            <h1 className="mt-2 text-4xl font-bold md:text-6xl">
-              Anti-Corrosion & Protective Coatings
-            </h1>
-            <p className="mt-4 text-xl text-neutral-300 max-w-lg">
-              Corrosion costs money and downtime. We partner with engineers and specifiers to provide **certified SHIELD protective systems** that guarantee the longevity of your steel assets in the harshest environments.
-            </p>
-            <div className="mt-8 flex gap-4">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-                <Link href="/services/on-site-technical-consultation">Request On-Site Specification</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-white">
-                <Link href="/industrial-coatings/case-studies">View Local Case Studies →</Link>
-              </Button>
+      <section className="bg-neutral-900 py-12 sm:py-16 md:py-24 text-white overflow-hidden">
+        <div className="container max-w-screen-xl px-4 sm:px-6 md:px-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="w-full px-4 sm:px-0">
+              <span className="text-sm font-semibold uppercase text-accent">High-Stakes Asset Protection with SHIELD</span>
+              <h1 className="mt-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold break-words">
+                Anti-Corrosion & Protective Coatings
+              </h1>
+              <p className="mt-4 text-lg sm:text-xl text-neutral-300 max-w-lg break-words">
+                Corrosion costs money and downtime. We partner with engineers and specifiers to provide **certified SHIELD protective systems** that guarantee the longevity of your steel assets in the harshest environments.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 whitespace-nowrap">
+                  <Link href="/services/on-site-technical-consultation">Request On-Site Specification</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-white whitespace-nowrap">
+                  <Link href="/industrial-coatings/case-studies">View Local Case Studies →</Link>
+                </Button>
+              </div>
             </div>
-          </div>
-          <div className="relative aspect-[4/3] min-h-[300px]">
-            <Image
-              src="/images/anti-corrosion-pipes.png" // Placeholder image for corrosion protection
-              alt="Industrial steel pipes protected with a blue anti-corrosion coating"
-              fill
-              priority
-              className="object-cover rounded-xl shadow-2xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+            <div className="relative w-full max-w-md mx-auto md:max-w-full aspect-square">
+              <Image
+                src="/images/anti-corrosion-pipes.png" // Placeholder image for corrosion protection
+                alt="Industrial steel pipes protected with a blue anti-corrosion coating"
+                fill
+                priority
+                className="object-cover rounded-xl shadow-2xl"
+                sizes="(max-width: 768px) 90vw, 40vw"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Solutions Grid: Technical Depth (Architect's Precision) */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+      <section className="py-12 sm:py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-12">SHIELD Certified Solutions for Mining & Manufacturing</h2>
           <div className="grid md:grid-cols-3 gap-8">

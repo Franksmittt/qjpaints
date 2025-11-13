@@ -42,35 +42,37 @@ export default function GeneralPaintSuppliesPage() {
     <main>
       
       {/* Hero Section */}
-      <section className="bg-secondary/10 py-16 md:py-24 dark:bg-neutral-900 text-neutral-900 dark:text-white">
-        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <Wrench className="h-12 w-12 text-primary mb-4" />
-            <h1 className="mt-2 text-4xl font-bold md:text-6xl">
-              General Paint Supplies & Accessories
-            </h1>
-            <p className="mt-4 text-xl text-neutral-600 dark:text-neutral-300 max-w-lg">
-              The foundation of every great finish. We stock a complete range of professional-grade core consumables for preparation, application, and safety.
-            </p>
-            <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90">
-              <Link href="/contact-us">Place a Bulk Order</Link>
-            </Button>
-          </div>
-          <div className="relative aspect-[4/3] min-h-[300px]">
-            <Image
-              src="/images/general-supplies.png" // Placeholder
-              alt="A collection of general paint supplies including brushes, rollers, tape, and sandpaper"
-              fill
-              priority
-              className="object-cover rounded-xl shadow-2xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+      <section className="bg-secondary/10 py-12 sm:py-16 md:py-24 dark:bg-neutral-900 text-neutral-900 dark:text-white overflow-hidden">
+        <div className="container max-w-screen-xl px-4 sm:px-6 md:px-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="w-full px-4 sm:px-0">
+              <Wrench className="h-12 w-12 text-primary mb-4" />
+              <h1 className="mt-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold break-words">
+                General Paint Supplies & Accessories
+              </h1>
+              <p className="mt-4 text-lg sm:text-xl text-neutral-600 dark:text-neutral-300 max-w-lg break-words">
+                The foundation of every great finish. We stock a complete range of professional-grade core consumables for preparation, application, and safety.
+              </p>
+              <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90 whitespace-nowrap">
+                <Link href="/contact-us">Place a Bulk Order</Link>
+              </Button>
+            </div>
+            <div className="relative w-full max-w-md mx-auto md:max-w-full aspect-square">
+              <Image
+                src="/images/general-supplies.png" // Placeholder
+                alt="A collection of general paint supplies including brushes, rollers, tape, and sandpaper"
+                fill
+                priority
+                className="object-cover rounded-xl shadow-2xl"
+                sizes="(max-width: 768px) 90vw, 40vw"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Supplies List Section */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+      <section className="py-12 sm:py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-12">Our Core Product Categories</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

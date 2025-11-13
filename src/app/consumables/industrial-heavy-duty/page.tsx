@@ -29,35 +29,37 @@ export default function IndustrialConsumablesPage() {
     <main>
       
       {/* Hero Section */}
-      <section className="bg-neutral-900 py-16 md:py-24 text-white">
-        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <Beaker className="h-12 w-12 text-primary mb-4" />
-            <h1 className="mt-2 text-4xl font-bold md:text-6xl">
-              Industrial & Heavy-Duty Consumables
-            </h1>
-            <p className="mt-4 text-xl text-neutral-300 max-w-lg">
-              Beyond standard supplies. These are specialized, B2B-grade consumables engineered for extreme durability and specific industrial challenges.
-            </p>
-            <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90">
-              <Link href="/services/on-site-technical-consultation">Request On-Site Specification</Link>
-            </Button>
-          </div>
-          <div className="relative aspect-[4/3] min-h-[300px]">
-            <Image
-              src="/images/industrial-consumables.png" // Placeholder
-              alt="Heavy-duty industrial consumables like solvents, rollers, and sealants"
-              fill
-              priority
-              className="object-cover rounded-xl shadow-2xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+      <section className="bg-neutral-900 py-12 sm:py-16 md:py-24 text-white overflow-hidden">
+        <div className="container max-w-screen-xl px-4 sm:px-6 md:px-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="w-full px-4 sm:px-0">
+              <Beaker className="h-12 w-12 text-primary mb-4" />
+              <h1 className="mt-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold break-words">
+                Industrial & Heavy-Duty Consumables
+              </h1>
+              <p className="mt-4 text-lg sm:text-xl text-neutral-300 max-w-lg break-words">
+                Beyond standard supplies. These are specialized, B2B-grade consumables engineered for extreme durability and specific industrial challenges.
+              </p>
+              <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90 whitespace-nowrap">
+                <Link href="/services/on-site-technical-consultation">Request On-Site Specification</Link>
+              </Button>
+            </div>
+            <div className="relative w-full max-w-md mx-auto md:max-w-full aspect-square">
+              <Image
+                src="/images/industrial-consumables.png" // Placeholder
+                alt="Heavy-duty industrial consumables like solvents, rollers, and sealants"
+                fill
+                priority
+                className="object-cover rounded-xl shadow-2xl"
+                sizes="(max-width: 768px) 90vw, 40vw"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Supplies List Section */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+      <section className="py-12 sm:py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-12">Our Industrial Supply Categories</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">

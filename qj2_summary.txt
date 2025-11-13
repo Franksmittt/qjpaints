@@ -23,8 +23,6 @@
 │   │   │   │   ├── 📄 page.tsx
 │   │   │   ├── 📁 automotive-paint
 │   │   │   │   ├── 📄 page.tsx
-│   │   │   │   ├── 📁 bodyshop-consumables-abrasives-fillers
-│   │   │   │   │   ├── 📄 page.tsx
 │   │   │   │   ├── 📁 hb-body-consumables
 │   │   │   │   │   ├── 📄 page.tsx
 │   │   │   │   ├── 📁 mipa-paint-supplier
@@ -33,14 +31,22 @@
 │   │   │   │   │   ├── 📄 page.tsx
 │   │   │   ├── 📁 blog
 │   │   │   │   ├── 📄 page.tsx
+│   │   │   ├── 📁 consumables
+│   │   │   │   ├── 📄 page.tsx
+│   │   │   │   ├── 📁 automotive-bodyshop
+│   │   │   │   │   ├── 📄 page.tsx
+│   │   │   │   ├── 📁 general-paint-supplies
+│   │   │   │   │   ├── 📄 page.tsx
+│   │   │   │   ├── 📁 industrial-heavy-duty
+│   │   │   │   │   ├── 📄 page.tsx
+│   │   │   │   ├── 📁 q-bond-adhesives
+│   │   │   │   │   ├── 📄 page.tsx
 │   │   │   ├── 📁 contact-us
 │   │   │   │   ├── 📄 page.tsx
 │   │   │   │   ├── 📁 alberton-north
 │   │   │   │   │   ├── 📄 page.tsx
 │   │   │   ├── 📁 decorative-paint
 │   │   │   │   ├── 📄 page.tsx
-│   │   │   │   ├── 📁 q-bond-super-glue-solutions
-│   │   │   │   │   ├── 📄 page.tsx
 │   │   │   │   ├── 📁 top-paints-genkem-stockist
 │   │   │   │   │   ├── 📄 page.tsx
 │   │   │   │   ├── 📁 waterproofing-roof-paint
@@ -218,8 +224,24 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 // see https://nextjs.org/docs/app/building-your-application/configuring/typescript for more information.
 
 
---------------------------------------------------------------------------------📄 FILE PATH: next.config.mjs--------------------------------------------------------------------------------/** @type {import('next').NextConfig} */
+--------------------------------------------------------------------------------📄 FILE PATH: next.config.mjs--------------------------------------------------------------------------------// next.config.mjs - FULL REPLACEMENT (Redirects Added)
+
+/** @type {import('next').NextConfig} */
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/automotive-paint/bodyshop-consumables-abrasives-fillers',
+        destination: '/consumables/automotive-bodyshop',
+        permanent: true,
+      },
+      {
+        source: '/decorative-paint/q-bond-super-glue-solutions',
+        destination: '/consumables/q-bond-adhesives',
+        permanent: true,
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       {
@@ -234,7 +256,6 @@ const nextConfig = {
     ],
   },
 };
-
 export default nextConfig;
 
 --------------------------------------------------------------------------------📄 FILE PATH: package.json--------------------------------------------------------------------------------{
@@ -722,7 +743,7 @@ export default function AboutUsPage() {
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\app\automotive-paint\page.tsx--------------------------------------------------------------------------------// src/app/automotive-paint/page.tsx - FULL REPLACEMENT (New Brands)
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\automotive-paint\page.tsx--------------------------------------------------------------------------------// src/app/automotive-paint/page.tsx - FULL REPLACEMENT (Consumables Card Removed)
 
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -732,7 +753,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  // UPDATED: Removed R-M, baslac
   title: "Automotive Refinish Systems Alberton | mipa, HB BODY, Consumables",
   description: "The expert supplier for professional bodyshops. We stock premium mipa, HB BODY systems, and all essential consumables, backed by spectrophotometer matching.",
 };
@@ -753,11 +773,6 @@ const AutomotivePaintData = [
     title: "Advanced Paint Matching",
     href: "/automotive-paint/spectrophotometer-paint-matching",
     description: "Our high-tech spectrophotometer service for a perfect blend.",
-  },
-  {
-    title: "Bodyshop Consumables (3M, Klingspor)",
-    href: "/automotive-paint/bodyshop-consumables-abrasives-fillers",
-    description: "Abrasives (3M, Klingspor), fillers, and polishing compounds.",
   },
 ];
 
@@ -799,7 +814,8 @@ export default function AutomotivePaintIndexPage() {
       <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-12">Our Automotive Solutions</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* UPDATED GRID TO 3 COLUMNS */}
+          <div className="grid md:grid-cols-3 gap-8">
             {AutomotivePaintData.map((item) => (
               <Card key={item.title} className="flex flex-col h-full hover:border-accent transition-colors duration-300">
                 <CardHeader>
@@ -825,118 +841,7 @@ export default function AutomotivePaintIndexPage() {
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\app\automotive-paint\bodyshop-consumables-abrasives-fillers\page.tsx--------------------------------------------------------------------------------// src/app/automotive-paint/bodyshop-consumables-abrasives-fillers/page.tsx - FULL REPLACEMENT (New Brands)
-
-import Image from "next/image";
-// FIX: 'Truck' and 'MoveRight' removed from this import
-import { Wrench, Layers, Scan } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Bodyshop Consumables, Abrasives & Fillers Supplier | QJ Paint World",
-  // UPDATED: Added approved brands
-  description: "One-stop shop for professional bodyshop consumables including **HB BODY** fillers, **3M/KLINGSPOR** abrasives, **SATA PIENAAR** equipment, and **Farécla** polishing compounds. Optimized for efficient workflow.",
-};
-const consumableCategories = [
-  {
-    icon: Wrench,
-    title: "Surface Preparation (PREPSOL, HB BODY)",
-    // UPDATED: Added approved brands
-    description: "**HB BODY** fillers, putties, and **PREPSOL** degreasers designed for fast, flawless initial surface repair and shaping.",
-  },
-  {
-    icon: Scan,
-    title: "Abrasives & Cutting (3M, KLINGSPOR)",
-    // UPDATED: Added approved brands
-    description: "High-grade **3M** and **KLINGSPOR** abrasives, masking tapes, and films that prevent bleed-through and contamination in the paint booth.",
-  },
-  {
-    icon: Layers,
-    title: "Application & Finishing (SATA, Tork Craft)",
-    // UPDATED: Added approved brands
-    description: "**SATA PIENAAR** spray equipment, **Tork Craft** tools, and **Farécla** compounds needed for the final, showroom-quality finish.",
-  },
-];
-export default function BodyshopConsumablesPage() {
-  return (
-    <main>
-      
-      {/* Hero Section: One-Stop Shop (Innovator's Horizon) */}
-      <section className="bg-secondary/10 py-16 md:py-24 dark:bg-neutral-900 text-neutral-900 dark:text-white">
-        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="text-sm font-semibold uppercase text-primary">Workflow Efficiency</span>
-            <h1 className="mt-2 text-4xl font-bold md:text-6xl">
-              Bodyshop Consumables & Equipment
-            </h1>
-            <p className="mt-4 text-xl text-neutral-600 dark:text-neutral-300 max-w-lg">
-              Maximize your shop&apos;s efficiency by ordering all your high-volume consumables, from **3M** abrasives and **HB BODY** fillers to **SATA PIENAAR** spray guns, in one place.
-            </p>
-            <div className="mt-8 flex gap-4">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-                <Link href="/contact-us">Place a Consumables Order</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-white">
-                <Link 
-                  href="/automotive-paint/mipa-paint-supplier">View mipa Paint Systems →</Link>
-              </Button>
-            </div>
-          </div>
-          <div className="relative aspect-[4/3] min-h-[300px]">
-            <Image
-              src="/images/bodyshop-consumables-kit.png" // Placeholder image for consumables
-              alt="A pile of automotive abrasives, fillers, and masking tape"
-              fill
-              priority
-              className="object-cover rounded-xl shadow-2xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Consumables by Process Grid */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
-        <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">Organized by Your Workflow</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {consumableCategories.map((item) => (
-              <Card key={item.title} className="hover:border-primary transition-colors duration-300">
-                <CardHeader>
-                  <item.icon className="h-8 w-8 text-accent fill-accent/10 mb-3" />
-                  <CardTitle className="text-xl">{item.title}</CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>{item.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA: Trade Delivery */}
-      <section className="py-12 bg-accent dark:bg-accent/80 text-white">
-        <div 
-          className="container text-center">
-          <h2 className="text-3xl font-bold">Priority Delivery to Your Bodyshop</h2>
-          <p className="mt-2 text-xl font-medium">
-            Ensure zero downtime. Our Trade Delivery Program gets your order to you on time.
-          </p>
-          <Button asChild size="lg" className="mt-6 bg-white text-neutral-900 hover:bg-neutral-200">
-            <Link href="/trade-partner-program">Join the Trade Hub →</Link>
-          </Button>
-        </div>
-      </section>
-      
-    </main>
-  );
-}
-
---------------------------------------------------------------------------------📄 FILE PATH: src\app\automotive-paint\hb-body-consumables\page.tsx--------------------------------------------------------------------------------// src/app/automotive-paint/hb-body-consumables/page.tsx - NEW FILE
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\automotive-paint\hb-body-consumables\page.tsx--------------------------------------------------------------------------------// src/app/automotive-paint/hb-body-consumables/page.tsx - FULL REPLACEMENT (Link Fix)
 
 import Image from "next/image";
 import { MoveRight, Package, HardHat, Layers } from "lucide-react";
@@ -990,21 +895,21 @@ export default function HbBodyConsumablesPage() {
                 <Link href="/automotive-paint/mipa-paint-supplier">Explore mipa Paint Systems</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-white">
-                <Link href="/services/trade-delivery-program">Priority Trade Delivery →</Link>
+                 <Link href="/services/trade-delivery-program">Priority Trade Delivery →</Link>
               </Button>
             </div>
           </div>
           <div className="order-1 md:order-2 relative aspect-[4/3] min-h-[300px]">
             <Image
               src="/images/hb-body-fillers-polishes.png" // Placeholder image for HB BODY products
-              alt="Assortment of HB BODY fillers, putties, and clearcoats"
+               alt="Assortment of HB BODY fillers, putties, and clearcoats"
               fill
               priority
               className="object-cover rounded-xl shadow-2xl"
               sizes="(max-width: 768px) 100vw, 50vw"
             />
           </div>
-        </div>
+         </div>
       </section>
 
       {/* Consumables Advantage Grid: Focus on Workflow Efficiency */}
@@ -1013,19 +918,19 @@ export default function HbBodyConsumablesPage() {
           <h2 className="text-3xl font-bold text-center mb-12">The QJ Consumables Advantage (HB BODY & More)</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {consumablesFocus.map((item) => (
-              <Card key={item.title} className="hover:shadow-xl transition-shadow duration-300">
+               <Card key={item.title} className="hover:shadow-xl transition-shadow duration-300">
                 <CardHeader>
                   <CardTitle className="flex items-center space-x-3 text-xl">
                     <item.icon className="h-6 w-6 text-primary" /> <span>{item.title}</span>
                   </CardTitle>
-                </CardHeader>
+                 </CardHeader>
                 <CardContent>
                   <CardDescription>{item.description}</CardDescription>
                 </CardContent>
               </Card>
             ))}
           </div>
-        </div>
+         </div>
       </section>
 
       {/* Final CTA: Related Consumables */}
@@ -1036,7 +941,8 @@ export default function HbBodyConsumablesPage() {
             We stock the full range of preparation, cutting, and polishing accessories.
           </p>
           <Button asChild size="lg" className="mt-6 bg-accent text-white hover:bg-accent/90">
-            <Link href="/automotive-paint/bodyshop-consumables-abrasives-fillers">
+            {/* UPDATED LINK */}
+            <Link href="/consumables/automotive-bodyshop">
               View All Bodyshop Consumables <MoveRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
@@ -1444,6 +1350,557 @@ export default function BlogIndexPage() {
   );
 }
 
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\consumables\page.tsx--------------------------------------------------------------------------------// src/app/consumables/page.tsx - CREATE NEW FILE
+
+import type { Metadata } from "next";
+import Link from "next/link";
+import { MoveRight, Wrench, Car, Factory, Settings } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Paint Consumables & Accessories Hub | QJ Paint World",
+  description: "Your one-stop shop for all paint consumables. Find abrasives, safety PPE, automotive bodyshop supplies, and heavy-duty industrial application tools.",
+};
+
+// Data for the three main sub-categories
+const consumableCategories = [
+  {
+    title: "General Paint Supplies",
+    href: "/consumables/general-paint-supplies",
+    description: "The essential tools for any job: Abrasives, masking tape, brushes, rollers, mixing cups, and safety PPE.",
+    icon: Settings,
+  },
+  {
+    title: "Automotive Bodyshop",
+    href: "/consumables/automotive-bodyshop",
+    description: "Specialized supplies for refinishing: Fillers, putties, degreasers (PREPSOL), polishing compounds (Farécla), and spray equipment (SATA).",
+    icon: Car,
+  },
+  {
+    title: "Industrial & Heavy-Duty",
+    href: "/consumables/industrial-heavy-duty",
+    description: "Tools for asset protection: Rust converters, specialized solvents, thick-film rollers, and high-strength adhesives (Q-Bond).",
+    icon: Factory,
+  },
+];
+
+export default function ConsumablesIndexPage() {
+  return (
+    <main>
+      
+      {/* Hero Section: Consumables Focus */}
+      <section className="bg-neutral-900 py-16 md:py-24 text-white">
+        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
+          <div className="order-2 md:order-1">
+            <Wrench className="h-12 w-12 text-primary mb-4" />
+            <h1 className="text-4xl font-bold md:text-6xl">
+              Consumables & Accessories Hub
+            </h1>
+            <p className="mt-4 text-xl text-neutral-300 max-w-lg">
+              The right finish requires the right tools. We are your one-stop shop for every consumable required for a professional job, from preparation to final polish.
+            </p>
+            <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90">
+              <Link href="/trade-partner-program">
+                Join the Contractor&apos;s Hub <MoveRight className="ml-2 h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+          <div className="order-1 md:order-2 relative aspect-[4/3] min-h-[300px]">
+            <Image
+              src="/images/bodyshop-consumables-kit.png" // Using this image as it's a good overview
+              alt="A collection of professional paint consumables including abrasives, tape, and tools"
+              fill
+              priority
+              className="object-cover rounded-xl shadow-2xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Grid of Key Sub-Pages */}
+      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-center mb-12">Shop Consumables by Vertical</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {consumableCategories.map((item) => (
+              <Card key={item.title} className="flex flex-col h-full hover:border-primary transition-colors duration-300">
+                <CardHeader>
+                  <item.icon className="h-8 w-8 text-accent fill-accent/10 mb-2" />
+                  <CardTitle className="text-xl">{item.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex-1">
+                  <CardDescription>{item.description}</CardDescription>
+                </CardContent>
+                <div className="p-6 pt-0 mt-auto">
+                  <Button asChild variant="link" className="text-primary hover:text-primary/80">
+                    <Link href={item.href}>
+                        View Products <MoveRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </div>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+    </main>
+  );
+}
+
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\consumables\automotive-bodyshop\page.tsx--------------------------------------------------------------------------------// src/app/consumables/automotive-bodyshop/page.tsx - FULL REPLACEMENT (Unused Import Removed & Apostrophe Fix)
+
+import Image from "next/image";
+import { CheckCircle, Car, Wrench, Sparkles, Beaker } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"; // CardDescription removed
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Automotive Bodyshop Consumables | Fillers, Degreasers, Polishing",
+  description: "One-stop shop for professional bodyshop consumables including HB BODY fillers, PREPSOL degreasers, Farécla polishing compounds, and SATA spray guns.",
+};
+
+// Data based on your provided list
+const fillersSupplies = [
+  "Body Filler (Polyester)",
+  "Spot Putty",
+  "Hardener Paste (BPO)",
+];
+const cleaningSupplies = [
+  "Wax & Silicone Removers (PREPSOL)",
+  "Tack Cloths",
+  "Lint-Free Wipes",
+];
+const finishingSupplies = [
+  "Cutting Compounds (Farécla)",
+  "Polishing Compounds (Farécla)",
+  "Clear Coats (Aerosol & Bulk)",
+];
+const equipmentSupplies = [
+  "Spray Guns (SATA)",
+  "Air Hoses & Compressors",
+  "Spray Gun System Cups (PPS)",
+];
+
+export default function AutomotiveConsumablesPage() {
+  return (
+    <main>
+      
+      {/* Hero Section */}
+      <section className="bg-secondary/10 py-16 md:py-24 dark:bg-neutral-900 text-neutral-900 dark:text-white">
+        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <Car className="h-12 w-12 text-primary mb-4" />
+            <h1 className="mt-2 text-4xl font-bold md:text-6xl">
+              Automotive Refinish & Bodyshop Consumables
+            </h1>
+            {/* APOSTROPHE FIX HERE */}
+            <p className="mt-4 text-xl text-neutral-600 dark:text-neutral-300 max-w-lg">
+              Maximize your shop&apos;s efficiency. We stock the complete workflow of consumables, from **HB BODY** fillers and **PREPSOL** degreasers to **SATA** spray guns and **Farécla** compounds.
+            </p>
+            <div className="mt-8 flex gap-4">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+                <Link href="/contact-us">Place a Consumables Order</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-white">
+                <Link href="/automotive-paint/mipa-paint-supplier">View mipa Paint Systems →</Link>
+              </Button>
+            </div>
+          </div>
+          <div className="relative aspect-[4/3] min-h-[300px]">
+            <Image
+              src="/images/bodyshop-consumables-kit.png"
+              alt="A pile of automotive abrasives, fillers, and masking tape"
+              fill
+              priority
+              className="object-cover rounded-xl shadow-2xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Supplies List Section */}
+      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-center mb-12">Organized by Your Workflow</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <CategoryCard title="Fillers & Putties" icon={Wrench} supplies={fillersSupplies} />
+            <CategoryCard title="Surface Cleaning" icon={Beaker} supplies={cleaningSupplies} />
+            <CategoryCard title="Polishing & Finishing" icon={Sparkles} supplies={finishingSupplies} />
+            <CategoryCard title="Equipment" icon={Wrench} supplies={equipmentSupplies} />
+
+          </div>
+        </div>
+      </section>
+      
+    </main>
+  );
+}
+
+// Helper component for the cards
+const CategoryCard = ({ title, icon: Icon, supplies }: { title: string, icon: React.ElementType, supplies: string[] }) => (
+  <Card className="flex flex-col">
+    <CardHeader className="flex flex-row items-center space-x-3">
+      <Icon className="h-6 w-6 text-primary" />
+      <CardTitle className="text-xl">{title}</CardTitle>
+    </CardHeader>
+    <CardContent className="flex-1">
+      <ul className="space-y-2">
+        {supplies.map((item) => (
+          <li key={item} className="flex items-center">
+            <CheckCircle className="h-4 w-4 text-accent mr-2 flex-shrink-0" />
+            <span className="text-neutral-700 dark:text-neutral-300">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </CardContent>
+  </Card>
+);
+
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\consumables\general-paint-supplies\page.tsx--------------------------------------------------------------------------------// src/app/consumables/general-paint-supplies/page.tsx - CREATE NEW FILE
+
+import Image from "next/image";
+import { CheckCircle, Layers, Shield, Wrench } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "General Paint Supplies | Abrasives, Masking Tape, Brushes, PPE",
+  description: "The core supplies for any paint job. Stock up on sanding paper, masking tape, rollers, brushes, mixing cups, and all essential painter's PPE.",
+};
+
+// Data based on your provided list
+const prepSupplies = [
+  "Sanding Paper & Discs (various grits)",
+  "Abrasive Rolls & Sanding Blocks",
+  "Wire Brushes & Scrapers",
+];
+const protectionSupplies = [
+  "Masking Tape (All sizes)",
+  "Masking Film & Paper",
+  "Dust Sheets & Cotton Tarps",
+];
+const applicationSupplies = [
+  "Paint Mixing Sticks & Cups",
+  "Paint Filters & Strainers",
+  "Spray Gun Cleaning Kits",
+  "Paint Brushes (All sizes)",
+  "Paint Rollers & Trays (various naps)",
+];
+const safetySupplies = [
+  "Safety Glasses",
+  "Face Masks & Respirators",
+  "Disposable Overalls",
+  "Nitrile & Latex Gloves",
+];
+
+export default function GeneralPaintSuppliesPage() {
+  return (
+    <main>
+      
+      {/* Hero Section */}
+      <section className="bg-secondary/10 py-16 md:py-24 dark:bg-neutral-900 text-neutral-900 dark:text-white">
+        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <Wrench className="h-12 w-12 text-primary mb-4" />
+            <h1 className="mt-2 text-4xl font-bold md:text-6xl">
+              General Paint Supplies & Accessories
+            </h1>
+            <p className="mt-4 text-xl text-neutral-600 dark:text-neutral-300 max-w-lg">
+              The foundation of every great finish. We stock a complete range of professional-grade core consumables for preparation, application, and safety.
+            </p>
+            <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90">
+              <Link href="/contact-us">Place a Bulk Order</Link>
+            </Button>
+          </div>
+          <div className="relative aspect-[4/3] min-h-[300px]">
+            <Image
+              src="/images/general-supplies.png" // Placeholder
+              alt="A collection of general paint supplies including brushes, rollers, tape, and sandpaper"
+              fill
+              priority
+              className="object-cover rounded-xl shadow-2xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Supplies List Section */}
+      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-center mb-12">Our Core Product Categories</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            
+            <CategoryCard title="Abrasives & Preparation" icon={Layers} supplies={prepSupplies} />
+            <CategoryCard title="Masking & Protection" icon={Shield} supplies={protectionSupplies} />
+            <CategoryCard title="Application & Mixing" icon={Wrench} supplies={applicationSupplies} />
+            <CategoryCard title="Safety (PPE)" icon={Shield} supplies={safetySupplies} />
+
+          </div>
+        </div>
+      </section>
+      
+    </main>
+  );
+}
+
+// Helper component for the cards
+const CategoryCard = ({ title, icon: Icon, supplies }: { title: string, icon: React.ElementType, supplies: string[] }) => (
+  <Card className="flex flex-col">
+    <CardHeader className="flex flex-row items-center space-x-3">
+      <Icon className="h-6 w-6 text-primary" />
+      <CardTitle className="text-xl">{title}</CardTitle>
+    </CardHeader>
+    <CardContent className="flex-1">
+      <ul className="space-y-2">
+        {supplies.map((item) => (
+          <li key={item} className="flex items-center">
+            <CheckCircle className="h-4 w-4 text-accent mr-2 flex-shrink-0" />
+            <span className="text-neutral-700 dark:text-neutral-300">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </CardContent>
+  </Card>
+);
+
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\consumables\industrial-heavy-duty\page.tsx--------------------------------------------------------------------------------// src/app/consumables/industrial-heavy-duty/page.tsx - CREATE NEW FILE
+
+import Image from "next/image";
+import { CheckCircle, Beaker, Wrench, LinkIcon } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Industrial & Heavy-Duty Consumables | QJ Paint World",
+  description: "Specialized B2B consumables for industrial applications. Find rust converters, heavy-duty degreasers, thick-film rollers, and Q-Bond adhesives.",
+};
+
+// Data based on your provided list
+const prepSupplies = [
+  "Specialized Degreasers & Solvents",
+  "Rust Converters & Treatments",
+  "Caulking & Sealants (Industrial Grade)",
+];
+const applicationSupplies = [
+  "Thick-film Paint Rollers & Trays",
+  "Heavy-duty Applicators (Screeds)",
+  "Lead Check Swabs",
+];
+
+export default function IndustrialConsumablesPage() {
+  return (
+    <main>
+      
+      {/* Hero Section */}
+      <section className="bg-neutral-900 py-16 md:py-24 text-white">
+        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <Beaker className="h-12 w-12 text-primary mb-4" />
+            <h1 className="mt-2 text-4xl font-bold md:text-6xl">
+              Industrial & Heavy-Duty Consumables
+            </h1>
+            <p className="mt-4 text-xl text-neutral-300 max-w-lg">
+              Beyond standard supplies. These are specialized, B2B-grade consumables engineered for extreme durability and specific industrial challenges.
+            </p>
+            <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90">
+              <Link href="/services/on-site-technical-consultation">Request On-Site Specification</Link>
+            </Button>
+          </div>
+          <div className="relative aspect-[4/3] min-h-[300px]">
+            <Image
+              src="/images/industrial-consumables.png" // Placeholder
+              alt="Heavy-duty industrial consumables like solvents, rollers, and sealants"
+              fill
+              priority
+              className="object-cover rounded-xl shadow-2xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Supplies List Section */}
+      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-center mb-12">Our Industrial Supply Categories</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <CategoryCard title="Prep & Cleaning" icon={Beaker} supplies={prepSupplies} />
+            <CategoryCard title="Specialty Application" icon={Wrench} supplies={applicationSupplies} />
+            
+            {/* Special card for Q-Bond */}
+            <Card className="flex flex-col border-primary border-2">
+              <CardHeader className="flex flex-row items-center space-x-3">
+                <LinkIcon className="h-6 w-6 text-primary" />
+                <CardTitle className="text-xl">Adhesives & Specialty Glues</CardTitle>
+              </CardHeader>
+              <CardContent className="flex-1 space-y-4">
+                <CardDescription>
+                  For rapid, structural-strength repairs on plastics, metals, and more.
+                </CardDescription>
+                <div className="flex items-center">
+                  <CheckCircle className="h-4 w-4 text-accent mr-2 flex-shrink-0" />
+                  <span className="text-neutral-700 dark:text-neutral-300 font-semibold">Q-Bond Adhesive Kits</span>
+                </div>
+                <Button asChild className="w-full" variant="outline">
+                  <Link href="/consumables/q-bond-adhesives">View Q-Bond Details</Link>
+                </Button>
+              </CardContent>
+            </Card>
+
+          </div>
+        </div>
+      </section>
+      
+    </main>
+  );
+}
+
+// Helper component for the cards
+const CategoryCard = ({ title, icon: Icon, supplies }: { title: string, icon: React.ElementType, supplies: string[] }) => (
+  <Card className="flex flex-col">
+    <CardHeader className="flex flex-row items-center space-x-3">
+      <Icon className="h-6 w-6 text-primary" />
+      <CardTitle className="text-xl">{title}</CardTitle>
+    </CardHeader>
+    <CardContent className="flex-1">
+      <ul className="space-y-2">
+        {supplies.map((item) => (
+          <li key={item} className="flex items-center">
+            <CheckCircle className="h-4 w-4 text-accent mr-2 flex-shrink-0" />
+            <span className="text-neutral-700 dark:text-neutral-300">{item}</span>
+          </li>
+        ))}
+      </ul>
+    </CardContent>
+  </Card>
+);
+
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\consumables\q-bond-adhesives\page.tsx--------------------------------------------------------------------------------// src/app/consumables/q-bond-adhesives/page.tsx - FULL REPLACEMENT (Apostrophe Fix)
+
+import Image from "next/image";
+import { MoveRight, HardHat, LinkIcon, Settings } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  // Targeting niche problem-solving searches
+  title: "Q-Bond & Super Glue Solutions Alberton | High-Strength Adhesives & Fillers",
+  description: "Official stockist of Q-Bond ultra-strong adhesive and filling powder repair kits. We supply industrial-grade cyanoacrylate (super glue) for contractors and complex repairs.",
+};
+
+// Features focused on problem-solving applications
+const adhesiveFocus = [
+  {
+    icon: LinkIcon,
+    title: "Ultra-Strong Bonding",
+    description: "Q-Bond provides an exceptionally strong bond on plastics, metals, and rubber, often stronger than the material being repaired.",
+  },
+  {
+    icon: HardHat,
+    title: "Filling & Reinforcement",
+    description: "Use the filling powders (black/grey) with the adhesive to quickly rebuild broken parts, filling cracks and holes in minutes.",
+  },
+  {
+    icon: Settings,
+    title: "Versatile Repair Kits",
+    description: "Essential for automotive bodyshops and general contractors for quick, reliable, and structural repairs without welding or complex machinery.",
+  },
+];
+
+export default function QBondSuperGluePage() {
+  return (
+    <main>
+      
+      {/* Hero Section: Q-Bond Focus (Problem-Solution Positioning) */}
+      <section className="bg-neutral-900 py-16 md:py-24 text-white">
+        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
+          <div className="order-2 md:order-1">
+            <span className="text-sm font-semibold uppercase text-primary">Specialized Repair & Bonding Systems</span>
+            <h1 className="mt-2 text-4xl font-bold md:text-6xl">
+              Q-Bond & High-Strength Adhesive Solutions
+            </h1>
+            {/* APOSTROPHE FIX HERE */}
+            <p className="mt-4 text-xl text-neutral-300 max-w-lg">
+              **Q-Bond** is more than just super glue—it&apos;s a two-part repair system designed for permanent, structural fixes. We stock the full range of Q-Bond and industrial-grade cyanoacrylate adhesives.
+            </p>
+            <div className="mt-8 flex gap-4">
+              <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
+                <Link href="/contact-us/alberton-north">See Q-Bond Demos In-Store</Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-white">
+                <Link href="/consumables/automotive-bodyshop">View Bodyshop Consumables →</Link>
+              </Button>
+            </div>
+          </div>
+          <div className="order-1 md:order-2 relative aspect-[4/3] min-h-[300px]">
+            <Image
+              src="/images/q-bond-repair-kit.png" // Placeholder image for Q-Bond kit
+              alt="Q-Bond adhesive bottle and filling powders used to repair a broken part"
+              fill
+              priority
+              className="object-cover rounded-xl shadow-2xl"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Q-Bond Advantage Grid: Focus on Structural Integrity */}
+      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+        <div className="container">
+          <h2 className="text-3xl font-bold text-center mb-12">The Q-Bond Structural Advantage</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {adhesiveFocus.map((item) => (
+              <Card key={item.title} className="hover:shadow-xl transition-shadow duration-300">
+                <CardHeader>
+                  <CardTitle className="flex items-center space-x-3 text-xl">
+                    <item.icon className="h-6 w-6 text-primary" /> <span>{item.title}</span>
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <CardDescription>{item.description}</CardDescription>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Final CTA: Related Consumables */}
+      <section className="py-16 bg-secondary/10 dark:bg-neutral-900">
+        <div className="container text-center">
+          <h2 className="text-3xl font-bold text-neutral-900 dark:text-white">Need Other Industrial or Automotive Consumables?</h2>
+          <p className="mt-2 text-xl font-medium text-neutral-600 dark:text-neutral-300">
+            Q-Bond is part of our complete consumables hub.
+          </p>
+          <Button asChild size="lg" className="mt-6 bg-accent text-white hover:bg-accent/90">
+            <Link href="/consumables">
+              View All Consumables <MoveRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+        </div>
+      </section>
+      
+    </main>
+  );
+}
+
 --------------------------------------------------------------------------------📄 FILE PATH: src\app\contact-us\page.tsx--------------------------------------------------------------------------------// src/app/contact-us/page.tsx - FULL REPLACEMENT (Wadeville Removed)
 
 import { Phone, MapPin, Store, MoveRight, Clock } from "lucide-react";
@@ -1657,17 +2114,15 @@ export default function AlbertonHubPage() {
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\app\decorative-paint\page.tsx--------------------------------------------------------------------------------// src/app/decorative-paint/page.tsx - FULL REPLACEMENT (New Brands)
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\decorative-paint\page.tsx--------------------------------------------------------------------------------// src/app/decorative-paint/page.tsx - FULL REPLACEMENT (Q-Bond Removed)
 
 import type { Metadata } from "next";
 import Link from "next/link";
 import { MoveRight, Paintbrush, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-// REMOVED: import { DecorativePaintData } from '@/lib/decorative-data';
 
 export const metadata: Metadata = {
-  // UPDATED: Removed Plascon, Dulux, Prominent
   title: "Decorative Paint Systems Alberton | PAINTCHEM, Top Paints, Genkem Stockist",
   description: "Your expert local supplier for all decorative paint needs. We stock the full range of PAINTCHEM, Top Paints, and Genkem, backed by specialist colour matching.",
 };
@@ -1683,11 +2138,6 @@ const DecorativePaintData = [
     title: "Top Paints & Genkem",
     href: "/decorative-paint/top-paints-genkem-stockist",
     description: "Quality paints (Top Paints) and specialty adhesives (Genkem) in one place.",
-  },
-  {
-    title: "Q-Bond & Super Glue",
-    href: "/decorative-paint/q-bond-super-glue-solutions", // Assumed New Page
-    description: "Industrial strength Q-Bond adhesives and repair compounds.",
   },
   {
     title: "Waterproofing & Roofs",
@@ -1717,7 +2167,8 @@ export default function DecorativePaintIndexPage() {
       <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-12">Key Decorative Services & Brands</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {/* UPDATED GRID TO 3 COLUMNS */}
+          <div className="grid md:grid-cols-3 gap-8">
             {DecorativePaintData.map((item) => (
               <Card key={item.title} className="flex flex-col h-full hover:border-primary transition-colors duration-300">
                 <CardHeader>
@@ -1749,114 +2200,6 @@ export default function DecorativePaintIndexPage() {
           <Button asChild size="lg" className="mt-6 bg-white text-neutral-900 hover:bg-neutral-200">
             <Link href="/services/expert-paint-colour-matching">
               Find Our Location <MapPin className="ml-2 h-5 w-5" />
-            </Link>
-          </Button>
-        </div>
-      </section>
-      
-    </main>
-  );
-}
-
---------------------------------------------------------------------------------📄 FILE PATH: src\app\decorative-paint\q-bond-super-glue-solutions\page.tsx--------------------------------------------------------------------------------// src/app/decorative-paint/q-bond-super-glue-solutions/page.tsx - NEW FILE
-
-import Image from "next/image";
-import { MoveRight, HardHat, LinkIcon, Settings } from "lucide-react"; // Removed Package
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import type { Metadata } from "next";
-export const metadata: Metadata = {
-  // Targeting niche problem-solving searches
-  title: "Q-Bond & Super Glue Solutions Alberton | High-Strength Adhesives & Fillers",
-  description: "Official stockist of Q-Bond ultra-strong adhesive and filling powder repair kits. We supply industrial-grade cyanoacrylate (super glue) for contractors and complex repairs.",
-};
-// Features focused on problem-solving applications
-const adhesiveFocus = [
-  {
-    icon: LinkIcon,
-    title: "Ultra-Strong Bonding",
-    description: "Q-Bond provides an exceptionally strong bond on plastics, metals, and rubber, often stronger than the material being repaired.",
-  },
-  {
-    icon: HardHat,
-    title: "Filling & Reinforcement",
-    description: "Use the filling powders (black/grey) with the adhesive to quickly rebuild broken parts, filling cracks and holes in minutes.",
-  },
-  {
-    icon: Settings,
-    title: "Versatile Repair Kits",
-    description: "Essential for automotive bodyshops and general contractors for quick, reliable, and structural repairs without welding or complex machinery.",
-  },
-];
-export default function QBondSuperGluePage() {
-  return (
-    <main>
-      
-      {/* Hero Section: Q-Bond Focus (Problem-Solution Positioning) */}
-      <section className="bg-neutral-900 py-16 md:py-24 text-white">
-        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1">
-            <span className="text-sm font-semibold uppercase text-primary">Specialized Repair & Bonding Systems</span>
-            <h1 className="mt-2 text-4xl font-bold md:text-6xl">
-              Q-Bond & High-Strength Adhesive Solutions
-            </h1>
-            <p className="mt-4 text-xl text-neutral-300 max-w-lg">
-              **Q-Bond** is more than just super glue—it&apos;s a two-part repair system designed for permanent, structural fixes. We stock the full range of Q-Bond and industrial-grade cyanoacrylate adhesives.
-            </p>
-            <div className="mt-8 flex gap-4">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-                <Link href="/contact-us/alberton-north">See Q-Bond Demos In-Store</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-white">
-                <Link href="/decorative-paint/paintchem-trade-supplier">View PAINTCHEM Paints →</Link>
-              </Button>
-            </div>
-          </div>
-          <div className="order-1 md:order-2 relative aspect-[4/3] min-h-[300px]">
-            <Image
-              src="/images/q-bond-repair-kit.png" // Placeholder image for Q-Bond kit
-              alt="Q-Bond adhesive bottle and filling powders used to repair a broken part"
-              fill
-              priority
-              className="object-cover rounded-xl shadow-2xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Q-Bond Advantage Grid: Focus on Structural Integrity */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
-        <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">The Q-Bond Structural Advantage</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {adhesiveFocus.map((item) => (
-              <Card key={item.title} className="hover:shadow-xl transition-shadow duration-300">
-                <CardHeader>
-                  <CardTitle className="flex items-center space-x-3 text-xl">
-                    <item.icon className="h-6 w-6 text-primary" /> <span>{item.title}</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>{item.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA: Related Consumables */}
-      <section className="py-16 bg-secondary/10 dark:bg-neutral-900">
-        <div className="container text-center">
-          <h2 className="text-3xl font-bold text-neutral-900 dark:text-white">Need Fillers and Adhesives for Automotive Repairs?</h2>
-          <p className="mt-2 text-xl font-medium text-neutral-600 dark:text-neutral-300">
-            Q-Bond is often paired with our HB BODY fillers and mipa paint systems.
-          </p>
-          <Button asChild size="lg" className="mt-6 bg-accent text-white hover:bg-accent/90">
-            <Link href="/automotive-paint/hb-body-consumables">
-              View All Automotive Consumables <MoveRight className="ml-2 h-5 w-5" />
             </Link>
           </Button>
         </div>
@@ -2516,20 +2859,20 @@ export default function IndustrialFloorCoatingsPage() {
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\app\industrial-coatings\mining-manufacturing-solutions\page.tsx--------------------------------------------------------------------------------// src/app/industrial-coatings/mining-manufacturing-solutions/page.tsx - FULL REPLACEMENT (Wadeville CTA Removed & Typo Fixed)
+--------------------------------------------------------------------------------📄 FILE PATH: src\app\industrial-coatings\mining-manufacturing-solutions\page.tsx--------------------------------------------------------------------------------// src/app/industrial-coatings/mining-manufacturing-solutions/page.tsx - FULL REPLACEMENT (Unused Import Removed)
 
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { MoveRight, Drill, Layers, HardHat, Beaker, Wrench, Package } from "lucide-react";
+import { MoveRight, Drill, Layers, HardHat, Beaker } from "lucide-react"; // Wrench, Package removed
 import { Button } from "@/components/ui/button";
-// FIX: CardHeader import restored
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card"; // CardHeader removed
+
 export const metadata: Metadata = {
-  // UPDATED: Added new B2B tools and cleaners
-  title: "Coatings, Tools & Equipment for Mining & Manufacturing | QJ Industrial",
-  description: "Specialized protective coatings (SHIELD), high-end SATA PIENAAR spray guns, Tork Craft tools, and PREPSOL degreasers for the South African industrial sectors.",
+  title: "Specialized Coatings for Mining & Manufacturing | QJ Industrial",
+  description: "Specialized protective coatings (SHIELD) for extreme abrasion, chemical resistance, and Corrosion Under Insulation (CUI) for the South African industrial sectors.",
 };
+
 const industryChallenges = [
   {
     icon: Drill,
@@ -2547,23 +2890,7 @@ const industryChallenges = [
     description: "Specialist coatings engineered for pipes and equipment operating under thermal insulation where moisture and heat accelerate corrosion.",
   },
 ];
-const equipmentSolutions = [
-  {
-    icon: Wrench,
-    title: "SATA PIENAAR Spray Equipment",
-    description: "High-end, professional spray guns and. air tools required for precise application of thick-film industrial and protective coatings.",
-  },
-  {
-    icon: Package,
-    title: "Tork Craft Tools & Accessories",
-    description: "Industrial-grade cutting tools, brushes, and accessories essential for surface preparation and application reliability.",
-  },
-  {
-    icon: Beaker,
-    title: "PREPSOL Industrial Cleaners",
-    description: "Specialized degreasers and cleaners for critical surface preparation, ensuring maximum adhesion and system performance.",
-  },
-];
+
 export default function MiningManufacturingSolutionsPage() {
   return (
     <main>
@@ -2575,10 +2902,10 @@ export default function MiningManufacturingSolutionsPage() {
             <HardHat className="h-12 w-12 text-accent mb-4" />
             <span className="text-sm font-semibold uppercase text-accent">For South African Heavy Industry</span>
             <h1 className="mt-2 text-4xl font-bold md:text-6xl">
-              Coatings, Tools & Equipment for Industry
+              Mining & Manufacturing Coating Solutions
             </h1>
             <p className="mt-4 text-xl text-neutral-300 max-w-lg">
-              We move beyond general industrial paint to offer **certified, high-performance systems** tailored for the unique demands of heavy manufacturing and mining operations, plus the tools to apply them.
+              We move beyond general industrial paint to offer **certified, high-performance systems** tailored for the unique demands of heavy manufacturing and mining operations.
             </p>
             <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90 text-neutral-900">
               <Link href="/services/on-site-technical-consultation">
@@ -2617,31 +2944,22 @@ export default function MiningManufacturingSolutionsPage() {
         </div>
       </section>
 
-      {/* NEW SECTION: Tools and Application Equipment */}
-      <section className="py-16 md:py-24 bg-secondary/10 dark:bg-neutral-900">
-        <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">Application Tools & Surface Preparation Chemicals</h2>
-          <p className="text-xl text-center text-neutral-600 dark:text-neutral-300 mb-10">
-            We supply more than just **SHIELD** coatings; we provide the entire workflow solution, from prep to application.
+      {/* NEW SECTION: Tools and Application Equipment (REMOVED) */}
+
+      {/* Final CTA: Updated to point to new consumables page */}
+      <section className="py-16 bg-secondary/10 dark:bg-neutral-900">
+        <div className="container text-center">
+          <h2 className="text-3xl font-bold text-neutral-900 dark:text-white">Need Application Tools or Solvents?</h2>
+          <p className="mt-2 text-xl font-medium text-neutral-600 dark:text-neutral-300">
+            We supply the entire workflow, from PREPSOL degreasers to thick-film rollers.
           </p>
-          <div className="grid md:grid-cols-3 gap-8">
-            {equipmentSolutions.map((item) => (
-              <Card key={item.title} className="hover:border-accent transition-colors duration-300">
-                <CardHeader>
-                  <CardTitle className="flex items-center space-x-3 text-xl">
-                    <item.icon className="h-6 w-6 text-accent" /> <span>{item.title}</span>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <CardDescription>{item.description}</CardDescription>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+          <Button asChild size="lg" className="mt-6 bg-accent text-white hover:bg-accent/90">
+            <Link href="/consumables/industrial-heavy-duty">
+              View Industrial Consumables <MoveRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
         </div>
       </section>
-
-      {/* Final CTA: Wadeville Hub (REMOVED) */}
 
     </main>
   );
@@ -3551,7 +3869,7 @@ export function BrandSlider() {
     );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\CategorySection.tsx--------------------------------------------------------------------------------// src/components/layout/CategorySection.tsx - FULL REPLACEMENT (Brand Replacement)
+--------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\CategorySection.tsx--------------------------------------------------------------------------------// src/components/layout/CategorySection.tsx - FULL REPLACEMENT (Reverted to 3 Columns & Asterisks Removed)
 import Image from "next/image"
 import Link from "next/link"
 import {
@@ -3562,16 +3880,15 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-// import { Button } from "@/components/ui/button" // REMOVED UNUSED IMPORT
-import { ArrowRight, Paintbrush, Factory, Car } from "lucide-react"
+import { ArrowRight, Paintbrush, Factory, Car } from "lucide-react"; // Wrench removed
 import { cn } from "@/lib/utils"
 
-// Data structure updated to use local image paths
+// Data structure updated to 3 verticals
 const verticals = [
   {
     title: "Decorative Paint",
     description:
-      "Premium interior and exterior systems. Your local official stockist for **PAINTCHEM, Top Paints, and Q-Bond**. Full range, expert color advice.",
+      "Premium interior and exterior systems. Your local official stockist for Top Paints, Flash Harry, and ILEX. Full range, expert color advice.",
     href: "/decorative-paint",
     imageUrl: "/images/decorative.png", 
     imageAlt: "A beautifully painted modern living room wall and decorative tin of paint",
@@ -3580,7 +3897,7 @@ const verticals = [
   {
     title: "Automotive Refinish",
     description:
-      "High-performance refinish systems for professional bodyshops. We supply superior **mipa and HB BODY** systems, backed by our spectrophotometer matching service.",
+      "High-performance refinish systems for professional bodyshops. We supply superior mipa and HB BODY systems, backed by our spectrophotometer matching service.",
     href: "/automotive-paint",
     imageUrl: "/images/automotive.png", 
     imageAlt: "A car being professionally spray painted in a bodyshop booth",
@@ -3589,7 +3906,7 @@ const verticals = [
   {
     title: "Industrial Coatings",
     description:
-      "Heavy-duty, specified solutions for asset protection. **SHIELD** anti-corrosion primers, epoxy floor coatings, and specialized systems for mining and manufacturing.",
+      "Heavy-duty, specified solutions for asset protection. Official stockist for Amalgamated Paints and Paintchem industrial systems, including epoxy floor coatings.",
     href: "/industrial-coatings",
     imageUrl: "/images/industrial.png", 
     imageAlt: "A large industrial warehouse with a durable coated floor",
@@ -3603,12 +3920,12 @@ export function CategorySection() {
     <section className="w-full bg-secondary/10 py-16 md:py-24 dark:bg-neutral-950 transition-colors duration-500">
       <div className="container px-4 md:px-6">
         {/* Section Header (Storyteller's Heart: Clarity and Focus) */}
-        <div className="mx-auto mb-12 max-w-4xl text-center">
+         <div className="mx-auto mb-12 max-w-4xl text-center">
           <h2 className="text-4xl font-extrabold tracking-tight text-neutral-900 sm:text-5xl dark:text-white">
             Your Technical Partner Across Three Core Verticals
           </h2>
           <p className="mt-4 text-xl leading-8 text-neutral-600 dark:text-neutral-300">
-            We are the only supplier in the region providing expert consultation for decorative, automotive, and heavy-duty industrial projects under one roof.
+            We are the only supplier in the region providing expert consultation and supplies for decorative, automotive, and industrial projects under one roof.
           </p>
         </div>
 
@@ -3624,49 +3941,49 @@ export function CategorySection() {
               style={{ display: 'block' }} 
             >
               <Card 
-              // Card Border Effect: Hover border and increased shadow
+               // Card Border Effect: Hover border and increased shadow
                 className={cn(
                   "flex h-full flex-col overflow-hidden border-2 border-transparent transition-all duration-300 shadow-xl",
                   "hover:border-primary/50 hover:shadow-2xl dark:bg-neutral-800 dark:shadow-none"
                 )}
-              >
+               >
                 {/* Card Header with Image */}
                 <CardHeader className="p-0 relative">
                   <div className="relative aspect-[4/3] w-full">
                     <Image
-                      src={vertical.imageUrl}
+                       src={vertical.imageUrl}
                       alt={vertical.imageAlt}
                       fill
                       // Image Zoom Effect: Subtle movement on hover
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                       sizes="(max-width: 768px) 100vw, 33vw" // Optimization for Next/Image
                       priority={vertical.title === "Decorative Paint"} // Prioritize loading the main image
                     />
-                  </div>
+                   </div>
                   {/* Icon Overlay for Clarity */}
                   <div className="absolute top-4 left-4 p-2 rounded-full bg-primary/90 shadow-lg">
                       <vertical.icon className="h-6 w-6 text-primary-foreground" />
                   </div>
-                </CardHeader>
+                 </CardHeader>
                 
                 {/* Card Content */}
                 <CardContent className="flex-1 p-6">
                   <CardTitle className="mb-2 text-2xl font-bold text-neutral-900 dark:text-white group-hover:text-primary transition-colors">
-                      {vertical.title}
+                       {vertical.title}
                   </CardTitle>
                   <CardDescription className="text-neutral-600 dark:text-neutral-400 text-base">
                     {vertical.description}
                   </CardDescription>
-                </CardContent>
+                 </CardContent>
                 
                 {/* Card Footer with CTA Button */}
                 <CardFooter className="p-6 pt-0">
                     <span 
-                    // CTA Color: Use primary color with hover effect
+                     // CTA Color: Use primary color with hover effect
                         className="text-primary font-semibold hover:text-primary/80 dark:text-primary inline-flex items-center"
                     >
                       Explore Solutions
-                      <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+                       <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </span>
                 </CardFooter>
               </Card>
@@ -3674,7 +3991,7 @@ export function CategorySection() {
           ))}
         </div>
       </div>
-    </section>
+     </section>
   )
 }
 
@@ -3808,12 +4125,13 @@ export function FAQ() {
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\FeaturedBrands.tsx--------------------------------------------------------------------------------// src/components/layout/FeaturedBrands.tsx - FULL REPLACEMENT (Fixing Apostrophe)
+--------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\FeaturedBrands.tsx--------------------------------------------------------------------------------// src/components/layout/FeaturedBrands.tsx - FULL REPLACEMENT (Reverted to 3 Columns & Asterisks Removed)
 
 import Image from "next/image";
 import Link from "next/link";
-import { Star, Paintbrush, Shield, Home } from "lucide-react"; // Only keeping the used icons
+import { Star, Paintbrush, Shield, Home } from "lucide-react"; // Wrench removed
 import { cn } from "@/lib/utils";
+
 // The data is grouped by vertical to reinforce the "Expert Generalist" USP.
 const brandVerticals = [
   {
@@ -3830,33 +4148,39 @@ const brandVerticals = [
   },
   {
     name: "Industrial & Protective",
-    // FIX: Escaped apostrophe in "project's"
     description: "Heavy-duty coatings for asset protection.",
     href: "/industrial-coatings",
     icon: Shield, // Icon for Industrial (Protection/Authority)
   },
 ];
 
-// REPLACED with New Approved Brands and associated links/alts
 const allBrands = [
+  // Decorative
   {
-    name: "PAINTCHEM Trade",
-    logoSrc: "/images/logos/logo-paintchem.png",
-    href: "/decorative-paint/paintchem-trade-supplier",
-    alt: "PAINTCHEM Decorative Trade Supplier",
+    name: "Top Paints",
+    logoSrc: "/images/logos/logo-top-paints.png",
+    href: "/decorative-paint/top-paints-genkem-stockist",
+    alt: "Top Paints Decorative Coatings",
     vertical: "Decorative Coatings"
   },
   {
-    name: "Q-BOND Solutions",
-    logoSrc: "/images/logos/logo-q-bond.png",
-    href: "/decorative-paint/q-bond-super-glue-solutions",
-    alt: "Q-BOND and Super Glue Industrial Adhesives",
+    name: "Flash Harry",
+    logoSrc: "/images/logos/logo-flash-harry.png",
+    href: "/decorative-paint/waterproofing-roof-paint",
+    alt: "Flash Harry Waterproofing",
     vertical: "Decorative Coatings"
   },
+  {
+    name: "ILEX",
+    logoSrc: "/images/logos/logo-ilex.png",
+    href: "/decorative-paint",
+    alt: "ILEX Specialty Coatings",
+    vertical: "Decorative Coatings"
+  },
+  // Automotive
   {
     name: "mipa Coating Systems",
     logoSrc: "/images/logos/logo-mipa.png",
-  
     href: "/automotive-paint/mipa-paint-supplier",
     alt: "mipa Professional Automotive Coating Systems",
     vertical: "Automotive Refinish"
@@ -3868,23 +4192,22 @@ const allBrands = [
     alt: "HB BODY and Automotive Consumables",
     vertical: "Automotive Refinish"
   },
-  // Placeholder industrial brands
+  // Industrial
   {
-    name: "SHIELD Protective Coatings",
-    logoSrc: "/images/logos/logo-shield.png", 
-    href: "/industrial-coatings/anti-corrosion-protective-coatings",
-    alt: "SHIELD Anti-Corrosion and Protective Primers",
+    name: "Amalgamated Paints",
+    logoSrc: "/images/logos/logo-amalgamated.png",
+    href: "/industrial-coatings",
+    alt: "Amalgamated Paints Industrial Coatings",
     vertical: "Industrial & Protective"
   },
- 
-  
   {
-    name: "Klingspor Abrasives",
-    logoSrc: "/images/logos/logo-klingspor.png", 
-    href: "/automotive-paint/bodyshop-consumables-abrasives-fillers",
-    alt: "Klingspor Industrial Abrasives",
+    name: "Paintchem",
+    logoSrc: "/images/logos/logo-paintchem.png", 
+    href: "/industrial-coatings",
+    alt: "Paintchem Industrial Coatings",
     vertical: "Industrial & Protective"
   },
+  // Consumables brands removed
 ];
 
 export function FeaturedBrands() {
@@ -3896,118 +4219,80 @@ export function FeaturedBrands() {
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-4xl font-extrabold tracking-tight text-neutral-900 sm:text-5xl dark:text-white">
             Authorised Technical Partner for Leading Brands
-      
           </h2>
           
-          {/* SEO-Enhanced Subheading (Readable) */}
+          {/* SEO-Enhanced Subheading (Readable & Asterisks Removed) */}
           <p className="mt-4 text-xl leading-8 text-neutral-600 dark:text-neutral-300">
-            We are your trusted, technical partner, offering authoritative, confirmed systems for **Industrial Coatings (SHIELD)**, **Automotive Refinish (mipa, HB BODY)**, and **Premium Decorative Paint (PAINTCHEM)**. Our expertise is your project&apos;s advantage.
-          
+            We are your trusted, technical partner, offering authoritative, confirmed systems for Industrial Coatings, Automotive Refinish (mipa, HB BODY), and Premium Decorative Paint. Our expertise is your project&apos;s advantage.
           </p>
         </div>
 
    
-        {/* 3-Column Vertical Grid - THE VISUAL PUNCH */}
+        {/* 3-Column Vertical Grid */}
         <div className="mx-auto mt-16 grid max-w-none grid-cols-1 gap-12 lg:grid-cols-3">
           {brandVerticals.map((vertical) => {
             const brandsInVertical = allBrands.filter(b => b.vertical === vertical.name);
             return (
-            <div 
-              key={vertical.name} 
-              // BOLD BORDER & SHADOW: Technical Authority (Artisan's Praxis)
-              className={cn(
-                "group flex flex-col rounded-2xl border-4 border-accent/50 bg-white p-8 shadow-2xl transition-all duration-500",
-         
-                "hover:border-primary/80 dark:bg-neutral-800 dark:border-accent/30 dark:hover:border-primary/80"
-              )}
-            >
-              
-              {/* Icon, Title & CTA Link */}
-              <Link href={vertical.href} className="mb-6 flex flex-col space-y-4">
-  
-          
+              <div 
+                key={vertical.name} 
+                className={cn(
+                  "group flex flex-col rounded-2xl border-4 border-accent/50 bg-white p-8 shadow-2xl transition-all duration-500",
+                  "hover:border-primary/80 dark:bg-neutral-800 dark:border-accent/30 dark:hover:border-primary/80"
+                )}
+              >
                 
-                {/* LARGE ACCENT ICON: New focal point */}
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-accent-foreground shadow-lg">
-                    <vertical.icon className="h-7 w-7 text-white dark:text-black" />
- 
-                </div>
-
-      
-                <div className="flex items-center justify-between">
-                    <h3 className="text-3xl font-bold text-neutral-900 group-hover:text-primary transition-colors dark:text-white dark:group-hover:text-primary">
-                        {vertical.name}
-       
-                    </h3>
+                {/* Icon, Title & CTA Link */}
+                <Link href={vertical.href} className="mb-6 flex flex-col space-y-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent text-accent-foreground shadow-lg">
+                      <vertical.icon className="h-7 w-7 text-white dark:text-black" />
+                  </div>
+                  <div className="flex items-center justify-between">
+                      <h3 className="text-3xl font-bold text-neutral-900 group-hover:text-primary transition-colors dark:text-white dark:group-hover:text-primary">
+                          {vertical.name}
+                      </h3>
+                      <Star className="h-6 w-6 text-primary fill-primary opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:scale-125" />
+                  </div>
+                </Link>
                 
-                    <Star className="h-6 w-6 text-primary fill-primary opacity-0 transition-all duration-500 group-hover:opacity-100 group-hover:scale-125" />
-                </div>
-              </Link>
+                {/* Description */}
+                <p className="text-lg font-medium text-neutral-600 dark:text-neutral-400 mb-6">
+                  {vertical.description}
+                </p>
           
-              
-              {/* Description */}
-              <p className="text-lg font-medium text-neutral-600 dark:text-neutral-400 mb-6">
-       
-                {vertical.description}
-              </p>
+                {/* LOGO GRID/LIST */}
+                <div className="flex-grow space-y-3">
+                  <h4 className="text-sm font-semibold uppercase text-accent dark:text-primary/70">Featured Systems:</h4>
+                  <div className="space-y-4 pt-1">
+                  
+                    {brandsInVertical.map((brand) => (
+                      <Link
+                          key={brand.name}
+                          href={brand.href}
+                          className="group/link flex items-center space-x-4 p-3 rounded-lg bg-white transition-all duration-300 hover:bg-accent/20 dark:hover:bg-accent/40 dark:bg-neutral-800"
+                      >
+                        <div className="relative h-8 w-16 flex-shrink-0">
+                          <Image
+                            src={brand.logoSrc}
+                            alt={brand.alt}
+                            fill
+                            className="object-contain opacity-60 grayscale transition-all duration-500 group-hover/link:opacity-100 group-hover/link:grayscale-0 dark:invert"
+                          />
+                        </div>
+                        <span className="text-base font-semibold text-neutral-900 dark:text-white">
+                          {brand.name}
+                        </span>
+                        <span className="ml-auto text-primary text-sm font-medium transition-all duration-300 group-hover/link:text-primary/80">
+                          View Page →
+                        </span>
+                      </Link>
+                    ))}
 
-          
-            {/* LOGO GRID/LIST - Dynamic Micro-Interaction */}
-        
-              <div className="flex-grow space-y-3">
-                <h4 className="text-sm font-semibold uppercase text-accent dark:text-primary/70">Featured Systems:</h4>
-                <div className="space-y-4 pt-1">
- 
-                {brandsInVertical.map((brand) => (
-       
-                    <Link
-               
-                        key={brand.name}
-                        href={brand.href}
-                        // HIGH CONTRAST HOVER: Background shifts to accent color with softer animation
-     
-                        className="group/link flex items-center space-x-4 p-3 rounded-lg bg-white transition-all duration-300 hover:bg-accent/20 dark:hover:bg-accent/40 dark:bg-neutral-800"
-             
-                    >
-                    {/* LOGO DYNAMIC EFFECT: Grayscale to Color shift */}
-             
-     
-                    <div className="relative h-8 w-16 flex-shrink-0">
-                      <Image
-    
-                        src={brand.logoSrc}
-                        
-                        alt={brand.alt}
-                       
-                        fill
-         
-                        // The magic: transition-all on opacity and filter
-             
-                        className="object-contain opacity-60 grayscale transition-all duration-500 group-hover/link:opacity-100 group-hover/link:grayscale-0 dark:invert"
-                      />
-               
-          
-                    </div>
-               
-                    <span className="text-base font-semibold text-neutral-900 dark:text-white">
-                      {brand.name}
-                    </span>
-                    <span className="ml-auto text-primary text-sm font-medium transition-all duration-300 group-hover/link:text-primary/80">
-  
-                    
-                      View Page →
-                    </span>
-                  </Link>
-                ))}
+                  </div>
                 </div>
               </div>
-      
-            </div>
-          );})}
-   
+            );})}
+        </div>
       </div>
-      
- </div>
     </section>
   );
 }
@@ -4166,7 +4451,7 @@ export function Footer() {
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\Header.tsx--------------------------------------------------------------------------------// src/components/layout/Header.tsx - FULL REPLACEMENT (Apostrophe Fix)
+--------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\Header.tsx--------------------------------------------------------------------------------// src/components/layout/Header.tsx - FULL REPLACEMENT (Consumables Nav Added)
 
 "use client"
 
@@ -4190,12 +4475,6 @@ import { MobileNav } from "@/components/layout/MobileNav"
 
 // --- Link Data (RETAINED from original Header.tsx) ---
 const decorativeLinks: { title: string; href: string; description: string; color: string }[] = [
-  {
-    title: "Q-Bond & Super Glue",
-    href: "/decorative-paint/q-bond-super-glue-solutions",
-    description: "Industrial strength bonding systems and super glue solutions.",
-    color: "primary",
-  },
   {
     title: "PAINTCHEM Trade",
     href: "/decorative-paint/paintchem-trade-supplier",
@@ -4232,14 +4511,34 @@ const automotiveLinks: { title: string; href: string; description: string; color
     title: "Advanced Paint Matching",
     href: "/automotive-paint/spectrophotometer-paint-matching",
     description: "Our high-tech spectrophotometer service for a perfect blend.",
-    
     color: "accent",
   },
+]
+// NEW CONSUMABLES LINKS
+const consumableLinks: { title: string; href: string; description: string; color: string }[] = [
   {
-    title: "Bodyshop Consumables (3M, Klingspor)",
-    href: "/automotive-paint/bodyshop-consumables-abrasives-fillers",
-    description: "Full range of professional abrasives, fillers, and compounds.",
-    color: "accent",
+    title: "General Paint Supplies",
+    href: "/consumables/general-paint-supplies",
+    description: "Abrasives, masking, brushes, rollers, & PPE.",
+    color: "secondary",
+  },
+  {
+    title: "Automotive Bodyshop",
+    href: "/consumables/automotive-bodyshop",
+    description: "Fillers, degreasers (PREPSOL), & polishing (Farécla).",
+    color: "secondary",
+  },
+  {
+    title: "Industrial & Heavy-Duty",
+    href: "/consumables/industrial-heavy-duty",
+    description: "Rust converters, solvents, & thick-film rollers.",
+    color: "secondary",
+  },
+  {
+    title: "Q-Bond Adhesive Kits",
+    href: "/consumables/q-bond-adhesives",
+    description: "Ultra-strong adhesives for structural repairs.",
+    color: "secondary",
   },
 ]
 const industrialLinks: { title: string; href: string; description: string; color: string }[] = [
@@ -4375,6 +4674,27 @@ export function Header()
                    </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
+
+              {/* NEW: Consumables Link */}
+              <NavigationMenuItem>
+                <NavigationMenuTrigger className="bg-black hover:bg-neutral-900">
+                  Consumables
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] bg-card text-card-foreground border border-border">
+                  {consumableLinks.map((item) => (
+                      <ListItem
+                        key={item.title}
+                        title={item.title}
+                        href={item.href}
+                        colorClass={item.color} // Pass the color
+                     >
+                        {item.description}
+                      </ListItem>
+                    ))}
+                   </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
               
               {/* Services Link */}
               <NavigationMenuItem>
@@ -4397,8 +4717,6 @@ export function Header()
                 </NavigationMenuContent>
               </NavigationMenuItem>
           
-              {/* NEW: Locations Link (REMOVED) */}
-
             </NavigationMenuList>
           </NavigationMenu>
         </div>
@@ -4610,7 +4928,7 @@ export function InteractiveBackground() {
   );
 }
 
---------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\MobileNav.tsx--------------------------------------------------------------------------------// src/components/layout/MobileNav.tsx - FULL REPLACEMENT (Apostrophe Fix)
+--------------------------------------------------------------------------------📄 FILE PATH: src\components\layout\MobileNav.tsx--------------------------------------------------------------------------------// src/components/layout/MobileNav.tsx - FULL REPLACEMENT (Consumables Nav Added)
 
 "use client";
 
@@ -4634,7 +4952,6 @@ import {
 // --- Nav Link Data (Retained) ---
 
 const decorativeLinks: { title: string; href: string; description: string; color: string }[] = [
-  { title: "Q-Bond & Super Glue", href: "/decorative-paint/q-bond-super-glue-solutions", description: "Industrial strength bonding systems and super glue solutions.", color: "primary" },
   { title: "PAINTCHEM Trade", href: "/decorative-paint/paintchem-trade-supplier", description: "Full range of PAINTCHEM systems for commercial use.", color: "primary" },
   { title: "Top Paints & Genkem", href: "/decorative-paint/top-paints-genkem-stockist", description: "Stockist for Top Paints and Genkem protective coatings.", color: "primary" },
   { title: "Waterproofing & Roofs", href: "/decorative-paint/waterproofing-roof-paint", description: "Complete solutions for waterproofing and roof coatings (Flash Harry).", color: "primary" },
@@ -4643,7 +4960,13 @@ const automotiveLinks: { title: string; href: string; description: string; color
   { title: "mipa Coating Systems", href: "/automotive-paint/mipa-paint-supplier", description: "Premium mipa Professional Coating Systems.", color: "accent" },
   { title: "HB BODY Consumables", href: "/automotive-paint/hb-body-consumables", description: "HB BODY and HB BODY consumables supplier.", color: "accent" },
   { title: "Advanced Paint Matching", href: "/automotive-paint/spectrophotometer-paint-matching", description: "Our high-tech spectrophotometer service for a perfect blend.", color: "accent" },
-  { title: "Bodyshop Consumables (3M, Klingspor)", href: "/automotive-paint/bodyshop-consumables-abrasives-fillers", description: "Full range of professional abrasives, fillers, and compounds.", color: "accent" },
+]
+// NEW CONSUMABLES LINKS
+const consumableLinks: { title: string; href: string; description: string; color: string }[] = [
+  { title: "General Paint Supplies", href: "/consumables/general-paint-supplies", description: "Abrasives, masking, brushes, rollers, & PPE.", color: "secondary" },
+  { title: "Automotive Bodyshop", href: "/consumables/automotive-bodyshop", description: "Fillers, degreasers (PREPSOL), & polishing (Farécla).", color: "secondary" },
+  { title: "Industrial & Heavy-Duty", href: "/consumables/industrial-heavy-duty", description: "Rust converters, solvents, & thick-film rollers.", color: "secondary" },
+  { title: "Q-Bond Adhesive Kits", href: "/consumables/q-bond-adhesives", description: "Ultra-strong adhesives for structural repairs.", color: "secondary" },
 ]
 const industrialLinks: { title: string; href: string; description: string; color: string }[] = [
   { title: "Heavy-Duty Floor Coatings", href: "/industrial-coatings/epoxy-polyurethane-floor-coatings", description: "Epoxy and Polyurethane systems for factory floors.", color: "secondary" },
@@ -4722,6 +5045,7 @@ export function MobileNav() {
                         <SubMenu title="Decorative Paint" links={decorativeLinks} />
                         <SubMenu title="Automotive Refinish" links={automotiveLinks} />
                         <SubMenu title="Industrial Coatings" links={industrialLinks} />
+                        <SubMenu title="Consumables & Tools" links={consumableLinks} />
                         <SubMenu title="Our Services" links={serviceLinks} />
                         
                         <DropdownMenuSeparator className="bg-neutral-800" />

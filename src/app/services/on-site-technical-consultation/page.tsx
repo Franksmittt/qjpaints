@@ -33,40 +33,42 @@ export default function TechnicalConsultationPage() {
     <main>
       
       {/* Hero Section: Expert Solution (Storyteller's Heart) */}
-      <section className="bg-accent/90 py-16 md:py-24 text-white">
-        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="text-sm font-semibold uppercase text-primary">High-Value B2B Service</span>
-            <h1 className="mt-2 text-4xl font-bold md:text-6xl">
-              On-Site Technical Consultation
-            </h1>
-            <p className="mt-4 text-xl text-white max-w-lg">
-              **Stop guessing on industrial specifications.** We send our coating engineers to your facility in Johannesburg South to guarantee your epoxy, polyurethane, or anti-corrosion system will perform.
-            </p>
-            <div className="mt-8 flex gap-4">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-xl py-7 px-10">
-                <Link href="/contact-us">Schedule Your Consultation</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-neutral-900">
-                <Link href="/industrial-coatings/case-studies">View Proof of Expertise →</Link>
-              </Button>
+      <section className="bg-accent/90 py-12 sm:py-16 md:py-24 text-white overflow-hidden">
+        <div className="container max-w-screen-xl px-4 sm:px-6 md:px-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="w-full px-4 sm:px-0">
+              <span className="text-sm font-semibold uppercase text-primary">High-Value B2B Service</span>
+              <h1 className="mt-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold break-words">
+                On-Site Technical Consultation
+              </h1>
+              <p className="mt-4 text-lg sm:text-xl text-white max-w-lg break-words">
+                **Stop guessing on industrial specifications.** We send our coating engineers to your facility in Johannesburg South to guarantee your epoxy, polyurethane, or anti-corrosion system will perform.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 text-xl py-7 px-10 whitespace-nowrap">
+                  <Link href="/contact-us">Schedule Your Consultation</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-neutral-900 whitespace-nowrap">
+                  <Link href="/industrial-coatings/case-studies">View Proof of Expertise →</Link>
+                </Button>
+              </div>
             </div>
-          </div>
-          <div className="relative aspect-[4/3] min-h-[300px]">
-            <Image
-              src="/images/engineer-consultation.png" // Placeholder image for engineer on site
-              alt="Coating engineer in a hardhat performing an inspection on an industrial site"
-              fill
-              priority
-              className="object-cover rounded-xl shadow-2xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+            <div className="relative w-full max-w-md mx-auto md:max-w-full aspect-square">
+              <Image
+                src="/images/engineer-consultation.png" // Placeholder image for engineer on site
+                alt="Coating engineer in a hardhat performing an inspection on an industrial site"
+                fill
+                priority
+                className="object-cover rounded-xl shadow-2xl"
+                sizes="(max-width: 768px) 90vw, 40vw"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* 3-Step Process (Artisan's Praxis: Clarity) */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+      <section className="py-12 sm:py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-12">How We Guarantee the Right System</h2>
           <div className="grid md:grid-cols-3 gap-8">

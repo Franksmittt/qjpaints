@@ -35,38 +35,40 @@ export default function MiningManufacturingSolutionsPage() {
     <main>
       
       {/* Hero Section: Specialized Industry Focus */}
-      <section className="bg-neutral-900 py-16 md:py-24 text-white">
-        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <HardHat className="h-12 w-12 text-accent mb-4" />
-            <span className="text-sm font-semibold uppercase text-accent">For South African Heavy Industry</span>
-            <h1 className="mt-2 text-4xl font-bold md:text-6xl">
-              Mining & Manufacturing Coating Solutions
-            </h1>
-            <p className="mt-4 text-xl text-neutral-300 max-w-lg">
-              We move beyond general industrial paint to offer **certified, high-performance systems** tailored for the unique demands of heavy manufacturing and mining operations.
-            </p>
-            <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90 text-neutral-900">
-              <Link href="/services/on-site-technical-consultation">
-                Request Specification Consult <MoveRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-          </div>
-          <div className="relative aspect-[4/3] min-h-[300px]">
-            <Image
-              src="/images/mining-manufacturing-hero.png" // Placeholder image for heavy industry
-              alt="Industrial setting with protective coatings on heavy machinery"
-              fill
-              priority
-              className="object-cover rounded-xl shadow-2xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+      <section className="bg-neutral-900 py-12 sm:py-16 md:py-24 text-white overflow-hidden">
+        <div className="container max-w-screen-xl px-4 sm:px-6 md:px-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="w-full px-4 sm:px-0">
+              <HardHat className="h-12 w-12 text-accent mb-4" />
+              <span className="text-sm font-semibold uppercase text-accent">For South African Heavy Industry</span>
+              <h1 className="mt-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold break-words">
+                Mining & Manufacturing Coating Solutions
+              </h1>
+              <p className="mt-4 text-lg sm:text-xl text-neutral-300 max-w-lg break-words">
+                We move beyond general industrial paint to offer **certified, high-performance systems** tailored for the unique demands of heavy manufacturing and mining operations.
+              </p>
+              <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90 text-neutral-900 whitespace-nowrap">
+                <Link href="/services/on-site-technical-consultation">
+                  Request Specification Consult <MoveRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+            <div className="relative w-full max-w-md mx-auto md:max-w-full aspect-square">
+              <Image
+                src="/images/mining-manufacturing-hero.png" // Placeholder image for heavy industry
+                alt="Industrial setting with protective coatings on heavy machinery"
+                fill
+                priority
+                className="object-cover rounded-xl shadow-2xl"
+                sizes="(max-width: 768px) 90vw, 40vw"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Challenges Grid: Problem-Solution */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+      <section className="py-12 sm:py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container">
           <h2 className="text-3xl font-bold text-center mb-12">Solving High-Stakes Industrial Challenges</h2>
           <div className="grid md:grid-cols-3 gap-8">

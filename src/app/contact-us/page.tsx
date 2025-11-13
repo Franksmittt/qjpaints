@@ -24,9 +24,9 @@ export default function ContactHubPage() {
       
       {/* Hero Section: The Location Router (Architect's Precision) */}
       {/* CHANGE: bg-secondary/10 (light gray) to dark:bg-neutral-950 (deep black) */}
-      <section className="bg-secondary/10 py-16 md:py-24 dark:bg-neutral-950 text-neutral-900 dark:text-white">
+      <section className="bg-secondary/10 py-12 sm:py-16 md:py-24 dark:bg-neutral-950 text-neutral-900 dark:text-white">
         <div className="container max-w-screen-xl text-center">
-          <h1 className="text-4xl font-bold md:text-6xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
             Our Alberton Trade Centre
           </h1>
           <p className="mt-4 text-xl text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto">
@@ -36,7 +36,7 @@ export default function ContactHubPage() {
       </section>
 
       {/* Location Router Cards - Centered Single Card */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+      <section className="py-12 sm:py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container flex justify-center">
           <div className="w-full max-w-lg">
             <Card key={locationCard.title} className="flex flex-col overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">
@@ -78,7 +78,7 @@ export default function ContactHubPage() {
       {/* Central CTA */}
       <section className="py-16 bg-primary dark:bg-primary/90 text-neutral-900">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold">Have a Quick Question? Call Our Main Line.</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold">Have a Quick Question? Call Our Main Line.</h2>
           <p className="mt-2 text-xl font-medium">
             We are ready to assist you immediately.
           </p>

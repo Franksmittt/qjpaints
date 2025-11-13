@@ -34,9 +34,9 @@ export default function IndustrialCaseStudiesPage() {
     <main>
       
       {/* Hero Section: Proof of Expertise (Architects Precision) */}
-      <section className="bg-white py-16 md:py-24 dark:bg-neutral-900 text-neutral-900 dark:text-white">
+      <section className="bg-white py-12 sm:py-16 md:py-24 dark:bg-neutral-900 text-neutral-900 dark:text-white">
         <div className="container max-w-screen-xl text-center">
-          <h1 className="text-4xl font-bold md:text-6xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
             Industrial Case Studies: Local Project Proof
           </h1>
           <p className="mt-4 text-xl text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto">
@@ -51,7 +51,7 @@ export default function IndustrialCaseStudiesPage() {
       </section>
 
       {/* Case Study Grid: Downloadable Proof */}
-      <section className="py-16 md:py-24 bg-secondary/10 dark:bg-neutral-800">
+      <section className="py-12 sm:py-16 md:py-24 bg-secondary/10 dark:bg-neutral-800">
         <div className="container grid md:grid-cols-2 gap-10">
           {caseStudies.map((study) => (
             <Card key={study.title} className="flex flex-col overflow-hidden shadow-xl hover:shadow-2xl transition-shadow duration-300">

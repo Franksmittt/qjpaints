@@ -34,9 +34,9 @@ export default function ServicesIndexPage() {
     <main>
       
       {/* Hero Section: Technical Difference (Leveraging USP) */}
-      <section className="bg-neutral-900 py-16 md:py-24 text-white">
+      <section className="bg-neutral-900 py-12 sm:py-16 md:py-24 text-white">
         <div className="container max-w-screen-xl text-center">
-          <h1 className="text-4xl font-bold md:text-6xl text-primary">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary">
             Our Technical Services Hub
           </h1>
           <p className="mt-4 text-xl text-neutral-300 max-w-3xl mx-auto">
@@ -46,10 +46,10 @@ export default function ServicesIndexPage() {
       </section>
 
       {/* Grid of Key Sub-Pages */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+      <section className="py-12 sm:py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">The QJ Technical Advantage</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">The QJ Technical Advantage</h2>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {serviceLinks.map((item) => (
               <Card key={item.title} className="flex flex-col h-full hover:border-primary transition-colors duration-300">
                 <CardHeader>
@@ -75,7 +75,7 @@ export default function ServicesIndexPage() {
       {/* Final CTA: Physical Location */}
       <section className="py-12 bg-accent dark:bg-accent/80 text-white">
         <div className="container text-center">
-          <h2 className="text-3xl font-bold">Book Your Service In-Person</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold">Book Your Service In-Person</h2>
           <p className="mt-2 text-xl font-medium">
             Colour matching and service scheduling are managed at our Alberton Trade Centre.
           </p>

@@ -36,10 +36,10 @@ export default function FindAContractorPage() {
     <main>
       
       {/* Hero Section: The Value Proposition */}
-      <section className="bg-secondary/10 py-16 md:py-24 dark:bg-neutral-900 text-neutral-900 dark:text-white">
+      <section className="bg-secondary/10 py-12 sm:py-16 md:py-24 dark:bg-neutral-900 text-neutral-900 dark:text-white">
         <div className="container max-w-screen-xl text-center">
           <Users className="h-12 w-12 text-primary mx-auto mb-4" />
-          <h1 className="text-4xl font-bold md:text-6xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
             Find a QJ-Approved Contractor
           </h1>
           <p className="mt-4 text-xl text-neutral-600 dark:text-neutral-300 max-w-3xl mx-auto">
@@ -49,7 +49,7 @@ export default function FindAContractorPage() {
       </section>
 
       {/* Contractor List Simulation */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+      <section className="py-12 sm:py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container max-w-screen-lg">
           <h2 className="text-3xl font-bold text-center mb-12">Verified Local Experts</h2>
           

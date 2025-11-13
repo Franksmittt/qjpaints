@@ -44,43 +44,45 @@ export default function IndustrialPaintIndexPage() {
     <main>
       
       {/* Hero Section: Industrial Focus (B2B Positioning) */}
-      <section className="bg-neutral-900 py-16 md:py-24 text-white">
-        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <span className="text-sm font-semibold uppercase text-accent">QJ Industrial B2B Solutions</span>
-            <h1 className="mt-2 text-4xl font-bold md:text-6xl">
-              Specialized Industrial Coatings Hub
-            </h1>
-            <p className="mt-4 text-xl text-neutral-300 max-w-lg">
-              We move beyond retail. This is the central resource for engineers and facility managers needing certified, heavy-duty systems for **asset protection** and **floor longevity**.
-            </p>
-            <div className="mt-8 flex gap-4">
-              <Button asChild size="lg" className="bg-primary hover:bg-primary/90">
-                <Link href="/services/on-site-technical-consultation">Request On-Site Specification</Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-white">
-                <Link href="/industrial-coatings/case-studies">View Proof of Performance →</Link>
-              </Button>
+      <section className="bg-neutral-900 py-12 sm:py-16 md:py-24 text-white overflow-hidden">
+        <div className="container max-w-screen-xl px-4 sm:px-6 md:px-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="w-full px-4 sm:px-0">
+              <span className="text-sm font-semibold uppercase text-accent">QJ Industrial B2B Solutions</span>
+              <h1 className="mt-2 text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold break-words">
+                Specialized Industrial Coatings Hub
+              </h1>
+              <p className="mt-4 text-lg sm:text-xl text-neutral-300 max-w-lg break-words">
+                We move beyond retail. This is the central resource for engineers and facility managers needing certified, heavy-duty systems for **asset protection** and **floor longevity**.
+              </p>
+              <div className="mt-8 flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+                <Button asChild size="lg" className="bg-primary hover:bg-primary/90 whitespace-nowrap">
+                  <Link href="/services/on-site-technical-consultation">Request On-Site Specification</Link>
+                </Button>
+                <Button asChild variant="outline" size="lg" className="border-accent text-accent hover:bg-accent hover:text-white whitespace-nowrap">
+                  <Link href="/industrial-coatings/case-studies">View Proof of Performance →</Link>
+                </Button>
+              </div>
             </div>
-          </div>
-          <div className="relative aspect-[4/3] min-h-[300px]">
-            <Image
-              src="/images/industrial-hero-hub.png" // Placeholder image for industrial hub
-              alt="Industrial steel components protected with a high-performance coating"
-              fill
-              priority
-              className="object-cover rounded-xl shadow-2xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+            <div className="relative w-full max-w-md mx-auto md:max-w-full aspect-square">
+              <Image
+                src="/images/industrial-hero-hub.png" // Placeholder image for industrial hub
+                alt="Industrial steel components protected with a high-performance coating"
+                fill
+                priority
+                className="object-cover rounded-xl shadow-2xl"
+                sizes="(max-width: 768px) 90vw, 40vw"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Grid of Key Sub-Pages (Pincer Strategy in action) */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+      <section className="py-12 sm:py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">Industrial Solutions Organized by Problem</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Industrial Solutions Organized by Problem</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {IndustrialPaintData.map((item) => (
               <Card key={item.title} className="flex flex-col h-full hover:border-accent transition-colors duration-300">
                 <CardHeader>

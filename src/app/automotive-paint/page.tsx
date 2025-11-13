@@ -36,41 +36,43 @@ export default function AutomotivePaintIndexPage() {
     <main>
       
       {/* Hero Section: Automotive Focus */}
-      <section className="bg-neutral-900 py-16 md:py-24 text-white">
-        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1">
-            <Car className="h-12 w-12 text-primary mb-4" />
-            <h1 className="text-4xl font-bold md:text-6xl">
-              Professional Automotive Refinish
-            </h1>
-            <p className="mt-4 text-xl text-neutral-300 max-w-lg">
-              Maximize bodyshop throughput and guarantee customer satisfaction with mipa paint systems, supported by HB BODY consumables and accurate colour matching.
-            </p>
-            <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90">
-              <Link href="/trade-partner-program">
-                Join the Bodyshop Hub <MoveRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-          </div>
-          <div className="order-1 md:order-2 relative aspect-[4/3] min-h-[300px]">
-            <Image
-              src="/images/automotive.png" // Reusing main category image
-              alt="A car being professionally spray painted in a bodyshop booth"
-              fill
-              priority
-              className="object-cover rounded-xl shadow-2xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+      <section className="bg-neutral-900 py-12 sm:py-16 md:py-24 text-white overflow-hidden">
+        <div className="container max-w-screen-xl px-4 sm:px-6 md:px-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="order-2 md:order-1 w-full px-4 sm:px-0">
+              <Car className="h-12 w-12 text-primary mb-4" />
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold break-words">
+                Professional Automotive Refinish
+              </h1>
+              <p className="mt-4 text-lg sm:text-xl text-neutral-300 max-w-lg break-words">
+                Maximize bodyshop throughput and guarantee customer satisfaction with mipa paint systems, supported by HB BODY consumables and accurate colour matching.
+              </p>
+              <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90 whitespace-nowrap">
+                <Link href="/trade-partner-program">
+                  Join the Bodyshop Hub <MoveRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+            <div className="order-1 md:order-2 relative w-full max-w-md mx-auto md:max-w-full aspect-square">
+              <Image
+                src="/images/automotive.png" // Reusing main category image
+                alt="A car being professionally spray painted in a bodyshop booth"
+                fill
+                priority
+                className="object-cover rounded-xl shadow-2xl"
+                sizes="(max-width: 768px) 90vw, 40vw"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Grid of Key Sub-Pages */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+      <section className="py-12 sm:py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">Our Automotive Solutions</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Our Automotive Solutions</h2>
           {/* UPDATED GRID TO 3 COLUMNS */}
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {AutomotivePaintData.map((item) => (
               <Card key={item.title} className="flex flex-col h-full hover:border-accent transition-colors duration-300">
                 <CardHeader>

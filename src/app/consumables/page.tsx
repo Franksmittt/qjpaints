@@ -39,40 +39,42 @@ export default function ConsumablesIndexPage() {
     <main>
       
       {/* Hero Section: Consumables Focus */}
-      <section className="bg-neutral-900 py-16 md:py-24 text-white">
-        <div className="container max-w-screen-xl grid md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1">
-            <Wrench className="h-12 w-12 text-primary mb-4" />
-            <h1 className="text-4xl font-bold md:text-6xl">
-              Consumables & Accessories Hub
-            </h1>
-            <p className="mt-4 text-xl text-neutral-300 max-w-lg">
-              The right finish requires the right tools. We are your one-stop shop for every consumable required for a professional job, from preparation to final polish.
-            </p>
-            <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90">
-              <Link href="/trade-partner-program">
-                Join the Contractor&apos;s Hub <MoveRight className="ml-2 h-5 w-5" />
-              </Link>
-            </Button>
-          </div>
-          <div className="order-1 md:order-2 relative aspect-[4/3] min-h-[300px]">
-            <Image
-              src="/images/bodyshop-consumables-kit.png" // Using this image as it's a good overview
-              alt="A collection of professional paint consumables including abrasives, tape, and tools"
-              fill
-              priority
-              className="object-cover rounded-xl shadow-2xl"
-              sizes="(max-width: 768px) 100vw, 50vw"
-            />
+      <section className="bg-neutral-900 py-12 sm:py-16 md:py-24 text-white overflow-hidden">
+        <div className="container max-w-screen-xl px-4 sm:px-6 md:px-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+            <div className="order-2 md:order-1 w-full px-4 sm:px-0">
+              <Wrench className="h-12 w-12 text-primary mb-4" />
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold break-words">
+                Consumables & Accessories Hub
+              </h1>
+              <p className="mt-4 text-lg sm:text-xl text-neutral-300 max-w-lg break-words">
+                The right finish requires the right tools. We are your one-stop shop for every consumable required for a professional job, from preparation to final polish.
+              </p>
+              <Button asChild size="lg" className="mt-8 bg-primary hover:bg-primary/90 whitespace-nowrap">
+                <Link href="/trade-partner-program">
+                  Join the Contractor&apos;s Hub <MoveRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+            <div className="order-1 md:order-2 relative w-full max-w-md mx-auto md:max-w-full aspect-square">
+              <Image
+                src="/images/bodyshop-consumables-kit.png" // Using this image as it's a good overview
+                alt="A collection of professional paint consumables including abrasives, tape, and tools"
+                fill
+                priority
+                className="object-cover rounded-xl shadow-2xl"
+                sizes="(max-width: 768px) 90vw, 40vw"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       {/* Grid of Key Sub-Pages */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-800">
+      <section className="py-12 sm:py-16 md:py-24 bg-white dark:bg-neutral-800">
         <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">Shop Consumables by Vertical</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Shop Consumables by Vertical</h2>
+          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             {consumableCategories.map((item) => (
               <Card key={item.title} className="flex flex-col h-full hover:border-primary transition-colors duration-300">
                 <CardHeader>

@@ -3,7 +3,7 @@
 "use client";
 
 import Link from "next/link";
-import { Menu, X, Phone, Briefcase, ChevronRight } from "lucide-react";
+import { Menu, X, Phone, Briefcase } from "lucide-react";
 import * as React from "react";
 import { useState } from "react";
 
@@ -15,10 +15,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
   DropdownMenuSeparator,
-  DropdownMenuSub,
-  DropdownMenuSubTrigger,
-  DropdownMenuSubContent,
 } from "@/components/ui/dropdown-menu";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 // --- Nav Link Data (Retained) ---
 
 const decorativeLinks: { title: string; href: string; description: string; color: string }[] = [
@@ -51,23 +54,27 @@ const serviceLinks: { title: string; href: string; description: string; color: s
 ]
 // --- End of Nav Link Data ---
 
-// Helper component for Sub-Menu Items (Retained)
-const SubMenu = ({ title, links }: { title: string, links: typeof decorativeLinks }) => (
-    <DropdownMenuSub>
-        <DropdownMenuSubTrigger className="flex justify-between items-center pr-2 py-3">
-            {title}
-            <ChevronRight className="h-4 w-4" />
-        </DropdownMenuSubTrigger>
-        <DropdownMenuSubContent className="w-full">
-            {links.map((link) => (
-                <DropdownMenuItem key={link.title} asChild>
-                    <Link href={link.href} className="text-sm font-medium py-3">
+// Helper component for Sub-Menu Items (Using Accordion for vertical expansion)
+const SubMenu = ({ title, links, value, onLinkClick }: { title: string, links: typeof decorativeLinks, value: string, onLinkClick: () => void }) => (
+    <AccordionItem value={value} className="border-none">
+        <AccordionTrigger className="text-white hover:no-underline hover:text-white py-3 px-2 data-[state=open]:text-white">
+            <span className="text-sm font-medium">{title}</span>
+        </AccordionTrigger>
+        <AccordionContent className="pb-2 pt-0">
+            <div className="space-y-1 pl-4">
+                {links.map((link) => (
+                    <Link 
+                        key={link.title} 
+                        href={link.href} 
+                        className="block text-sm font-medium py-2 px-2 rounded-sm hover:bg-neutral-800 text-neutral-300 hover:text-white transition-colors"
+                        onClick={onLinkClick}
+                    >
                         {link.title}
                     </Link>
-                </DropdownMenuItem>
-            ))}
-        </DropdownMenuSubContent>
-    </DropdownMenuSub>
+                ))}
+            </div>
+        </AccordionContent>
+    </AccordionItem>
 )
 
 
@@ -108,17 +115,19 @@ export function MobileNav() {
                         "bg-neutral-900 text-white border-neutral-800 p-2 overflow-y-auto max-h-[80vh] flex flex-col" // Added flex-col
                     )}
                 >
-                    {/* Main Navigation Links (Nested) - Scrolls the whole thing */}
-                    <div className="flex-1 space-y-1">
+                    {/* Main Navigation Links (Using Accordion for vertical expansion) */}
+                    <div className="flex-1">
                         <DropdownMenuSeparator className="bg-neutral-800 my-2" />
                         
-                        <SubMenu title="Decorative Paint" links={decorativeLinks} />
-                        <SubMenu title="Automotive Refinish" links={automotiveLinks} />
-                        <SubMenu title="Industrial Coatings" links={industrialLinks} />
-                        <SubMenu title="Consumables & Tools" links={consumableLinks} />
-                        <SubMenu title="Our Services" links={serviceLinks} />
+                        <Accordion type="single" collapsible className="w-full">
+                            <SubMenu title="Decorative Paint" links={decorativeLinks} value="decorative" onLinkClick={handleLinkClick} />
+                            <SubMenu title="Automotive Refinish" links={automotiveLinks} value="automotive" onLinkClick={handleLinkClick} />
+                            <SubMenu title="Industrial Coatings" links={industrialLinks} value="industrial" onLinkClick={handleLinkClick} />
+                            <SubMenu title="Consumables & Tools" links={consumableLinks} value="consumables" onLinkClick={handleLinkClick} />
+                            <SubMenu title="Our Services" links={serviceLinks} value="services" onLinkClick={handleLinkClick} />
+                        </Accordion>
                         
-                        <DropdownMenuSeparator className="bg-neutral-800" />
+                        <DropdownMenuSeparator className="bg-neutral-800 my-2" />
                         <DropdownMenuItem asChild>
                             <Link href="/about-us" className="text-sm font-medium py-3" onClick={handleLinkClick}>
                                 Our Story

@@ -36,13 +36,13 @@ export default function TradePartnerProgramPage() {
     <main>
       
       {/* Hero Section: The Moat (Value and Loyalty) */}
-      <section className="bg-accent/90 py-16 md:py-24 text-white">
+      <section className="bg-accent/90 py-12 sm:py-16 md:py-24 text-white">
         <div className="container max-w-screen-xl text-center">
           <Briefcase className="h-12 w-12 text-primary mx-auto mb-4" />
-          <h1 className="text-4xl font-bold md:text-6xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold">
             The Contractor&apos;s Hub
           </h1>
-          <h2 className="mt-4 text-xl md:text-2xl font-medium text-white max-w-3xl mx-auto">
+          <h2 className="mt-4 text-lg sm:text-xl md:text-2xl font-medium text-white max-w-3xl mx-auto">
             More than a supplier, we are your **lead-generation partner**. Join the QJ Trade Program to get priority support, exclusive pricing, and clients.
           </h2>
           <div className="mt-8">
@@ -55,10 +55,10 @@ export default function TradePartnerProgramPage() {
 
       {/* Program Benefits Grid (Architect's Precision: Clarity) */}
       {/* CHANGE: bg-white to dark:bg-neutral-900 */}
-      <section className="py-16 md:py-24 bg-white dark:bg-neutral-900">
+      <section className="py-12 sm:py-16 md:py-24 bg-white dark:bg-neutral-900">
         <div className="container">
-          <h2 className="text-3xl font-bold text-center mb-12">Benefits that Save You Time, Money, and Get You More Work</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-center mb-8 sm:mb-12">Benefits that Save You Time, Money, and Get You More Work</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
             {programBenefits.map((benefit) => (
               <Card key={benefit.title} className="p-4 hover:border-accent transition-colors duration-300">
                 <CardHeader className="p-0 mb-4">
@@ -88,7 +88,7 @@ export default function TradePartnerProgramPage() {
             />
           </div>
           <div>
-            <h2 className="text-3xl font-bold text-neutral-900 dark:text-white">
+            <h2 className="text-2xl sm:text-3xl font-bold text-neutral-900 dark:text-white">
               The Ultimate Loyalty Perk: Get Clients from QJ
             </h2>
             <p className="mt-4 text-lg text-neutral-600 dark:text-neutral-400">
